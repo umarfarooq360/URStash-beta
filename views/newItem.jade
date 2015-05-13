@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	h1= title
+	form#formAddUser(name="addItem",method="post",action="/addItem")
+		
+		|Name 
+		input#inputName(type="text", placeholder="Name", name="bookname")
+		br
+		input#inputAuthor(type="text", placeholder="Author", name="bookauthor")
+		br
+		input#inputISBN(type="text", placeholder="ISBN", name="bookisbn")
+		br
+		input#inputCondition(type="text", placeholder="Condition", name="bookcondition")
+		br
+		button#btnSubmit(type="submit") submit

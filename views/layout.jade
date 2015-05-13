@@ -1,0 +1,9 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+		form#formSearch(name="search",method="post",action="/search")
+			input#inputSearch(type="text", name="searchItem")
+		block content

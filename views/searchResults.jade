@@ -1,0 +1,9 @@
+extends layout
+
+block content
+	h1.
+		Search Results
+	ul
+		each user, i in searchResults
+			li
+				p #{user.Name}
