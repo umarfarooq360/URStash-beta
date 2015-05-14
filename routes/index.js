@@ -1,5 +1,11 @@
+/*
+ *Controls the flow of the whole website. What happens when what is clicked etc
+ *
+ */
+
 var express = require('express');
 var router = express.Router();
+var sanitize = require('mongo-sanitize');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -7,7 +13,8 @@ router.get('/', function(req, res) {
 });
 
 
-/* GET Userlist page. */
+
+/* GET Search Results page. */
 router.get('/searchResults', function(req, res) {
     var db = req.db;
     var collection = db.get('bookItems');
@@ -21,6 +28,56 @@ router.get('/searchResults', function(req, res) {
 
     });
 });
+
+
+/* post Search Results page. */
+router.post('/search', function(req, res) {
+    //Get the query and sanitize
+    var searchQuery = sanitize(req.body.searchItem);
+    
+    //See how the check boxes are set up
+    var options = req.body.options;
+    
+    var db = req.db;
+    if( options === "books"){
+        var collection = db.get('bookItems');
+        //Search by name "Relevance" search
+        console.log("Query is " + searchQuery);
+        //collection.createIndex({subject: "Name"});
+        //Find the entry using the query and sort by score
+        var cursor = collection.find( 
+            {
+                $text : {$search: searchQuery}
+            } ,
+            { 
+                score: { $meta: "textScore" }
+                ,limit:4
+                 ,sort: {score}
+             },
+
+               function(err,items){
+                //log the items
+                console.log(items);
+               
+        
+                res.render('search', {
+                        "search" : items
+                    });}
+
+             );
+
+
+          
+
+    }else if( options === "electronics"){
+        var collection = db.get('electronicItems');
+    }else if( options === "furniture"){
+        var collection = db.get('furnitureItems');
+    }
+
+});
+
+
 
 
 /* GET New User page. */
@@ -40,6 +97,7 @@ router.post('/addItem', function(req, res) {
     var bookAuthor = req.body.bookauthor;
     var bookISBN = req.body.bookisbn;
     var bookCondition = req.body.bookcondition;
+    var bookPrice = req.body.bookprice;
 
     // Set our collection
     var collection = db.get('bookItems');
@@ -49,7 +107,8 @@ router.post('/addItem', function(req, res) {
         "Name" : bookName,
         "Author" : bookAuthor,
         "ISBN" : bookISBN,
-        "Condition": bookCondition
+        "Condition": bookCondition,
+        "Price": bookPrice
     }, function (err, doc) {
         if (err) {
             // If it failed, return error

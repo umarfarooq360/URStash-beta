@@ -8,11 +8,18 @@ block content
 		input#inputName(type="text", placeholder="Name", name="bookname")
 		br
 		br
-		input#inputAuthor(type="text", placeholder="Author", name="bookauthor")
-		br
-		input#inputISBN(type="text", placeholder="ISBN", name="bookisbn")
-		br
+		
+		div#divDescription
+		
+		div#hideThis
+			input#inputAuthor(type="text", placeholder="Author", name="bookauthor" readonly)
+			br
+			input#inputISBN(type="text", placeholder="ISBN", name="bookisbn" readonly)
+			br
 		input#inputCondition(type="text", placeholder="Condition", name="bookcondition")
+		br
+		br
+		input#inputPrice(type="number", placeholder="Price", name="bookprice")
 		br
 		button#btnSubmit(type="submit") submit
 

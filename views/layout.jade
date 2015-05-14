@@ -6,4 +6,12 @@ html
 	body
 		form#formSearch(name="search",method="post",action="/search")
 			input#inputSearch(type="text", name="searchItem")
+			button#btnSearch(type="submit") Search
+			input#booksRadio(type="radio", name="options", value="books" checked) 
+			|Books
+			input#electronicsRadio(type="radio", name="options",value="electronics")
+			|Electronics
+			input#furnitureRadio(type="radio", name="options", value="furniture")
+			|Furniture
+
 		block content

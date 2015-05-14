@@ -1,5 +1,7 @@
+
 $(document).ready(function () {  // only begin once page has loaded
     var $searchBox = $('#inputName'); //will check for jQ
+    $('#hideThis').hide(); //hides the two inputs
 
     $searchBox.autocomplete({ // attach auto-complete functionality to textbox
         // define source of the data
@@ -42,17 +44,22 @@ $(document).ready(function () {  // only begin once page has loaded
                 $('#divDescription').append('<img src="' + ui.item.image + '" style="float: left; padding: 10px;">');
             }
             // and title, author, and year
-            $('#divDescription').append('<p><b>Title:</b> ' + ui.item.title  + '</p>');
-            $('#divDescription').append('<p><b>Author:</b> ' + ui.item.author  + '</p>');
+            $('#divDescription').append('<p><b>Title:</b><div id="query-name">' + ui.item.title  + '</div></p>');
+            $('#divDescription').append('<p><b>Author:</b><div id="query-author"> ' + ui.item.author  + '</div></p>');
             $('#divDescription').append('<p><b>First published year:</b> ' + ui.item.publishedDate  + '</p>');          
             // and the usual description of the book
             $('#divDescription').append('<p><b>Description:</b> ' + ui.item.description  + '</p>');
             // and show the link to oclc (if we have an isbn number)
             if (ui.item.isbn && ui.item.isbn[0].identifier)
             {
-                $('#divDescription').append('<P><b>ISBN:</b> ' + ui.item.isbn[0].identifier + '</p>');
-                $('#divDescription').append('<a href="http://www.worldcat.org/isbn/' + ui.item.isbn[0].identifier + '" target="_blank">View item on worldcat</a>');
+                $('#divDescription').append('<P><b>ISBN:</b><div id="query-isbn"> ' + ui.item.isbn[0].identifier + '</div></p>');
+                //$('#divDescription').append('<a href="http://www.worldcat.org/isbn/' + ui.item.isbn[0].identifier + '" target="_blank">View item on worldcat</a>');
             }
+            $('#inputAuthor').val(ui.item.author);
+            $('#inputISBN').val(ui.item.isbn[0].identifier);
+
+
+
         },
         minLength: 2 // set minimum length of text the user must enter
     });
