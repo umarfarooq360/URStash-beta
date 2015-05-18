@@ -39,34 +39,55 @@ router.post('/search', function(req, res) {
     var options = req.body.options;
     
     var db = req.db;
+    console.log(db.version());
     if( options === "books"){
         var collection = db.get('bookItems');
         //Search by name "Relevance" search
         console.log("Query is " + searchQuery);
         //collection.createIndex({subject: "Name"});
         //Find the entry using the query and sort by score
-        var cursor = collection.find( 
+        
+        /*collection.find( 
             {
                 $text : {$search: searchQuery}
             } ,
             { 
                 score: { $meta: "textScore" }
-                ,limit:4
-                 ,sort: {score}
+               // ,limit:4
+                ,sort: {score : -1}
              },
 
                function(err,items){
                 //log the items
                 console.log(items);
+                res.render('search', {
+                        "search" : items
+                    });}
+
+             );*/
+
+            collection.find( 
+            {
+                $text : {$search: searchQuery}
+            } ,
+            { 
+                score: { $meta: "textScore" }
+               // ,limit:4
+               // ,sort: {score : -1}
+             },
+
+               function(err,items){
+                //log the items
+                items = items.sort(  { Name:-1 });
+               //  items = items.sort(  {score: { $meta: "textScore" } });
                
-        
+                console.log(items);
                 res.render('search', {
                         "search" : items
                     });}
 
              );
-
-
+            
           
 
     }else if( options === "electronics"){
