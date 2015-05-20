@@ -12,3 +12,11 @@ Omar Farooq
 * README.md - this file
 * app.js - central app file for tutorial project
 * package.json - package info for tutorial project
+
+
+###Building and running
+````
+npm install
+npm start
+
+````
