@@ -3,7 +3,11 @@ extends layout
 block content
 	h1.
 		Searches
-	ul
-		each user, i in search
-			li
-				p #{user.Name}
+	-if (typeof(search) === 'undefined' ){
+		//-do something
+		p No results found
+	-}else		
+		ul
+			each user, i in search
+				li
+					p #{user.Name}

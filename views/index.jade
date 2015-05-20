@@ -1,5 +1,23 @@
 extends layout
 
 block content
-    h1= title
-    p Welcome to #{title}
+	h1#mainTitle #{title}
+
+	//Search bar
+	
+	div#searchBar
+		form#formSearch(name="search",method="post",action="/search")
+			div.row
+				div.col-sm-12
+					input#inputSearch(type="text", name="searchItem" required placeholder="Search...")
+					button#btnSearch(type="submit") <i class="fa fa-search"></i>
+					br
+			div.row#radiop		
+				div.col-sm-4
+				div.col-sm-2
+					input#booksRadio(type="radio", name="options", value="books" checked) 
+					|   Books   
+				div.col-sm-2
+					input#electronicsRadio(type="radio", name="options",value="electronics")
+					|   Electronics & Furniture    
+				div.col-sm-4	  

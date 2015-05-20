@@ -41,18 +41,18 @@ $(document).ready(function () {  // only begin once page has loaded
             // show a pic if we have one
             if (ui.item.image != '')
             {
-                $('#divDescription').append('<img src="' + ui.item.image + '" style="float: left; padding: 10px;">');
+                $('#divDescription').append('<img src="' + ui.item.image + '" style="float: left; padding: 12px;">');
             }
             // and title, author, and year
-            $('#divDescription').append('<p><b>Title:</b><div id="query-name">' + ui.item.title  + '</div></p>');
-            $('#divDescription').append('<p><b>Author:</b><div id="query-author"> ' + ui.item.author  + '</div></p>');
-            $('#divDescription').append('<p><b>First published year:</b> ' + ui.item.publishedDate  + '</p>');          
+            $('#divDescription').append('<p><b class="autoField"> Title:</b> ' + ui.item.title  + '</p>');
+            $('#divDescription').append('<p><b class="autoField">Author:</b> ' + ui.item.author  + '</p>');
+            $('#divDescription').append('<p><b class="autoField">First published year:</b> ' + ui.item.publishedDate  + '</p>');          
             // and the usual description of the book
-            $('#divDescription').append('<p><b>Description:</b> ' + ui.item.description  + '</p>');
+            $('#divDescription').append('<p><b class="autoField">Description:</b> ' + ui.item.description  + '</p>');
             // and show the link to oclc (if we have an isbn number)
             if (ui.item.isbn && ui.item.isbn[0].identifier)
             {
-                $('#divDescription').append('<P><b>ISBN:</b><div id="query-isbn"> ' + ui.item.isbn[0].identifier + '</div></p>');
+                $('#divDescription').append('<P><b class="autoField">ISBN:</b> ' + ui.item.isbn[0].identifier + '</p>');
                 //$('#divDescription').append('<a href="http://www.worldcat.org/isbn/' + ui.item.isbn[0].identifier + '" target="_blank">View item on worldcat</a>');
             }
             $('#inputAuthor').val(ui.item.author);

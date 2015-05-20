@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 // New Code
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('mongodb://admin:passw0rd@proximus.modulusmongo.net:27017/ohemU9du');
+var db = monk('mongodb://admin:passw0rd@proximus.modulusmongo.net:27017/Owoven3i');
 //Changed database url
 
 

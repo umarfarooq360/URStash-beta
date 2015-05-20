@@ -9,7 +9,7 @@ var sanitize = require('mongo-sanitize');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-    res.render('index', { title: 'URStash' });
+    res.render('index', { title: 'URstash' });
 });
 
 
@@ -39,12 +39,14 @@ router.post('/search', function(req, res) {
     var options = req.body.options;
     
     var db = req.db;
-    console.log(db.version());
+    
     if( options === "books"){
         var collection = db.get('bookItems');
         //Search by name "Relevance" search
         console.log("Query is " + searchQuery);
-        //collection.createIndex({subject: "Name"});
+        //collection.createIndex({Name : "text"});
+
+        collection.ensureIndex({ Name: "text"});
         //Find the entry using the query and sort by score
         
         /*collection.find( 
@@ -65,6 +67,8 @@ router.post('/search', function(req, res) {
                     });}
 
              );*/
+            
+          
 
             collection.find( 
             {
@@ -73,19 +77,23 @@ router.post('/search', function(req, res) {
             { 
                 score: { $meta: "textScore" }
                // ,limit:4
-               // ,sort: {score : -1}
+                 //sort: { score: { $meta: "textScore" } }
+                
              },
 
                function(err,items){
                 //log the items
-                items = items.sort(  { Name:-1 });
+                //items = items.sort(  { Name:-1 });
                //  items = items.sort(  {score: { $meta: "textScore" } });
-               
-                console.log(items);
-                res.render('search', {
-                        "search" : items
-                    });}
-
+                    if(!err){
+                    console.log(items);
+                    res.render('search', {
+                            "search" : items
+                        });
+                    }else{
+                        console.log("ERROR"+ err);
+                    }
+                }
              );
             
           

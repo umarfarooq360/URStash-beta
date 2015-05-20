@@ -1,27 +1,29 @@
 extends layout
 
 block content
-	h1= title
-	form#formAddUser(name="addItem",method="post",action="/addItem")
+	div#mainContent.row
+		h1= title
 		
-		|Name 
-		input#inputName(type="text", placeholder="Name", name="bookname")
-		br
-		br
 		
-		div#divDescription
-		
-		div#hideThis
-			input#inputAuthor(type="text", placeholder="Author", name="bookauthor" readonly)
+		form#formAddUser(name="addItem",method="post",action="/addItem")
+			
+			input#inputName(type="text", placeholder="Name", name="bookname" required)
 			br
-			input#inputISBN(type="text", placeholder="ISBN", name="bookisbn" readonly)
 			br
-		input#inputCondition(type="text", placeholder="Condition", name="bookcondition")
-		br
-		br
-		input#inputPrice(type="number", placeholder="Price", name="bookprice")
-		br
-		button#btnSubmit(type="submit") submit
+			
+			div#divDescription
+			
+			div#hideThis
+				input#inputAuthor(type="text", placeholder="Author", name="bookauthor" readonly)
+				br
+				input#inputISBN(type="text", placeholder="ISBN", name="bookisbn" readonly)
+				br
+			input#inputCondition(type="range", placeholder="Condition", name="bookcondition" required)
+			br
+			br
+			input#inputPrice(type="number", placeholder="Price", name="bookprice" required)
+			br
+			button#btnSubmit(type="submit") submit
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>	
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.js"></script>
