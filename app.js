@@ -5,6 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
 // New Code
 var mongo = require('mongodb');
 var monk = require('monk');
@@ -28,7 +31,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.cookieSession());
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Make our db accessible to our router
 app.use(function(req,res,next){
@@ -77,5 +82,16 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
+
+
 
 module.exports = app;

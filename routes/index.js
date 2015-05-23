@@ -6,12 +6,29 @@
 var express = require('express');
 var router = express.Router();
 var sanitize = require('mongo-sanitize');
+var passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res) {
     res.render('index', { title: 'URstash' });
 });
 
+
+/* POST for login*/
+router.post('/login',
+  passport.authenticate('local', {
+    successRedirect: '/loginSuccess',
+    failureRedirect: '/loginFailure'
+  })
+);
+
+router.get('/loginFailure', function(req, res, next) {
+  res.send('Failed to authenticate');
+});
+
+router.get('/loginSuccess', function(req, res, next) {
+  res.send('Successfully authenticated');
+});
 
 
 /* GET Search Results page. */
@@ -150,5 +167,8 @@ router.post('/addItem', function(req, res) {
         }
     });
 });
+
+
+
 
 module.exports = router;
