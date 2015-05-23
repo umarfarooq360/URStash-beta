@@ -7,6 +7,7 @@ var express = require('express');
 var router = express.Router();
 var sanitize = require('mongo-sanitize');
 var passport = require('passport');
+var Book = require('../models/books');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -33,10 +34,10 @@ router.get('/loginSuccess', function(req, res, next) {
 
 /* GET Search Results page. */
 router.get('/searchResults', function(req, res) {
-    var db = req.db;
-    var collection = db.get('bookItems');
+    //var db = req.db;
+    //var collection = db.get('bookItems');
     //First search
-    collection.find({},{},
+    Book.find({},{},
      function(err,items){
         console.log(items);
         res.render('searchResults', {
@@ -54,40 +55,28 @@ router.post('/search', function(req, res) {
     
     //See how the check boxes are set up
     var options = req.body.options;
-    
-    var db = req.db;
-    
+        
     if( options === "books"){
-        var collection = db.get('bookItems');
+       
         //Search by name "Relevance" search
         console.log("Query is " + searchQuery);
         //collection.createIndex({Name : "text"});
-
-        collection.ensureIndex({ Name: "text"});
-        //Find the entry using the query and sort by score
         
-        /*collection.find( 
-            {
-                $text : {$search: searchQuery}
-            } ,
-            { 
-                score: { $meta: "textScore" }
-               // ,limit:4
-                ,sort: {score : -1}
-             },
 
-               function(err,items){
-                //log the items
-                console.log(items);
-                res.render('search', {
-                        "search" : items
-                    });}
+        Book.textSearch(searchQuery, function(err, output){
+                if(!err){
+                    console.log(output);
+                    res.render('search', {
+                            "search" : output
+                        });
+                    }else{
+                        console.log("ERROR"+ err);
+                    } 
 
-             );*/
+        } );                
             
-          
-
-            collection.find( 
+            /*
+            Book.find( 
             {
                 $text : {$search: searchQuery}
             } ,
@@ -112,7 +101,7 @@ router.post('/search', function(req, res) {
                     }
                 }
              );
-            
+            */
           
 
     }else if( options === "electronics"){
@@ -133,8 +122,7 @@ router.get('/newItem', function(req, res) {
 /* POST to Add User Service */
 router.post('/addItem', function(req, res) {
 
-    // Set our internal DB variable
-    var db = req.db;
+  
 
     // Get our form values. These rely on the "name" attributes
 
@@ -144,17 +132,18 @@ router.post('/addItem', function(req, res) {
     var bookCondition = req.body.bookcondition;
     var bookPrice = req.body.bookprice;
 
-    // Set our collection
-    var collection = db.get('bookItems');
+   
 
     // Submit to the DB
-    collection.insert({
+    var item = new Book({
         "Name" : bookName,
         "Author" : bookAuthor,
         "ISBN" : bookISBN,
         "Condition": bookCondition,
         "Price": bookPrice
-    }, function (err, doc) {
+    });
+
+    item.save(function (err, doc) {
         if (err) {
             // If it failed, return error
             res.send("There was a problem adding the information to the database.");

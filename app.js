@@ -10,10 +10,10 @@ var LocalStrategy = require('passport-local').Strategy;
 
 // New Code
 var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('mongodb://admin:passw0rd@proximus.modulusmongo.net:27017/Owoven3i');
-//Changed database url
+var mongoose = require('mongoose');
 
+//Changed database url
+mongoose.connect('mongodb://admin:passw0rd@proximus.modulusmongo.net:27017/Owoven3i');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -31,15 +31,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Make our db accessible to our router
+/*
+//Make our db accessible to our router
 app.use(function(req,res,next){
     req.db = db;
     next();
-});
+});*/
 
 app.use('/', routes);
 app.use('/users', users);
