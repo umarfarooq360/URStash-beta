@@ -16,6 +16,7 @@
         "mongodb": "*",
         "monk": "*",
         "google-books-search":"*",
-        "jquery":"*"
+        "jquery":"*",
+        "everyauth": "*"
     }
 }

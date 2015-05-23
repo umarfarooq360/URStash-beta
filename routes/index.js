@@ -100,8 +100,7 @@ router.post('/search', function(req, res) {
 
     }else if( options === "electronics"){
         var collection = db.get('electronicItems');
-    }else if( options === "furniture"){
-        var collection = db.get('furnitureItems');
+        
     }
 
 });
