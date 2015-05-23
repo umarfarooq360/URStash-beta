@@ -63,7 +63,7 @@ router.post('/search', function(req, res) {
         //collection.createIndex({Name : "text"});
         
 
-        Book.textSearch(searchQuery, function(err, output){
+        Book.textSearch(searchQuery, {sort:{ Price: 1, Condition: -1 } }, function(err, output){
                 if(!err){
                     console.log(output);
                     res.render('search', {

@@ -22,7 +22,8 @@ bookSchema.index({
 	name: "matching_index",
 	weights: {
 		Name : 4,
-		Author : 5
+		Author : 5,
+		
 	}
 });
 
