@@ -41,15 +41,13 @@ app.use(function(req,res,next){
     next();
 });*/
 
+
+// Initialize Passport
+var initPassport = require('./passport/init');
+initPassport(passport);
+
 app.use('/', routes);
 app.use('/users', users);
-
-
-
-//-----------code for autocomplete----
-
-//------------------------------
-
 
 
 /// catch 404 and forwarding to error handler
