@@ -75,7 +75,7 @@ h1{
 
 
 
-input[type="text"] , input[type="number"] {
+input[type="text"] , input[type="number"] , input[type="password"] {
   width: 30%;
   height: 50px;
   background: #2b303b;

@@ -1,33 +1,36 @@
 extends layout
 
 block content
-	.row
-		form#login(name="login",method="post",action="/login")
+	div.col-sm-12
+		.row#loginRow
+			form#login(name="login",method="post",action="/login")
+						
+				.row
+					<legend>Login</legend>
+					input(type="text", placeholder="Email", name="username" required)
+					br
+					br
+				.row
+					input(type="password", placeholder="Password", name="password" required)
+				.row
+					button#btnlogin(type=submit) submit
+
+
+		.row#signupRow
+			form#signup(name="signup",method="post",action="/signup")
 					
-			.row
-				input(type="text", placeholder="Email", name="username" required)
+				.row
+					<legend>Signup</legend>
+					input(type="text", placeholder="First Name", name="firstname" required)
+				.row
+					input(type="text", placeholder="Last Name", name="lastname" required)
+				.row
+					input(type="text", placeholder="Email", name="username" required)
 				br
 				br
-			.row
-				input(type="text", placeholder="Password", name="password" required)
-			.row
-				button#btnlogin(type=submit) submit
-
-
-	.row
-		form#signup(name="signup",method="post",action="/signup")
-				
-			.row
-				input(type="text", placeholder="First Name", name="firstname" required)
-			.row
-				input(type="text", placeholder="Last Name", name="lastname" required)
-			.row
-				input(type="text", placeholder="Email", name="username" required)
-			br
-			br
-			.row
-				input(type="password", placeholder="Password", name="password" required)
-			.row
-				input(type="Number", placeholder="Phone Number", name="phonenumber" )
-				button#btnsignup(type=submit) submit
+				.row
+					input(type="password", placeholder="Password", name="password" required)
+				.row
+					input(type="Number", placeholder="Phone Number", name="phonenumber" )
+					button#btnsignup(type=submit) submit
 

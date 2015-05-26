@@ -15,13 +15,18 @@ html
 				ul
 					li#icon <i class="fa fa-cubes"></i>
 					li <i class="fa fa-shopping-cart"></i>
-					li <i class="fa fa-home"></i>
+					li
+						a(href="/") <i class="fa fa-home"></i>
+					li
+						if(user)
+							a(href="/newItem") Sell
+
 					li
 						if(user)
 							p Hey #{user.firstname}
 						else
-							a(href="/login") SIGNUP
-					li 
+							a(href="/login") Login
+					
 						
 
 		//For the bkg image	
