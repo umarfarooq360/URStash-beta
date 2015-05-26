@@ -4,32 +4,59 @@
  */
 
 var express = require('express');
-var router = express.Router();
 var sanitize = require('mongo-sanitize');
 var passport = require('passport');
 var Book = require('../models/books');
+var Account = require('../models/user');
+var router = express.Router();
+
 
 /* GET home page. */
 router.get('/', function(req, res) {
-    res.render('index', { title: 'URstash' });
+    res.render('index', { title: 'URstash' ,user: req.user });
 });
 
 
-/* POST for login*/
-router.post('/login',
-  passport.authenticate('local', {
-    successRedirect: '/loginSuccess',
-    failureRedirect: '/loginFailure'
-  })
-);
+/* Handle Login POST */
+router.post('/login', passport.authenticate('local'), function(req, res) {
+    
+    res.redirect('/');
 
-router.get('/loginFailure', function(req, res, next) {
-  res.send('Failed to authenticate');
 });
 
-router.get('/loginSuccess', function(req, res, next) {
-  res.send('Successfully authenticated');
+/* GET New User page. */
+router.get('/login', function(req, res) {
+    res.render('login', { title: 'Login/Signup' ,user:req.user });
 });
+
+router.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/');
+});
+
+/* Handle Registration POST */
+router.post('/signup', function(req,res){
+    Account.register(
+        new Account({
+            username: req.body.username,
+            firstname: req.body.firstname,
+            lastname: req.body.lastname ,
+            phonenumber:req.body.phonenumber
+            
+        }),req.body.password , function(err, account) { 
+            if (err) {
+                    console.log('Error registering')
+                     return res.render("register", {info: "Sorry. That email already exists. Try again."});
+                    //return res.render('login', { account : account });
+                }
+
+            passport.authenticate('local')(req, res, function () {
+                    console.log('Error forwarding');
+                    res.redirect('/');
+                });    
+    } );
+});
+
 
 
 /* GET Search Results page. */
@@ -63,7 +90,8 @@ router.post('/search', function(req, res) {
         //collection.createIndex({Name : "text"});
         
 
-        Book.textSearch(searchQuery, {sort:{ Price: 1, Condition: -1 } }, function(err, output){
+        Book.textSearch(searchQuery, {sort:{ Price: 1, Condition: -1 } }, 
+            function(err, output){
                 if(!err){
                     console.log(output);
                     res.render('search', {
@@ -116,7 +144,10 @@ router.post('/search', function(req, res) {
 
 /* GET New User page. */
 router.get('/newItem', function(req, res) {
-    res.render('newItem', { title: 'Sell an Item' });
+    if(!req.user){
+        res.render('login', { title: 'Login/Signup', message:"Please login!"} )
+    }
+    res.redirect('newItem', { title: 'Sell an Item' });
 });
 
 /* POST to Add User Service */

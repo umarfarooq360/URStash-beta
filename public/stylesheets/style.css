@@ -198,3 +198,8 @@ position: relative;
 .ui-menu .ui-menu-item a.ui-state-active {
         margin: -1px;
 }
+
+/*Video bkg*/
+#bg_container{ height:500px; overflow:hidden; }
+#bg{ width:100%; }
+#content{ position:absolute; top:0px; padding:30px; color:#FFF; text-shadow:#000 2px 2px; }

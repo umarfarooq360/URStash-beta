@@ -10,19 +10,29 @@ html
 
 	body
 		//For a future Navbar
-		
-		nav#navbar
-			ul
-				li#icon <i class="fa fa-cubes"></i>
-				li <i class="fa fa-shopping-cart"></i>
-				li <i class="fa fa-home"></i>
-				li SIGNUP
+		div.row
+			nav#navbar
+				ul
+					li#icon <i class="fa fa-cubes"></i>
+					li <i class="fa fa-shopping-cart"></i>
+					li <i class="fa fa-home"></i>
+					li
+						if(user)
+							p Hey #{user.firstname}
+						else
+							a(href="/login") SIGNUP
+					li 
+						
 
 		//For the bkg image	
 		<img src="/images/bg5.jpg" id="bg" alt="">
+		//div.bg_container
+		//	<video id="bg" src="page_bg.mp4" autoplay="true" loop="true" muted="true"></video>
+		
+		
 		
 		div.row
 			block searchBarBlock
 			
-
+		div.row
 			block content
