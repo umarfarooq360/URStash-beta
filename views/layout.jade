@@ -13,13 +13,14 @@ html
 		div.row
 			nav#navbar
 				ul
-					li#icon <i class="fa fa-cubes"></i>
-					li <i class="fa fa-shopping-cart"></i>
+					li#icon
+						a(href="/") <i class="fa fa-cubes"></i>
 					li
-						a(href="/") <i class="fa fa-home"></i>
+						a(href="/newItem" title="Sell an Item!") <i class="fa fa-money"></i>
+					
 					li
 						if(user)
-							a(href="/newItem") Sell
+							a(href="/logout") Logout
 
 					li
 						if(user)

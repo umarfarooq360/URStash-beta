@@ -1,8 +1,8 @@
 
 
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #fff;
 }
 
 a {
@@ -44,6 +44,7 @@ h1{
 	background-color: transparent;
 	color: #ffffff; 
   margin-right: 4em;
+  margin-top: 20px;
 
 }
 
@@ -53,7 +54,7 @@ h1{
     display: inline;
     float: right;
     margin-right: 2em;
-    font-size: 1.2em;
+    font-size: 1.5em;
     font-family: Helevetica;
     font-weight: 1.5em;
 }
@@ -75,7 +76,8 @@ h1{
 
 
 
-input[type="text"] , input[type="number"] , input[type="password"] {
+input[type="text"] , input[type="number"] , 
+input[type="password"]{
   width: 30%;
   height: 50px;
   background: #2b303b;
@@ -92,15 +94,22 @@ input[type="text"] , input[type="number"] , input[type="password"] {
   border-radius: 5px;
   border-color: #fff;
     
-display: inline-block;
-  margin: 0 auto;
-
+  display: inline-block;
   
+  margin: 0 auto;
 
 }
 
-#btnSearch{
+input[type="range"]{
+  max-width : 100px;
+  outline-color: #fff;
+  
+  margin: 0 auto;
 
+}
+
+
+#btnSearch{
 position: relative;
    
   border-top-right-radius: 5px;
@@ -115,6 +124,13 @@ position: relative;
   font-size: 10pt;
   margin-left: -5px;
   background-color: white;
+  margin: 0 auto;
+}
+
+#btnSubmit{
+  position: relative;
+   margin: 0 auto;
+    width: 0px;
 }
 
 #radiop{

@@ -1,32 +1,30 @@
 
 var mongoose = require('mongoose');
 
-var bookSchema= new mongoose.Schema({
+var itemSchema= new mongoose.Schema({
 	id: String,
 	Name: String,
-	Author	: String,
-	ISBN: Number,
+	Description	: String,
 	Condition: String,
 	Price: Number,
 	Seller: String
-
 });
 
 //Adding text search features
 var textSearch = require("mongoose-text-search");
-bookSchema.plugin(textSearch);
+itemSchema.plugin(textSearch);
 
-bookSchema.index({
+itemSchema.index({
 	Name: "text",
-	Author: "text"
+	Description: "text"
 },{
 	name: "matching_index",
 	weights: {
-		Name : 4,
-		Author : 5,
+		Name : 5,
+		Description : 1,
 		
 	}
 });
 
 
-module.exports = mongoose.model('Book',bookSchema);
+module.exports = mongoose.model('Item',itemSchema);

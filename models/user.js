@@ -1,3 +1,6 @@
+/*
+	A model for a User Account	
+*/
 
 var mongoose = require('mongoose');
 var passportLocalMongoose = require('passport-local-mongoose');

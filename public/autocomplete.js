@@ -1,5 +1,20 @@
 
 $(document).ready(function () {  // only begin once page has loaded
+    
+    // hides divs depending on what form
+    $('#mainContent').click(function() {
+        if(!$('#booksRadio').is(':checked')) { 
+            $('#booksOptions').hide();
+            $('#enfOptions').show();  
+        }else{
+            $('#booksOptions').show();
+            $('#enfOptions').hide(); 
+        }
+    });
+    //click to hide one of the forms
+    $('#mainContent').trigger("click");
+
+
     var $searchBox = $('#inputName'); //will check for jQ
     $('#hideThis').hide(); //hides the two inputs
 
