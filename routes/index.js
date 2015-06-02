@@ -4,6 +4,7 @@
  */
 
 var express = require('express');
+var router = express.Router();
 var sanitize = require('mongo-sanitize');
 var passport = require('passport');
 
@@ -14,10 +15,9 @@ var Item = require('../models/item');
 
 var router = express.Router();
 
-
 /* GET home page. */
 router.get('/', function(req, res) {
-    res.render('index', { title: 'URstash' ,user: req.user });
+    res.render('index', { title: 'URstash' });
 });
 
 
@@ -49,7 +49,7 @@ router.post('/signup', function(req,res){
             
         }),req.body.password , function(err, account) { 
             if (err) {
-                    console.log('Error registering')
+                    console.log('Error registering');
                      return res.render("register", {info: "Sorry. That email already exists. Try again."});
                     //return res.render('login', { account : account });
                 }
@@ -60,7 +60,6 @@ router.post('/signup', function(req,res){
                 });    
     } );
 });
-
 
 
 /* GET Search Results page. */
@@ -130,19 +129,23 @@ router.post('/search', function(req, res) {
 });
 
 
+
+
 /* GET New User page. */
 router.get('/newItem', function(req, res) {
     if(!req.user){
-        res.render('login', { title: 'Login/Signup', message:"Please login!"} )
+        res.render('login', { title: 'Login/Signup', message:"Please login!"} );
     }
     console.log(req.user);
     res.render('newItem', { title: 'Sell an Item', user: req.user });
 });
 
-/* POST to Add book */
+/* POST to Add User Service */
 router.post('/addItem', function(req, res) {
+
   
-  // Get our form values. These rely on the "name" attributes
+
+    // Get our form values. These rely on the "name" attributes
 
     var bookName = req.body.bookname;
     var bookAuthor = req.body.bookauthor;
@@ -150,7 +153,9 @@ router.post('/addItem', function(req, res) {
     var bookCondition = req.body.bookcondition;
     var bookPrice = req.body.bookprice;
 
-  // Submit to the DB
+   
+
+    // Submit to the DB
     var item = new Book({
         "Name" : bookName,
         "Author" : bookAuthor,
@@ -172,9 +177,6 @@ router.post('/addItem', function(req, res) {
         }
     });
 });
-
-
-
 /* POST to Add Electronics or furniture item */
 router.post('/addENF', function(req, res) {
     
@@ -183,7 +185,7 @@ router.post('/addENF', function(req, res) {
     var enfDescription = req.body.enfdescription;
     var enfCondition = req.body.enfcondition;
     var enfPrice = req.body.enfprice;
-    var enfSeller = req.user._id
+    var enfSeller = req.user._id;
 
     //log the seller's id
     console.log(enfSeller);
@@ -215,7 +217,6 @@ router.post('/addENF', function(req, res) {
 
 
 });
-
 
 
 
