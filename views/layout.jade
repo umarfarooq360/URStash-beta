@@ -1,28 +1,86 @@
-doctype html
 html
 	head
 		title= title
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
 		link(rel='stylesheet', href='/stylesheets/style.css')
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<link href='http://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-		<link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-
-	body
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')
+		link(href='http://fonts.googleapis.com/css?family=Amaranth', rel='stylesheet', type='text/css')
+		link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
+		link(href='http://fonts.googleapis.com/css?family=Kaushan+Script', rel='stylesheet', type='text/css')
+		link(href='stylesheets/scrolling-nav.css' rel='stylesheet')
+		link(rel='stylesheet', href='http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css')
+		link(type='text/css', rel='stylesheet', href='/stylesheets/signInUpStyle.css')
+				
+	body#page-top(data-spy="scroll" data-target=".navbar-fixed-top")
 		//For a future Navbar
-		
-		nav#navbar
-			ul
-				li#icon <i class="fa fa-cubes"></i>
-				li <i class="fa fa-shopping-cart"></i>
-				li <i class="fa fa-home"></i>
-				li SIGNUP
-
+		nav.navbar.navbar-default.navbar-fixed-top(role="navigation")
+			.container
+				.navbar-header.page-scroll
+					button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse")
+						span.sr-only Toggle navigation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					a.navbar-brand.page-scroll(href="#page-top") URStash
+				.collapse.navbar-collapse.navbar-ex1-collapse
+					ul.nav.navbar-nav#rightTest
+						li.hidden
+							a.page-scroll(href="#page-top")
+						li
+							a(href="#search") Search
+						//li
+							icon(type="submit" onclick="window.location.href='/'") <i class="fa fa-cubes"></i>		
+						li
+							button#homeBtn(type="submit" onclick="this.blur(); window.location.href = '/'" title="Home") <i class="fa fa-home"></i>
+						li
+							button#sellBtn(type="submit" onclick="window.location.href='/newItem'" title="Sell an Item") <i class="fa fa-money"></i>
+						//li 
+							button#cartBtn(type="submit" onclick="this.blur(); window.location.href = ''") <i class="fa fa-shopping-cart"></i>
+						li
+							button#signUpBtn(type="submit" onclick="this.blur();" href='#modal' title="Sign Up") <i class="fa fa-chevron-up"></i>
+						li
+							if(user)
+								//a(href="/logout") Logout
+								button#signOutBtn(type="submit" onclick="window.location.href='/logout'" title="Sing Out") <i class="fa fa-sign-out"></i>
+						li
+							if(user)
+								p Hey #{user.firstname}
+							else
+								//a(href="/login") Login
+								button#signInBtn(type="submit" onclick="window.location.href='/login'" title="Sign In") <i class="fa fa-sign-in"></i>
+		#search
+			button.close(type="button") x
+			form
+				input(type="search" value="" placeholder="search for a book")
+				button.btn.btn-primary(type="submit") Search
+					
 		//For the bkg image	
-		<img src="/images/bg5.jpg" id="bg" alt="">
-		
-		div.row
-			block searchBarBlock
-			
+		img( src="/images/richmond.jpg" id="bg" alt="")
+		//div.bg_container
+		//	<video id="bg" src="page_bg.mp4" autoplay="true" loop="true" muted="true"></video>
 
-			block content
+		.jumbotron
+			h1 URStash - let's stack it.
+			p URStash is the key to selling and buying books, electronics, and furniture easily.
+			p Sign up, hit search, and we'll connect you.
+
+
+		section#search1.search-section.hide
+			.container
+				div.row
+					.col-lg-12
+						block searchBarBlock
+				div.row
+					.col-lg-12
+						block content
+						
+script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+script(type='text/javascript', src='/js/jquery.leanModal.min.js')
+script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.js')
+script(type='text/javascript', src='/js/autocomplete.js')
+script(type='text/javascript', src='/js/jquery.js')
+script(type='text/javascript', src='/js/bootstrap.min.js')
+script(type='text/javascript', src='/js/jquery.easing.min.js')
+script(type='text/javascript', src='/js/scrolling-nav.js')
+script(type='text/javascript', src='/js/search.js')

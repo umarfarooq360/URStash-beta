@@ -3,29 +3,55 @@ extends layout
 block content
 	div#mainContent.row
 		h1= title
+		input#booksRadio( type="radio" placeholder="Books" name="itemType" value="books" checked)
+		|	Books	
 		
-		
+		input#electronicsRadio(type="radio" placeholder="Electronics and Furniture" name="itemType" value="enf")
+		|	Electronics and Furniture
+	
+	div.col-sm-12#booksOptions
 		form#formAddUser(name="addItem",method="post",action="/addItem")
 			
 			input#inputName(type="text", placeholder="Name", name="bookname" required)
 			br
 			br
-			
-			div#divDescription
+				
+			div#divDescription.row
 			
 			div#hideThis
 				input#inputAuthor(type="text", placeholder="Author", name="bookauthor" readonly)
 				br
 				input#inputISBN(type="text", placeholder="ISBN", name="bookisbn" readonly)
 				br
-			input#inputCondition(type="range", placeholder="Condition", name="bookcondition" required)
+			div.row
+				|Condition
+				input#inputCondition(type="range", placeholder="Condition", name="bookcondition" min=1 max=5 value=5 required)
 			br
 			br
-			input#inputPrice(type="number", placeholder="Price", name="bookprice" required)
+			div.row
+				input#inputPrice(type="number", placeholder="Price", name="bookprice" required)
 			br
-			button#btnSubmit(type="submit") submit
+			div.row
+				div.col-sm-5
+				div.col-sm-2
+					button#btnSubmit(type="submit") Submit
+				div.col-sm-5
+
+	div.col-sm-12#enfOptions
+		form#formAddUser(name="addItem",method="post",action="/addENF")
+			input#inputNameENF(type="text", placeholder="Item Name", name="enfname" required)
+			input#inputDescENF(type="text", placeholder="Item Description (Optional)", name="enfdescription")
+			
+			div.row
+				|Condition
+				input#inputCondition(type="range", placeholder="Condition", name="enfcondition" min=1 max=5 value=5 required)
+			br
+			br
+			div.row
+				input#inputPrice(type="number", placeholder="Price", name="enfprice" required)
+			br
+			button#btnSubmit(type="submit") Submit
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>	
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.js"></script>
 	<script src="./autocomplete.js"></script>	
-	
