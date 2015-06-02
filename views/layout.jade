@@ -28,26 +28,27 @@ html
 							a.page-scroll(href="#page-top")
 						li
 							a(href="#search") Search
+					ul.navright
 						//li
 							icon(type="submit" onclick="window.location.href='/'") <i class="fa fa-cubes"></i>		
-						li
-							button#homeBtn(type="submit" onclick="this.blur(); window.location.href = '/'" title="Home") <i class="fa fa-home"></i>
-						li
-							button#sellBtn(type="submit" onclick="window.location.href='/newItem'" title="Sell an Item") <i class="fa fa-money"></i>
+						li.navright
+							a(href="/" title="Home") <i class="fa fa-home"></i>
+						li.navright
+							a(href="/newItem" title="Sell an Item") <i class="fa fa-money"></i>
 						//li 
 							button#cartBtn(type="submit" onclick="this.blur(); window.location.href = ''") <i class="fa fa-shopping-cart"></i>
-						li
-							button#signUpBtn(type="submit" onclick="this.blur();" href='#modal' title="Sign Up") <i class="fa fa-chevron-up"></i>
-						li
+						//li.navright
+							a(href='#modal' title="Sign Up") <i class="fa fa-chevron-up"></i>
+						//li.navright
 							if(user)
 								//a(href="/logout") Logout
-								button#signOutBtn(type="submit" onclick="window.location.href='/logout'" title="Sing Out") <i class="fa fa-sign-out"></i>
-						li
+								a(href='/logout' title="Sign Out") <i class="fa fa-sign-out"></i>
+						li.navright
 							if(user)
 								p Hey #{user.firstname}
 							else
 								//a(href="/login") Login
-								button#signInBtn(type="submit" onclick="window.location.href='/login'" title="Sign In") <i class="fa fa-sign-in"></i>
+								a(href='/login' title="Sign In") <i class="fa fa-sign-in"></i>
 		#search
 			button.close(type="button") x
 			form

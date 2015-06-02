@@ -48,6 +48,27 @@ h1{
 	
 }
 
+.navright{
+  float: right;
+  margin-right: 2em;
+   display: block;
+   font-size: 1.3em;
+   margin-bottom: 0px;
+   min-height: 50px;
+   margin-top: auto;
+}   
+
+.navright a{
+  color: #777;
+
+}
+
+.navright a:hover{
+  border-style: dotted;
+  border-color: #777;
+
+}
+
 
 
 #navbar li {
