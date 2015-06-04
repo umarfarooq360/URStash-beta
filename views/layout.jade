@@ -51,8 +51,11 @@ html
 								a(href='/login' title="Sign In") <i class="fa fa-sign-in"></i>
 		#search
 			button.close(type="button") x
-			form
-				input(type="search" value="" placeholder="search for a book")
+			form(method="post" action="/search")
+				input(type="search" value="" placeholder="search for a book" name="searchItem")
+				select(name="options")
+					option(value="books") Books
+					option(value="electronics") Electronics
 				button.btn.btn-primary(type="submit") Search
 					
 		//For the bkg image	
@@ -64,7 +67,8 @@ html
 			h1 URStash - let's stack it.
 			p URStash is the key to selling and buying books, electronics, and furniture easily.
 			p Sign up, hit search, and we'll connect you.
-
+		
+		block content
 
 		section#search1.search-section.hide
 			.container

@@ -1,4 +1,4 @@
-extends layout
+extends blank_layout
 
 block content
 	h1 Searches
@@ -9,7 +9,8 @@ block content
 		ul
 			each user, i in search.results
 				li
-					p #{user.obj.Name} 
+					p 
+						a(href="/book/" + user.obj.ISBN ) #{user.obj.Name} 
 					p #{user.obj.Author}
 					br
 					hr
