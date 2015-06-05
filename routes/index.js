@@ -285,12 +285,15 @@ router.get('/book/buy/:id', function(req, res) {
                 console.log(results);    
                 var seller_email = results[0].username;
                  console.log("Seller email: " + seller_email);
+                var item_name = items[0].Name;
                 //Mail the seller
                 var mailOptions = {
                     from: 'URStash Seller <urstashseller@gmail.com>', // sender address
                     to: seller_email, // list of receivers
-                    subject: "Selling "+ items[0].Name , // Subject line
-                    text: 'Heyy someone wants to buy' // plaintext body
+                    subject: "Selling "+ item_name , // Subject line
+                    text: 'Heyy! '+ user.req.firstname  +'wants to buy '+
+                       items[0].Name+ ' from you. Please contact the buyer at '+
+                       user.req.username+ ' and decide a time and place to meet and sell the item.' // plaintext body
                 };
 
                 // send mail with defined transport object
@@ -303,7 +306,7 @@ router.get('/book/buy/:id', function(req, res) {
                             "data" : mailOptions
                         });
                     }
-            });
+                });
 
 
         });
