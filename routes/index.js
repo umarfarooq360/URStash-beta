@@ -99,6 +99,7 @@ router.post('/search', function(req, res) {
     //See how the check boxes are set up
     var options = "books";
     //CHANGED THIS COZ THE FRONTEND IS BROKEN NOW
+    //***********************************FIX IT LATER
     //var options = req.body.options;
 
         
