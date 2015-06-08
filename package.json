@@ -21,6 +21,10 @@
     "morgan": "~1.0.0",
     "serve-favicon": "~2.1.3",
     "mongoose-text-search":"*",
-    "nodemailer":"*"
+    "nodemailer":"*",
+    "passport":"*",
+    "passport-local":"*",
+    "passport-local-mongoose":"*",
+    "mongo-sanitize":"*"
   }
 }
