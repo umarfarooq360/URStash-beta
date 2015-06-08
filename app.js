@@ -1,21 +1,27 @@
+//Loading all the required packages and dependencies
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var session = require('cookie-session');
 var bodyParser = require('body-parser');
 
-// New Code
+
+// New Code to move to mongoose db system
 var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('mongodb://admin:passw0rd@proximus.modulusmongo.net:27017/Owoven3i');
-//Changed database url
+var mongoose = require('mongoose');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,23 +33,36 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({ keys: ['secretkey1', 'secretkey2', '...']}));
 
-// Make our db accessible to our router
-app.use(function(req,res,next){
-    req.db = db;
-    next();
-});
+//app.use(express.session());
+app.use(express.static(path.join(__dirname, 'public')));
+//app.use(session());
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+//Changed database url
+mongoose.connect('mongodb://admin:passw0rd@proximus.modulusmongo.net:27017/Owoven3i');
+
+
+
+/*
+// Initialize Passport
+var initPassport = require('./passport/init');
+initPassport(passport);
+*/
+
+// Configure passport-local to use user model for authentication
+var Account = require('./models/user');
+passport.use(Account.createStrategy(    ));
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
+
+
 
 app.use('/', routes);
 app.use('/users', users);
-
-
-
-//-----------code for autocomplete----
-
-//------------------------------
-
 
 
 /// catch 404 and forwarding to error handler
@@ -76,5 +95,16 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
+
+/*
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
+*/
+
 
 module.exports = app;

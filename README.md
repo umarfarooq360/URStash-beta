@@ -20,3 +20,20 @@ npm install
 npm start
 
 ````
+
+###Whats been done
+* Local Authentication and User accounts
+* Text index searching to search for books and furniture
+* Google API linking for books searching
+* Sorting results by Relevance, Price, Condition.
+
+
+###Whats to be done
+* Improve the UI. Create Login/Signup Page, About Us Section. MAKE SURE IDS MATCH. (Shiv)
+* Have the node server generate dynamic URL pages for new each item that the user clicks on. (Omar) (Alex frontend)
+* Implement buy/sell mechanism, and email sending.(John)
+* Notifications for item sold. 
+* Maybe a settings/Profile page for users.
+* Performace optimization.
+* Testing and Demoing.
+
