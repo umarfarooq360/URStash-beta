@@ -1,23 +1,51 @@
 extends layout
+//trying to get this stuff below as the index's "block content" so that the
+//block content can be modified from page to pages
+img( src="/images/bg.jpg" id="bg" alt="") 
+//messing around with bg.jpg to see if this will be incorporated?
+//div.bg_container
+//	<video id="bg" src="page_bg.mp4" autoplay="true" loop="true" muted="true"></video>
 
-block content
-	h1#mainTitle #{title}
+block centerBlock
+	.jumbotron#indexJumbotron
+		h1 URStash - let's stack it!
+		p URStash is the key to selling and buying books, electronics, and furniture easily.
+		p Sign up, hit search, and we'll connect you.
+		div.right-inner-addon
+			i.glyphicon.glyphicon-search
+			input.form-control#inputSearch(type="search" required placeholder="Search")
+			button.btn.btn-primary#btnSearch(type="button") Search
+		//- input(type="radio") furniture
 
-	//Search bar
-	
-	div#searchBar
-		form#formSearch(name="search",method="post",action="/search")
-			div.row
-				div.col-sm-12
-					input#inputSearch(type="text", name="searchItem" required placeholder="Search...")
-					button#btnSearch(type="submit") <i class="fa fa-search"></i>
-					br
-			div.row#radiop
-				div.col-sm-4
-				div.col-sm-2
-					input#booksRadio(type="radio", name="options", value="books" checked) 
-					|   Books   
-				div.col-sm-2
-					input#electronicsRadio(type="radio", name="options",value="electronics")
-					|   Electronics & Furniture    
-				div.col-sm-4
+	section#about
+		.width
+			h4#aboutUs About URStash
+			span#ourstory OUR STORY
+			p#description URStash is created by UR students for UR students. We were tired of overpriced books, and decided to bring this website to you so that you'd save those bucks for beach week instead of spending it on a $200 calculus text book. Had to throw away your furniture and electronics because you couldn't take them back home? We got you covered. 
+		
+	section#team
+		.width
+			ul
+				li.of
+					span.avatar#omar 
+					a(href="") Omar Farooq
+					span.title Co-Founder
+				li.jk
+					span.avatar#john 
+					a(href="") John Keto
+					span.title Co-Founder
+				li.ap
+					span.avatar#alex 
+					a(href="") Alexandru Pana
+					span.title Sexy beast
+				li.st
+					span.avatar#shiv 
+					a(href="") Shiv Toolsidass
+					span.title Front-End Developer	
+
+
+
+
+
+
+
