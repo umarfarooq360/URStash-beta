@@ -12,19 +12,6 @@ var passport = require('passport');
 var Book = require('../models/books');
 var Account = require('../models/user');
 var Item = require('../models/item');
-var nodemailer = require('nodemailer');
-
-// create reusable transporter object using SMTP transport
-var transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-        user: 'urstashseller@gmail.com',
-        pass: 'alexissexy'
-    }
-});
-
-// NB! No need to recreate the transporter object. You can use
-// the same transporter object for all e-mails
 
 var router = express.Router();
 
@@ -97,11 +84,7 @@ router.post('/search', function(req, res) {
     var searchQuery = sanitize(req.body.searchItem);
     
     //See how the check boxes are set up
-    var options = "books";
-    //CHANGED THIS COZ THE FRONTEND IS BROKEN NOW
-    //***********************************FIX IT LATER
-    //var options = req.body.options;
-
+    var options = req.body.options;
         
     if( options === "books"){
        
@@ -114,8 +97,7 @@ router.post('/search', function(req, res) {
                 if(!err){
                     console.log(output);
                     res.render('search', {
-                            "search" : output,
-                            "type": 0
+                            "search" : output
                         });
                     }else{
                         console.log("ERROR"+ err);
@@ -134,10 +116,7 @@ router.post('/search', function(req, res) {
                 if(!err){
                     console.log(output);
                     res.render('search', {
-                            "search" : output,
-                            "type": 1
-
-
+                            "search" : output
                         });
                     }else{
                         console.log("ERROR"+ err);
@@ -182,8 +161,7 @@ router.post('/addItem', function(req, res) {
         "Author" : bookAuthor,
         "ISBN" : bookISBN,
         "Condition": bookCondition,
-        "Price": bookPrice,
-        "Seller": req.user._id
+        "Price": bookPrice
     });
 
     item.save(function (err, doc) {
@@ -239,84 +217,6 @@ router.post('/addENF', function(req, res) {
 
 
 });
-
-
-/* GET Book Selling Page. */
-router.get('/book/:id', function(req, res) {
-    //var db = req.db;
-    //var collection = db.get('bookItems');
-    //First search
-    //Only for books
-    console.log(req.params.id);
-    Book.find({ ISBN : req.params.id },{},
-     function(err,items){
-        if(err){console.log(err);}
-        console.log(items);
-        
-        res.render('searchResults', {
-            "search" : items
-        });
-
-    });
-});
-
-/* GET To actually sell a book */
-router.get('/book/buy/:id', function(req, res) {
-    //Redirect if not logged in
-    if(!req.user){
-        res.render('login', { title: 'Login/Signup', message:"Please login!"} );
-    }
-
-    //Only for books
-    console.log(req.params.id);
-
-    //Find the book
-    Book.find({ _id : req.params.id },{},
-     function(err,items){
-        if(err){console.log(err);}
-        
-        //Find the seller from db   
-        var seller = items[0].Seller;
-        console.log(items);
-        
-        Account.find({ _id: seller},{}, 
-            function(error,results){
-                if(error){console.log(err);}
-                //get sellers username/email
-                console.log(results);    
-                var seller_email = results[0].username;
-                 console.log("Seller email: " + seller_email);
-                var item_name = items[0].Name;
-                //Mail the seller
-                var mailOptions = {
-                    from: 'URStash Seller <urstashseller@gmail.com>', // sender address
-                    to: seller_email, // list of receivers
-                    subject: "Selling "+ item_name , // Subject line
-                    text: 'Heyy! '+ user.req.firstname  +'wants to buy '+
-                       items[0].Name+ ' from you. Please contact the buyer at '+
-                       user.req.username+ ' and decide a time and place to meet and sell the item.' // plaintext body
-                };
-
-                // send mail with defined transport object
-                transporter.sendMail(mailOptions, function(error, info){
-                    if(error){
-                        console.log(error);
-                    }else{
-                        console.log('Message sent: ' + info.response);
-                        res.render('buySuccess', {
-                            "data" : mailOptions
-                        });
-                    }
-                });
-
-
-        });
-
-        
-
-    });
-});
-
 
 
 

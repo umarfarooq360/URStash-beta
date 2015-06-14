@@ -1,0 +1,8 @@
+queries:
+
+search in layout.jade, but div elements are overlapping 
+jquery for search bar 
+	no search button - ask if okay
+
+use tumblr template to make sign up page
+
