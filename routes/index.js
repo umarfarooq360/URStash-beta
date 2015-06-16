@@ -30,7 +30,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-    res.render('index', { title: 'URstash' });
+    res.render('index', { title: 'URstash' , user:req.user});
 });
 
 
@@ -102,7 +102,7 @@ router.post('/search', function(req, res) {
     //***********************************FIX IT LATER
     //var options = req.body.options;
 
-        
+
     if( options === "books"){
        
         //Search by name "Relevance" search

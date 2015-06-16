@@ -12,75 +12,72 @@ html
 		link(type='text/css', rel='stylesheet', href='/stylesheets/signInUpStyle.css')
 				
 	body#page-top(data-spy="scroll" data-target=".navbar-fixed-top")
-		nav.navbar.navbar-default.navbar-fixed-top(role="navigation")
-			.container
-				.navbar-header.page-scroll
-					button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse")
-						span.sr-only Toggle navigation
-						span.icon-bar
-						span.icon-bar
-						span.icon-bar
-					a.navbar-brand.page-scroll(href="/") URStash
-				.collapse.navbar-collapse.navbar-ex1-collapse
-					ul.nav.navbar-nav#rightTest
-						li.hidden
-							a.page-scroll(href="#page-top")
-						li
-							a(href="#search") Search
-						li
-							a(href="#about") About URStash
-					ul.navright
-						//li
-							icon(type="submit" onclick="window.location.href='/'") <i class="fa fa-cubes"></i>		
-						li.navright
-							a(href="/" title="Home") <i class="fa fa-home"></i>
-						li.navright
-							a(href="/newItem" title="Sell an Item") <i class="fa fa-money"></i>
-						//li 
-							button#cartBtn(type="submit" onclick="this.blur(); window.location.href = ''") <i class="fa fa-shopping-cart"></i>
-						//li.navright
-							a(href='#modal' title="Sign Up") <i class="fa fa-chevron-up"></i>
-						//li.navright
-							if(user)
-								//a(href="/logout") Logout
-								a(href='/logout' title="Sign Out") <i class="fa fa-sign-out"></i>
-						li.navright
-							if(user)
-								p#greeting Hey #{user.firstname}
-							else
-								//a(href="/login") Login
-							a(href='/login' title="Sign In") <i class="fa fa-sign-in"></i>
-		div#search
-			button.close(type="button") x
-			form#formSearch(name="search",method="post",action="/search")
-				input(type="search" value="" placeholder="search for a book")
-				div#radio
-				.row
-					.col-sm-4
-					.col-sm-2
-						input#booksRadio(type="radio", name="options", value="books" checked)
-						|  Books
-					.col-sm-2
-						input#electronicsRadio(type="radio", name="options",value="electronics")
-						|   Electronics & Furniture    
-					.col-sm-4
-				button.btn.btn-primary#btnsearch(type="submit") Search
-				
+		#fullpage
 
-		//I WANT THIS STUFF IN INDEX PAGE, NOT IN LAYOUT.
-		//how do I work with blocks so that this is possible?
-		//For the bkg image	
-		img( src="/images/richmond.jpg" id="bg" alt="")
-		//div.bg_container
-		//	<video id="bg" src="page_bg.mp4" autoplay="true" loop="true" muted="true"></video>
+			nav.navbar.navbar-default.navbar-fixed-top(role="navigation")
+				.container
+					.navbar-header.page-scroll
+						button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse")
+							span.sr-only Toggle navigation
+							span.icon-bar
+							span.icon-bar
+							span.icon-bar
+						a.navbar-brand.page-scroll(href="/") URStash
+					.collapse.navbar-collapse.navbar-ex1-collapse
+						ul.nav.navbar-nav#rightTest
+							li.hidden
+								a.page-scroll(href="#page-top")
+							li
+								a(href="#search") Search
+							li
+								a(href="#about") About URStash
+						ul.navright
+							//li
+								icon(type="submit" onclick="window.location.href='/'") <i class="fa fa-cubes"></i>		
+							li.navright
+								a(href="/" title="Home") <i class="fa fa-home"></i>
+							li.navright
+								a(href="/newItem" title="Sell an Item") <i class="fa fa-money"></i>
+							//li 
+								button#cartBtn(type="submit" onclick="this.blur(); window.location.href = ''") <i class="fa fa-shopping-cart"></i>
+							//li.navright
+								a(href='#modal' title="Sign Up") <i class="fa fa-chevron-up"></i>
+							//li.navright
+								if(user)
+									//a(href="/logout") Logout
+									a(href='/logout' title="Sign Out") <i class="fa fa-sign-out"></i>
+							li.navright
+								if(user)
+									p#greeting Hey #{user.firstname}
+								else
+									a(href='/login' title="Sign In") <i class="fa fa-sign-in"></i>
+			div#search
+				button.close(type="button") x
+				form#formSearch(name="search",method="post",action="/search")
+					input(type="search" value="" placeholder="search for a book")
+					input(type="radio", name="options", value="books" checked)
+					|  Books
+					
+					input(type="radio", name="options",value="electronics")
+					|   Electronics & Furniture
+					button.btn.btn-primary#btnsearch(type="submit") Search
+					button.btn.btn-primary#btnsearch(type="submit") Search
+					
 
-	block centerBlock
+				//I WANT THIS STUFF IN INDEX PAGE, NOT IN LAYOUT.
+				//how do I work with blocks so that this is possible?
+				//For the bkg image	
+				//img( src="/images/richmond.jpg" id="bg" alt="")
+				//div.bg_container
+				//	<video id="bg" src="page_bg.mp4" autoplay="true" loop="true" muted="true"></video>
 
-		//- .jumbotron#indexJumbotron
-		//- 	h1 URStash - let's stack it.
-		//- 	p URStash is the key to selling and buying books, electronics, and furniture easily.
-		//- 	p Sign up, hit search, and we'll connect you.
-						
+			block centerBlock
+
+			//- .jumbotron#indexJumbotron
+			//- 	h1 URStash - let's stack it.
+			//- 	p URStash is the key to selling and buying books, electronics, and furniture easily.
+			//- 	p Sign up, hit search, and we'll connect you.
+							
 script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
 script(type='text/javascript', src='/js/jquery.leanModal.min.js')
 script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.js')
@@ -91,3 +88,10 @@ script(type='text/javascript', src='/js/bootstrap.min.js')
 script(type='text/javascript', src='/js/jquery.easing.min.js')
 script(type='text/javascript', src='/js/scrolling-nav.js')
 script(type='text/javascript', src='/js/search.js')
+//For one page scroll
+script(type='text/javascript', src='js/jquery.fullPage.js')
+link(href='stylesheets/jquery.fullPage.css' rel='stylesheet')
+script.
+	$(document).ready(function() {
+		$('#fullpage').fullpage();
+	});
