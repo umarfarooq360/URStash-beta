@@ -374,7 +374,7 @@ button :hover
 
 #greeting{
   color: #fff;
- 
+
 }
 
 #about{
@@ -383,6 +383,11 @@ button :hover
   color:white;
   height: 45%;
   text-shadow: 0 2px 2px rgba(0,0,0,0.8);
+}
+
+#downarrow{
+  font-size: 40px;
+  color: #fff;
 }
 
 
