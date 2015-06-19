@@ -30,7 +30,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-    res.render('index', { layout: 'scrolllayout',title: 'URstash' , user:req.user});
+    res.render('index', { layout: 'layout',title: 'URstash' , user:req.user});
 });
 
 

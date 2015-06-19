@@ -1,3 +1,10 @@
+$(document).ready(function() {
+    $('#fullpage').fullpage({
+    	anchors: ['search', 'about','team'],
+    });
+});
+
+ 
 var $username = $("#emailForm");
 var $password = $("#passForm");
 var $usernameWarning = $("#emailError");
@@ -11,7 +18,7 @@ function isUsernameValid(){
 }
 
 function isPasswordValid(){
-	return $password.val().length > 4;
+	return $password.val().length > 6;
 }
 
 function userNameEvent(){
@@ -48,23 +55,45 @@ var $signUp = $("#signup");
 var $login = $("#login")
 var $signupbutton = $("#signupbutton");
 var $loginbutton = $("#loginbutton");
+var $emailPrompt = $("#emailPrompt");
+var $passwordPrompt = $("#passwordPrompt");
+var $numberPrompt = $("#numberPrompt");
+var $emailForm = $("#emailForm");
+var $passwordForm = $("#passwordForm");
+var $numberForm = $("#lastSignUp");
 
-$signUp.hide();
+//Dont hide this anymore
+//$signUp.hide();
+
+$emailForm.focus(function(){
+	$emailPrompt.show();
+	$emailPrompt.siblings("div").hide();
+});
+
+$numberForm.focus(function(){
+	$numberPrompt.show();
+	$numberPrompt.siblings("div").hide();
+});
+
+$passwordForm.focus(function(){
+	$passwordPrompt.show();
+	$passwordPrompt.siblings("div").hide();
+});
 
 //things to correct here: 1) Slidetoggle makes forms disappear when clicked again
 						//2) Animation effects, implement some cool shit here with animate function
 
+//Changed to use slides of fullPage scroll 
 $signupbutton.on('click', function(){
-	$login.hide();
-	$signUp.slideToggle().css("top", "100%");
+	$.fn.fullpage.moveSlideRight();
 });
 
 $loginbutton.on('click', function(){
-	$signUp.hide();
-	$login.slideToggle().css("top", "100%");
+	$.fn.fullpage.moveSlideRight();
 });
 
 enableSubmit();
+
 
 
 
