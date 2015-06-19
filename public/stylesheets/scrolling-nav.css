@@ -48,7 +48,7 @@ of those sections to manage the look and feel of the site. */
 #indexJumbotron{
     height: 100%;
     width:100%;
-    padding-top:200px;
+    padding-top:150px;
     text-align: center;
     background: rgba(0,0,0,0.1);
 }

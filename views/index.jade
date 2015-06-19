@@ -12,10 +12,17 @@ block centerBlock
 			h1 URStash - let's stack it!
 			p URStash is the key to selling and buying books, electronics, and furniture easily.
 			p Sign up, hit search, and we'll connect you.
-			div.right-inner-addon
-				i.glyphicon.glyphicon-search
-				input.form-control#inputSearch(type="search" required placeholder="Search")
-				button.btn.btn-info#btnSearch(type="button") Stash
+			form#formSearch(name="search",method="post",action="/search")
+				div.right-inner-addon
+					i.glyphicon.glyphicon-search
+					input.form-control#inputSearch(type="search" required placeholder="Search")
+					.row
+						input#booksRadio(type="radio", name="options", value="books" checked)
+						|  Books
+						input#electronicsRadio(type="radio", name="options",value="electronics")
+						|   Electronics & Furniture
+					.row
+						button.btn.btn-info#btnSearch(type="submit") Stash
 
 	div.section
 		#about
