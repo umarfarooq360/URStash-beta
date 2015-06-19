@@ -299,7 +299,7 @@ button :hover
     left: 0px;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.8);
     z-index: 100;
     
     -webkit-transition: all 0.5s ease-in-out;
@@ -343,13 +343,40 @@ button :hover
     outline: none;
 }
 
+#search .otherbutton{
+    position: absolute;
+    top: 60%;
+    left: 45%;
+    margin-top:61px;
+    margin-left: -45px;
+}
+
 #search .btn {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 45%;
     margin-top: 61px;
     margin-left: -45px;
 }
+
+#search #radiob {
+  position: absolute;
+  top: 55%;
+  left: 55%;
+  margin-top: 80px;
+  margin-left: -45px;
+}
+
+
+
+#search #radiob2 {
+  position: absolute;
+  top: 55%;
+  left: 45%;
+  margin-top: 80px;
+  margin-left: -45px;
+}
+
 #search .close {
 	position: fixed;
   	top: 90px;
@@ -362,13 +389,8 @@ button :hover
   	font-size: 27px;
 }
 
-#search #radio{
-  position: absolute;
-  top: 60%;
-  left:50%;
-  margin-top: 70px;
-  margin-left: -45px;
-}
+
+
 /* End of control the search action
 ----------------------------------*/
 
@@ -376,6 +398,8 @@ button :hover
   color: #fff;
 
 }
+
+
 
 #about{
  /* border-top: 1px solid #fff;
@@ -385,10 +409,28 @@ button :hover
   text-shadow: 0 2px 2px rgba(0,0,0,0.8);
 }
 
+/*the arrow and its anmations*/
+@-webkit-keyframes arrow-jump {
+  0%   { opacity: 0;}
+  100% { opacity: 1; 
+    -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
+    -0-transform: translateY(10px);
+    transform: translateY(10px);
+    }  
+}
+
 #downarrow{
   font-size: 40px;
   color: #fff;
+  -webkit-animation: arrow-jump 1s infinite;
+  -moz-animation:    arrow-jump 1s infinite
+  -o-animation:      arrow-jump 1s infinite;
+  animation:         arrow-jump 1s infinite;
 }
+
+
+
 
 
 .width{
@@ -602,6 +644,7 @@ button :hover
 
   #indexJumbotron{
     text-shadow: 0 2px 2px rgba(0,0,0,0.8);
+    color: #fff;
   }
 
   #loginButtons{
