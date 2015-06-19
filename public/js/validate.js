@@ -1,9 +1,3 @@
-$(document).ready(function() {
-    $('#fullpage').fullpage({
-    	anchors: ['search', 'about','team'],
-    });
-});
-
  
 var $username = $("#emailForm");
 var $password = $("#passForm");

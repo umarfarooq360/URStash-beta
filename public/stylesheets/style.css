@@ -289,8 +289,6 @@ button :hover
 
 #searchBarSection{
   background-image: url(../images/richmond6.jpg);
-  
-
 }
 
 #search {
@@ -741,7 +739,17 @@ transition: all 0.3s;
   text-align: center;
 }
 
-/**/
+/*new Item page*/
+#sellSection{ 
+  background-image: url(../images/richmond.jpg);
+}
 
 
+.input-elements{   
+    margin: auto;
+    max-width: 500px;
+}
 
+#inputCondition{
+  min-width: 200px;
+}
