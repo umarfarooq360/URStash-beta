@@ -1,3 +1,4 @@
+
 *{
   box-sizing:border-box;
 }
@@ -23,6 +24,45 @@ h1{
   
 }
 
+/*Custom navbar CSS*/
+
+.navbar-inverse.navbar-expanded{
+  background:transpßarent;
+  border:none;
+  color:#fff;
+}
+
+.navbar-fixed-top.navbar-expanded{
+  padding:30px 0;
+}
+
+.navbar-inverse{
+  border-bottom: 1px solid rbga(255, 255, 255, 0.1);
+}
+
+.navbar-fixed-top{
+  transition:padding 0.5s;
+}
+
+.navbar-fixed-top{
+  margin-bottom: 0;
+}
+
+.navbar-inverse .navbar-brand{
+  color:white;
+  opacity:1;
+  text-decoration: none;
+  transition:all 0.5s;
+}
+
+/*Navbar end*/
+
+.popover{
+  width:200px;
+  height:100px;
+}
+
+
 #mainTitle{
 	text-align: center;
 	font-size: 10em;
@@ -44,21 +84,13 @@ h1{
   min-height: 100%;
 }
 
-#navbar{
-	background-color: transparent;
-	color: #ffffff; 
-	margin-right: 4em;
-	margin-top: 20px;
-	
-}
-
 .navright{
-  float: right;
-  margin-right: 2em;
+   float: right;
+   margin-right: 2em;
    display: block;
    font-size: 1.3em;
    margin-bottom: 0px;
-   min-height: 50px;
+   padding-top: 5px;
    margin-top: auto;
 }   
 
@@ -68,9 +100,10 @@ h1{
 }
 
 .navright a:hover{
-  border-style: dotted;
-  border-color: #777;
-
+  color:white;
+  opacity:1;
+  text-decoration: none;
+  transition:all 0.5s;
 }
 
 
@@ -233,7 +266,7 @@ button :hover
 	border-color: gray;
 }
 
-icon
+#icon
 {
 	background-color: transparent;
 	border-color: none;
@@ -246,6 +279,20 @@ icon
 
 /* Control the search action
 ----------------------------------*/
+
+/*The section with the search bar*/
+
+
+.section{
+  background-size: cover;
+}
+
+#searchBarSection{
+  background-image: url(../images/richmond6.jpg);
+  
+
+}
+
 #search {
     position: fixed;
     top: 0px;
@@ -330,10 +377,10 @@ icon
 }
 
 #about{
-  border-top: 1px solid #fff;
-  border-bottom:1px solid #fff;
+ /* border-top: 1px solid #fff;
+  border-bottom:1px solid #fff;*/
   color:white;
-  height: 70%;
+  height: 45%;
   text-shadow: 0 2px 2px rgba(0,0,0,0.8);
 }
 
@@ -379,8 +426,8 @@ icon
 
 #team{
   padding:20px 0;
-  height: 80%;
-  background-color: rgba(0,0,0,0.1);
+  height: 60%;
+  
 }
 
 #team ul{
@@ -457,8 +504,12 @@ icon
   text-align: center;
 }
 
+.loginSignUp{
+  height: 80%;
+}
+
 #about{
-  background-color: rgba(0,0,0,0.1);
+  
 }
 
 #loginJumbo{
@@ -467,12 +518,21 @@ icon
     color:#fff;
     margin-top: -20px;
     text-shadow: 0 2px 2px rgba(0,0,0,0.8);
+    height: 50%;
+    padding-top: 10%;
 }
 
 #login, #signup{
   max-width: 280px;
   padding: 0 15px;
   margin: 0 auto;
+}
+
+#login h1, #signup h1{
+  text-transform: uppercase;
+  text-align: center;
+  color:rgba(255,255,255,0.6);
+  text-shadow:2px;
 }
 
 .loginSignUp .form-signin-heading, .form-signin{
@@ -515,18 +575,20 @@ icon
   }
 
   #signup input[type="text"],{
-    margin-bottom: -1px;
+    margin: 1px 0px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    border-left-style: solid;
+    border-top-style: none;
     border-right-style: solid;
+    border-bottom-style: none;
+    border-left-style: solid;
     border-color: #000;
   }
 
-  #signup #last{
+  #lastSignUp{
     margin-bottom: 10px;
   }
-
+  
   .form-signin-heading {
     text-align: center;
     text-shadow: 0 2px 2px rgba(0,0,0,0.8);
@@ -538,12 +600,99 @@ icon
 
   #loginButtons{
     float:right;
+    margin-top: 10%;
   }
 
   #loginButtons button{
     margin: 0 20px;
   }
 
+  .wrap.follow{
+    margin-top: 5%;
+    border-top: 5px solid #888;
+    padding-top: 40px;
+  }
+
+  .wrap{
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .wrap.follow p{
+    font-size: 20px;
+    font-weight: 50px;
+    line-height: 1.25em;
+    margin-bottom: 40px;
+    color: rgba(255,255,255, 0.7);
+    text-align: center;
+  }
+
+  .wrap.follow a{
+    -webkit-transition: color .15s linear;
+    color: #80BBFF;
+    text-decoration: none;
+    cursor:auto;
+  }
+
+     small{
+    margin-bottom: 20px;
+    display: block;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 50px;
+    font-size: 12px;
+    text-align: center;
+  }
+
+#loginButtons .btn, #btnSearch{
+border: 2px solid #fff;
+color: #fff;
+color: inherit;
+background-color: rgba(0,0,0,0.5);
+cursor: pointer;
+padding: 10px 60px;
+display: inline-block;
+margin: 5px 15px;
+text-transform: uppercase;
+letter-spacing: 1px;
+font-weight: 700;
+outline: none;
+position: relative;
+-webkit-transition: all 0.3s;
+-moz-transition: all 0.3s;
+transition: all 0.3s;
+}
+
+#btnSearch{
+  margin-top: 10px;
+  color: #fff;
+}
+
+#btnSearch:hover{
+  background-color: black;
+}
+
+#loginButtons .btn:hover{
+  background: black;
+}
+
+#emailError, #passwordError p{
+  padding-top: 10px;
+}
+
+#emailPrompt, #passwordPrompt, #numberPrompt, #emailError, #passwordError{
+  margin-top: 10px;
+  font-weight: bold;
+  font-family: "Verdana";
+  border: 2px solid #ccc;
+  border-radius: 2px;
+  padding: 10px;
+  background-color: rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+/**/
 
 
 
