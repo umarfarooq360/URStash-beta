@@ -35,7 +35,9 @@ router.get('/', function(req, res) {
 
 
 /* Handle Login POST */
-router.post('/login', passport.authenticate('local'), function(req, res) {
+router.post('/login', passport.authenticate('local',{ successRedirect: '/',
+                                   failureRedirect: '/login',
+                                   failureFlash: "Ahhhh!!Wrong" }), function(req, res) {
     
     res.redirect('/');
 
@@ -63,7 +65,7 @@ router.post('/signup', function(req,res){
         }),req.body.password , function(err, account) { 
             if (err) {
                     console.log('Error registering');
-                     return res.render("register", {info: "Sorry. That email already exists. Try again."});
+                     return res.render("login", {info: "Sorry. That email already exists. Try again."});
                     //return res.render('login', { account : account });
                 }
 

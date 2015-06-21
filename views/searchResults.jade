@@ -2,12 +2,12 @@ extends blank_layout
 
 block content
 	h1 Searches
-	-if (typeof(search) === 'undefined' ){
+	-if (typeof(searchResults) === 'undefined' ){
 		//-do something
 		p No results found
 	-}else		
 		ul
-			each user, i in search
+			each user, i in searchResults
 				li
 					p #{user.Name} 
 					p #{user.Author}

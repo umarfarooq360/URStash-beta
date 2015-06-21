@@ -170,11 +170,17 @@ h1{
 
 .autoField{
   color:#01a7ef;
+}
 
+#divDescription p{
+  font-size: 13px;
 }
 
 #divDescription{
   min-height: 200px;
+  text-align: left;
+  padding: 0px 100px;
+ 
 }
 
 .ui-helper-hidden-accessible { display:none; }
@@ -194,6 +200,7 @@ h1{
 
 /* Autocomplete
 ----------------------------------*/
+
 .ui-autocomplete { position: absolute; cursor: default; }       
 .ui-autocomplete-loading { background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat; }
  
@@ -206,6 +213,7 @@ h1{
         width:40%;
         height: 200px;
         overflow: scroll;
+        z-index: 10;
 }
 .ui-menu .ui-menu {
         margin-top: -3px;
@@ -229,9 +237,10 @@ h1{
 }
 
 /*Video bkg*/
-#bg_container{ height:500px; overflow:hidden; }
+/*#bg_container{ height:500px; overflow:hidden; }
 #bg{ width:100%; }
 #content{ position:absolute; top:0px; padding:30px; color:#FFF; text-shadow:#000 2px 2px; }
+*/
 
 /* Set how the buttons and the icon look like
 ----------------------------------*/
@@ -748,6 +757,7 @@ transition: all 0.3s;
 .input-elements{   
     margin: auto;
     max-width: 500px;
+
 }
 
 #inputCondition{

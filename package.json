@@ -25,6 +25,7 @@
     "passport":"*",
     "passport-local":"*",
     "passport-local-mongoose":"*",
-    "mongo-sanitize":"*"
+    "mongo-sanitize":"*",
+    "connect-flash":"*"
   }
 }
