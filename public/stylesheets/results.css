@@ -43,7 +43,6 @@ body{
 	margin: -20px 40px -10px 0px;
 	  /* float: right; */
 	font-size: 18
-  
 }
 
 .book-isbn{
@@ -57,4 +56,17 @@ body{
 
 li.book-box:hover {
   background-color: #fdf3e7;
+}
+
+/*
+	CSS Styles for the sellSuccess page
+	----------------------------------
+*/
+
+#blue-section .section{
+	background-color: #4db6ac;
+}
+
+#large-icon{
+	font-size: 130px;
 }

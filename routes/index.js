@@ -93,6 +93,12 @@ router.get('/searchResults', function(req, res) {
 });
 
 
+/* GET Sell Success page. */
+router.get('/sell/success', function(req, res) {
+    res.render('sellSuccess', { title: 'Sell Success' ,user: req.user });
+});
+
+
 /* post Search Results page. */
 router.post('/search', function(req, res) {
     //Get the query and sanitize
@@ -195,12 +201,13 @@ router.post('/addItem', function(req, res) {
         }
         else {
             // If it worked, set the header so the address bar doesn't still say /addItem
-            res.location("searchResults");
+            res.location("sell/success");
             // And forward to success page
-            res.redirect("searchResults");
+            res.redirect("sell/success");
         }
     });
 });
+
 /* POST to Add Electronics or furniture item */
 router.post('/addENF', function(req, res) {
     
