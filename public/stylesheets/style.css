@@ -763,3 +763,8 @@ transition: all 0.3s;
 #inputCondition{
   min-width: 200px;
 }
+
+#inputDescENF{
+  min-height: 100px;
+  margin-top: 20px;
+}

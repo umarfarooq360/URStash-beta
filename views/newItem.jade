@@ -39,20 +39,23 @@ block centerBlock
 						
 
 		.slide
-			div.col-sm-12#enfOptions
-				form#formAddUser(name="addItem",method="post",action="/addENF")
-					input#inputNameENF(type="text", placeholder="Item Name", name="enfname" required)
-					input#inputDescENF(type="text", placeholder="Item Description (Optional)", name="enfdescription")
-					
-					div.row
-						|Condition
-						input#inputCondition(type="range", placeholder="Condition", name="enfcondition" min=1 max=5 value=5 required)
-					br
-					br
-					div.row
-						input#inputPrice(type="number", placeholder="Price", name="enfprice" required)
-					br
-					button#btnSubmit(type="submit") Submit
+			.jumbotron#indexJumbotron
+				h1 Sell an Item
+				p Electronics or Furniture
+				div.col-sm-12#enfOptions
+					form#formAddUser(name="addItem",method="post",action="/addENF")
+						input#inputNameENF.form-control.input-elements(type="text", placeholder="Item Name", name="enfname" required)
+						input#inputDescENF.form-control.input-elements(type="text", placeholder="Item Description (Optional)", name="enfdescription")
+						
+						//div.row
+							|Condition
+							input#inputCondition(type="range", placeholder="Condition", name="enfcondition" min=1 max=5 value=5 required)
+						br
+						br
+						div.row
+							input.form-control.input-elements#inputPrice(type="number", placeholder="Price", name="enfprice" required)
+						br
+						button#btnSearch.btn-primary(type="submit") Submit
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>	
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.js"></script>
