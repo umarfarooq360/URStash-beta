@@ -50,6 +50,8 @@ app.use(flash());
 mongoose.connect('mongodb://admin:passw0rd@proximus.modulusmongo.net:27017/Owoven3i');
 
 
+/* Added favicon */
+app.use(favicon(path.join(__dirname,'public','images','favicon.png')));
 
 /*
 // Initialize Passport
