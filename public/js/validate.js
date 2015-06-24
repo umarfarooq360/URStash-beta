@@ -1,9 +1,3 @@
-$(document).ready(function() {
-    $('#fullpage').fullpage({
-    	anchors: ['search', 'about','team'],
-    });
-});
-
  
 var $username = $("#emailForm");
 var $password = $("#passForm");
@@ -62,7 +56,9 @@ var $emailForm = $("#emailForm");
 var $passwordForm = $("#passwordForm");
 var $numberForm = $("#lastSignUp");
 
-$signUp.hide();
+$emailPrompt.hide();
+$numberPrompt.hide();
+$passwordPrompt.hide();
 
 $emailForm.focus(function(){
 	$emailPrompt.show();
@@ -82,14 +78,13 @@ $passwordForm.focus(function(){
 //things to correct here: 1) Slidetoggle makes forms disappear when clicked again
 						//2) Animation effects, implement some cool shit here with animate function
 
+//Changed to use slides of fullPage scroll 
 $signupbutton.on('click', function(){
-	$login.hide();
-	$signUp.show().css("top", "100%");
+	$.fn.fullpage.moveSlideRight();
 });
 
 $loginbutton.on('click', function(){
-	$signUp.hide();
-	$login.show().css("top", "100%");
+	$.fn.fullpage.moveSlideRight();
 });
 
 enableSubmit();

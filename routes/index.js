@@ -12,17 +12,32 @@ var passport = require('passport');
 var Book = require('../models/books');
 var Account = require('../models/user');
 var Item = require('../models/item');
+var nodemailer = require('nodemailer');
+
+// create reusable transporter object using SMTP transport
+var transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: 'urstashseller@gmail.com',
+        pass: 'alexissexy'
+    }
+});
+
+// NB! No need to recreate the transporter object. You can use
+// the same transporter object for all e-mails
 
 var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-    res.render('index', { title: 'URstash' });
+    res.render('index', { layout: 'layout',title: 'URstash' , user:req.user});
 });
 
 
 /* Handle Login POST */
-router.post('/login', passport.authenticate('local'), function(req, res) {
+router.post('/login', passport.authenticate('local',{ successRedirect: '/',
+                                   failureRedirect: '/login',
+                                   failureFlash: "Ahhhh!!Wrong" }), function(req, res) {
     
     res.redirect('/');
 
@@ -50,7 +65,7 @@ router.post('/signup', function(req,res){
         }),req.body.password , function(err, account) { 
             if (err) {
                     console.log('Error registering');
-                     return res.render("register", {info: "Sorry. That email already exists. Try again."});
+                     return res.render("login", {info: "Sorry. That email already exists. Try again."});
                     //return res.render('login', { account : account });
                 }
 
@@ -78,14 +93,24 @@ router.get('/searchResults', function(req, res) {
 });
 
 
+/* GET Sell Success page. */
+router.get('/sell/success', function(req, res) {
+    res.render('sellSuccess', { title: 'Sell Success' ,user: req.user });
+});
+
+
 /* post Search Results page. */
 router.post('/search', function(req, res) {
     //Get the query and sanitize
     var searchQuery = sanitize(req.body.searchItem);
     
     //See how the check boxes are set up
-    var options = req.body.options;
-        
+    var options = "books";
+    //CHANGED THIS COZ THE FRONTEND IS BROKEN NOW
+    //***********************************FIX IT LATER
+    //var options = req.body.options;
+
+
     if( options === "books"){
        
         //Search by name "Relevance" search
@@ -97,7 +122,8 @@ router.post('/search', function(req, res) {
                 if(!err){
                     console.log(output);
                     res.render('search', {
-                            "search" : output
+                            "search" : output,
+                            "type": 0
                         });
                     }else{
                         console.log("ERROR"+ err);
@@ -116,7 +142,10 @@ router.post('/search', function(req, res) {
                 if(!err){
                     console.log(output);
                     res.render('search', {
-                            "search" : output
+                            "search" : output,
+                            "type": 1
+
+
                         });
                     }else{
                         console.log("ERROR"+ err);
@@ -161,7 +190,8 @@ router.post('/addItem', function(req, res) {
         "Author" : bookAuthor,
         "ISBN" : bookISBN,
         "Condition": bookCondition,
-        "Price": bookPrice
+        "Price": bookPrice,
+        "Seller": req.user._id
     });
 
     item.save(function (err, doc) {
@@ -171,12 +201,13 @@ router.post('/addItem', function(req, res) {
         }
         else {
             // If it worked, set the header so the address bar doesn't still say /addItem
-            res.location("searchResults");
+            res.location("sell/success");
             // And forward to success page
-            res.redirect("searchResults");
+            res.redirect("sell/success");
         }
     });
 });
+
 /* POST to Add Electronics or furniture item */
 router.post('/addENF', function(req, res) {
     
@@ -217,6 +248,84 @@ router.post('/addENF', function(req, res) {
 
 
 });
+
+
+/* GET Book Selling Page. */
+router.get('/book/:id', function(req, res) {
+    //var db = req.db;
+    //var collection = db.get('bookItems');
+    //First search
+    //Only for books
+    console.log(req.params.id);
+    Book.find({ ISBN : req.params.id },{},
+     function(err,items){
+        if(err){console.log(err);}
+        console.log(items);
+        
+        res.render('searchResults', {
+            "search" : items
+        });
+
+    });
+});
+
+/* GET To actually sell a book */
+router.get('/book/buy/:id', function(req, res) {
+    //Redirect if not logged in
+    if(!req.user){
+        res.render('login', { title: 'Login/Signup', message:"Please login!"} );
+    }
+
+    //Only for books
+    console.log(req.params.id);
+
+    //Find the book
+    Book.find({ _id : req.params.id },{},
+     function(err,items){
+        if(err){console.log(err);}
+        
+        //Find the seller from db   
+        var seller = items[0].Seller;
+        console.log(items);
+        
+        Account.find({ _id: seller},{}, 
+            function(error,results){
+                if(error){console.log(err);}
+                //get sellers username/email
+                console.log(results);    
+                var seller_email = results[0].username;
+                 console.log("Seller email: " + seller_email);
+                var item_name = items[0].Name;
+                //Mail the seller
+                var mailOptions = {
+                    from: 'URStash Seller <urstashseller@gmail.com>', // sender address
+                    to: seller_email, // list of receivers
+                    subject: "Selling "+ item_name , // Subject line
+                    text: 'Heyy! '+ user.req.firstname  +'wants to buy '+
+                       items[0].Name+ ' from you. Please contact the buyer at '+
+                       user.req.username+ ' and decide a time and place to meet and sell the item.' // plaintext body
+                };
+
+                // send mail with defined transport object
+                transporter.sendMail(mailOptions, function(error, info){
+                    if(error){
+                        console.log(error);
+                    }else{
+                        console.log('Message sent: ' + info.response);
+                        res.render('buySuccess', {
+                            "data" : mailOptions
+                        });
+                    }
+                });
+
+
+        });
+
+        
+
+    });
+});
+
 
 
 

@@ -7,7 +7,8 @@ var bookSchema= new mongoose.Schema({
 	Author	: String,
 	ISBN: Number,
 	Condition: String,
-	Price: Number
+	Price: Number,
+	Seller: String
 
 });
 

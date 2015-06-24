@@ -1,15 +1,22 @@
 extends layout
 
-block content
-	h1 Searches
-	-if (typeof(search.results) === 'undefined' ){
-		//-do something
-		p No results found
-	-}else		
-		ul
-			each user, i in search.results
-				li
-					p #{user.obj.Name} 
-					p #{user.obj.Author}
-					br
-					hr
+block centerBlock
+	div.results-list
+		h1 Search Results
+		-if (typeof(search.results) === 'undefined' ){
+			//-do something
+			p No results found
+		-}else		
+			ul
+				each user, i in search.results
+					li.book-box
+						p.book-title
+								a(href="/book/" + user.obj.ISBN ) #{user.obj.Name} 
+						p.book-price #{user.obj.Price}
+						p.book-author #{user.obj.Author}
+						p.book-isbn #{user.obj.ISBN}
+
+						
+
+	//Adding the css
+	link(type='text/css', rel='stylesheet', href='stylesheets/results.css')

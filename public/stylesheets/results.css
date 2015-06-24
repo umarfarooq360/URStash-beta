@@ -1,0 +1,72 @@
+/*
+	Css for results pages
+	Author: Omar
+	Date: 6/19/15;
+*/
+
+/*The box of results*/
+.results-list{
+	margin: 80px 30px 0px;
+	
+
+}
+
+/*Background for the search results page*/
+body{
+	background-color: #dfe2db;
+}
+
+/*The box that encapsulates a saerch result and its parts*/
+.book-box{
+	border-bottom: solid;
+	list-style-type: none;
+	border-color: #7e8f7c;
+	margin-bottom: 5px;
+	background-color: rgba(240,240,240,0.9);
+	border-bottom-right-radius: 20px
+
+
+}
+
+.book-title a {
+	color: #558c89;
+	font-size: 16px;
+  	margin: 15px 30px 10px;
+} 
+
+.book-box p{
+	color: #111;
+}
+
+.book-price{
+	text-align: right;
+	margin: -20px 40px -10px 0px;
+	  /* float: right; */
+	font-size: 18
+}
+
+.book-isbn{
+	 margin: 10px 50px;
+}
+
+.book-author{
+	margin: 0px 50px;
+
+}
+
+li.book-box:hover {
+  background-color: #fdf3e7;
+}
+
+/*
+	CSS Styles for the sellSuccess page
+	----------------------------------
+*/
+
+#blue-section .section{
+	background-color: #4db6ac;
+}
+
+#large-icon{
+	font-size: 130px;
+}

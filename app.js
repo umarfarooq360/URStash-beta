@@ -6,6 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var session = require('cookie-session');
 var bodyParser = require('body-parser');
+var flash = require('connect-flash');
 
 
 // New Code to move to mongoose db system
@@ -40,6 +41,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.use(session());
 app.use(passport.initialize());
 app.use(passport.session());
+
+//added flash
+app.use(flash());
 
 
 //Changed database url

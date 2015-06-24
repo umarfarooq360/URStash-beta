@@ -36,6 +36,7 @@ $(document).ready(function () {  // only begin once page has loaded
         select: function (event, ui) {
             // what to do when an item is selected
             // first clear anything that may already be in the description
+            console.log("yayya");
             $('#divDescription').empty();
             // we get the currently selected item using ui.item
             // show a pic if we have one

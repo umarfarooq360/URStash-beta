@@ -1,18 +1,21 @@
 html
 	head
 		title #{title}
+		script(type="text/javascript" src="/js/jquery.fullPage.js")
 		meta(http-equiv='X-UA-Compatible', content='IE=edge')
 		meta(name='viewport', content='width=device-width, initial-scale=1')
 		link(rel='stylesheet', href='/stylesheets/style.css')
 		link(rel="stylesheet", type="text/css", href="/stylesheets/jquery.fullPage.css")
 		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')
-		link(href='/stylesheets/scrolling-nav.css', rel='stylesheet')
+		link(href='stylesheets/scrolling-nav.css', rel='stylesheet')
 		link(rel='stylesheet', href='http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css')
 		link(type='text/css', rel='stylesheet', href='/stylesheets/signInUpStyle.css')
 
+
 	body#page-top(data-spy="scroll" data-target=".navbar-fixed-top")
 		#fullpage
-			nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
+			.section
+				nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
 					.container
 						.navbar-header.page-scroll
 							button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse")
@@ -42,43 +45,46 @@ html
 										a(href='/logout' title="Sign Out") <i class="fa fa-sign-out"></i>
 								li.navright
 									if(user)
-										a(href='/profile' title='Profile') Hey #{user.firstname}
+										p#greeting Hey #{user.firstname}
 									else
 										a(href='/login' title="Sign In") <i class="fa fa-sign-in"></i>
 				div#search
 					button.close(type="button") x
 					form#formSearch(name="search",method="post",action="/search")
-						input(type="search" value="" placeholder="Search")
-						button.btn.btn-primary#btnsearch(type="submit") Search Books
-						button.btn.btn-primary.otherbutton#btnsearch(type="submit") Search Items
+						input(type="search" value="" placeholder="search for a book")
+						div#radio
+						.row
+							.col-sm-4
+							.col-sm-2
+								input#booksRadio(type="radio", name="options", value="books" checked)
+								|  Books
+							.col-sm-2
+								input#electronicsRadio(type="radio", name="options",value="electronics")
+								|   Electronics & Furniture    
+							.col-sm-4
+						button.btn.btn-primary#btnsearch(type="submit") Search
 
 				//For the bkg image	
 				//img(src="/images/richmond6.jpg" id="bg" alt="") 
 				
 			block centerBlock
 
-				
-	
-script(type='text/javascript', src='/js/jquery.js')
-//script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+						
+script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
 script(type='text/javascript', src='/js/jquery.leanModal.min.js')
 script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.js')
-
-
-//fullpage.js for scrolling effect
-
-
-script(type="text/javascript" src="/js/jquery.fullPage.js")
 script(type='text/javascript', src='/js/autocomplete.js')
+	//file I wrote is validate.js
+script(type='text/javascript', src="js/validate.js")
+	//fullpage.js for scrolling effect
+script(type='text/javascript', src='/js/jquery.js')	
+script(type="text/javascript" src="/js/jquery.fullPage.js")
 
 script(type='text/javascript', src='/js/bootstrap.min.js')
-
 script(type='text/javascript', src='/js/jquery.easing.min.js')
 	//potentially remove scrolling nav?
-	//Took it out
+
 script(type='text/javascript', src='/js/scrolling-nav.js')
-
-//for cool search bar at the beginning 
-
+	//for cool search bar at the beginning 
 script(type='text/javascript', src='/js/search.js')
 script(type='text/javascript', src='/js/onepage.init.js')

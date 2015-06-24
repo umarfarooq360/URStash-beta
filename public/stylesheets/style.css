@@ -1,5 +1,4 @@
 
-
 *{
   box-sizing:border-box;
 }
@@ -154,6 +153,7 @@ h1{
 #radio{
   margin-top: 2em;
   color: #fff;
+  margin-left: 10px;
 
 }
 
@@ -171,11 +171,17 @@ h1{
 
 .autoField{
   color:#01a7ef;
+}
 
+#divDescription p{
+  font-size: 13px;
 }
 
 #divDescription{
   min-height: 200px;
+  text-align: left;
+  padding: 0px 100px;
+ 
 }
 
 .ui-helper-hidden-accessible { display:none; }
@@ -195,6 +201,7 @@ h1{
 
 /* Autocomplete
 ----------------------------------*/
+
 .ui-autocomplete { position: absolute; cursor: default; }       
 .ui-autocomplete-loading { background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat; }
  
@@ -207,6 +214,7 @@ h1{
         width:40%;
         height: 200px;
         overflow: scroll;
+        z-index: 10;
 }
 .ui-menu .ui-menu {
         margin-top: -3px;
@@ -230,9 +238,10 @@ h1{
 }
 
 /*Video bkg*/
-#bg_container{ height:500px; overflow:hidden; }
+/*#bg_container{ height:500px; overflow:hidden; }
 #bg{ width:100%; }
 #content{ position:absolute; top:0px; padding:30px; color:#FFF; text-shadow:#000 2px 2px; }
+*/
 
 /* Set how the buttons and the icon look like
 ----------------------------------*/
@@ -267,7 +276,7 @@ button :hover
 	border-color: gray;
 }
 
-icon
+#icon
 {
 	background-color: transparent;
 	border-color: none;
@@ -280,13 +289,25 @@ icon
 
 /* Control the search action
 ----------------------------------*/
+
+/*The section with the search bar*/
+
+
+.section{
+  background-size: cover;
+}
+
+#searchBarSection{
+  background-image: url(../images/richmond6.jpg);
+}
+
 #search {
     position: fixed;
     top: 0px;
     left: 0px;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.8);
     z-index: 100;
     
     -webkit-transition: all 0.5s ease-in-out;
@@ -330,13 +351,43 @@ icon
     outline: none;
 }
 
-#search .btn {
+#search .otherbutton{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: 61px;
+    top: 60%;
+    left: 45%;
+    margin-top:61px;
     margin-left: -45px;
 }
+
+#search .btn {
+    position: fixed;
+    top: 50%;
+    left: 30%;
+    margin-top: 61px;
+}
+
+#search .btn.btn-primary.otherbutton{
+  margin-left: 300px;
+}
+
+#search #radiob {
+  position: absolute;
+  top: 55%;
+  left: 55%;
+  margin-top: 80px;
+  margin-left: -45px;
+}
+
+
+
+#search #radiob2 {
+  position: absolute;
+  top: 55%;
+  left: 45%;
+  margin-top: 80px;
+  margin-left: -45px;
+}
+
 #search .close {
 	position: fixed;
   	top: 90px;
@@ -349,19 +400,17 @@ icon
   	font-size: 27px;
 }
 
-#search #radio{
-  position: absolute;
-  top: 60%;
-  left:50%;
-  margin-top: 70px;
-  margin-left: -45px;
-}
+
+
 /* End of control the search action
 ----------------------------------*/
 
 #greeting{
-  color:000;
+  color: #fff;
+
 }
+
+
 
 #about{
  /* border-top: 1px solid #fff;
@@ -370,6 +419,30 @@ icon
   height: 45%;
   text-shadow: 0 2px 2px rgba(0,0,0,0.8);
 }
+
+/*the arrow and its anmations*/
+@-webkit-keyframes arrow-jump {
+  0%   { opacity: 0;}
+  100% { opacity: 1; 
+    -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
+    -0-transform: translateY(10px);
+    transform: translateY(10px);
+    }  
+}
+
+#downarrow{
+  font-size: 40px;
+  color: #fff;
+  margin-top: -5%;
+  -webkit-animation: arrow-jump 1s infinite;
+  -moz-animation:    arrow-jump 1s infinite
+  -o-animation:      arrow-jump 1s infinite;
+  animation:         arrow-jump 1s infinite;
+}
+
+
+
 
 
 .width{
@@ -414,7 +487,7 @@ icon
 #team{
   padding:20px 0;
   height: 60%;
-  background-color: rgba(0,0,0,0.1);
+  
 }
 
 #team ul{
@@ -496,7 +569,7 @@ icon
 }
 
 #about{
-  background-color: rgba(0,0,0,0.1);
+  
 }
 
 #loginJumbo{
@@ -518,7 +591,7 @@ icon
 #login h1, #signup h1{
   text-transform: uppercase;
   text-align: center;
-  color:rgba(255,255,255,0.6);
+  color:rgba(255,255,255,0.9);
   text-shadow:2px;
 }
 
@@ -578,11 +651,13 @@ icon
   
   .form-signin-heading {
     text-align: center;
-    text-shadow: 0 2px 2px rgba(0,0,0,0.8);
+    color: #fff;
   }
 
   #indexJumbotron{
     text-shadow: 0 2px 2px rgba(0,0,0,0.8);
+    color: #fff;
+    margin-top: -8%;
   }
 
   #loginButtons{
@@ -632,15 +707,15 @@ icon
     text-align: center;
   }
 
-#loginButtons .btn, #btnSearch{
+#btnSearch{
 border: 2px solid #fff;
 color: #fff;
 color: inherit;
 background-color: rgba(0,0,0,0.5);
 cursor: pointer;
 padding: 10px 60px;
-display: inline-block;
-margin: 5px 15px;
+display: inline;
+/*margin: 5px 15px;*/
 text-transform: uppercase;
 letter-spacing: 1px;
 font-weight: 700;
@@ -660,10 +735,6 @@ transition: all 0.3s;
   background-color: black;
 }
 
-#loginButtons .btn:hover{
-  background: black;
-}
-
 #emailError, #passwordError p{
   padding-top: 10px;
 }
@@ -679,7 +750,34 @@ transition: all 0.3s;
   text-align: center;
 }
 
-/**/
+/*new Item page*/
+#sellSection{ 
+  background-image: url(../images/richmond.jpg);
+}
 
 
+.input-elements{   
+    margin: auto;
+    max-width: 500px;
 
+}
+
+#inputCondition{
+  min-width: 200px;
+}
+
+#inputDescENF{
+  min-height: 100px;
+  margin-top: 20px;
+}
+
+/*Front page images*/
+
+#section2{
+  background: url(../images/richmond.jpg);
+}
+
+#section3{
+  background: url(../images/richmond3.jpg);
+  background-size: cover;
+}
