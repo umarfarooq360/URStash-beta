@@ -65,6 +65,7 @@ router.post('/signup', function(req,res){
         }),req.body.password , function(err, account) { 
             if (err) {
                     console.log('Error registering');
+                    console.log(account);
                      return res.render("login", {info: "Sorry. That email already exists. Try again."});
                     //return res.render('login', { account : account });
                 }
@@ -91,6 +92,22 @@ router.get('/searchResults', function(req, res) {
 
     });
 });
+
+/* GET Search Results page. */
+router.get('/showallusers', function(req, res) {
+    //var db = req.db;
+    //var collection = db.get('bookItems');
+    //First search
+    Account.find({},{},
+     function(err,items){
+        console.log(items);
+        res.render('searchResults', {
+            "searchResults" : items
+        });
+
+    });
+});
+
 
 
 /* GET Sell Success page. */
