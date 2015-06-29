@@ -1,7 +1,6 @@
 passport.use('login', new LocalStrategy({
     passReqToCallback : true
-  },
-  function(req, username, password, done) { 
+  }, function(req, username, password, done) { 
     // check in mongo if a user with username exists or not
     db.get('users').findOne({ 'username' :  username }, 
       function(err, user) {
