@@ -9,7 +9,6 @@ var bookSchema= new mongoose.Schema({
 	Condition: String,
 	Price: Number,
 	Seller: String
-
 });
 
 //Adding text search features
