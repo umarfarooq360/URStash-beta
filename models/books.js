@@ -15,6 +15,8 @@ var bookSchema= new mongoose.Schema({
 var textSearch = require("mongoose-text-search");
 bookSchema.plugin(textSearch);
 
+//Create an index
+//Attach more weight to Author and less to name
 bookSchema.index({
 	Name: "text",
 	Author: "text"
