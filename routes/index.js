@@ -279,7 +279,7 @@ router.get('/book/:id', function(req, res) {
         if(err){console.log(err);}
         console.log(items);
         
-        res.render('searchResults', {
+        res.render('bookResults', {
             "search" : items
         });
 
@@ -318,9 +318,9 @@ router.get('/book/buy/:id', function(req, res) {
                     from: 'URStash Seller <urstashseller@gmail.com>', // sender address
                     to: seller_email, // list of receivers
                     subject: "Selling "+ item_name , // Subject line
-                    text: 'Heyy! '+ user.req.firstname  +'wants to buy '+
+                    text: 'Heyy! '+ req.user.firstname  +'wants to buy '+
                        items[0].Name+ ' from you. Please contact the buyer at '+
-                       user.req.username+ ' and decide a time and place to meet and sell the item.' // plaintext body
+                       req.user.username+ ' and decide a time and place to meet and sell the item.' // plaintext body
                 };
 
                 // send mail with defined transport object

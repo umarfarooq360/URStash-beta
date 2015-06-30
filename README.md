@@ -29,11 +29,11 @@ npm start
 
 
 ###Whats to be done
-* Improve the UI. Create Login/Signup Page, About Us Section. MAKE SURE IDS MATCH. (Shiv)
-* Have the node server generate dynamic URL pages for new each item that the user clicks on. (Omar) (Alex frontend)
-* Implement buy/sell mechanism, and email sending.(John)
-* Notifications for item sold. 
+* Fix About Us Section to add 'how to use us'
+* Fix the bookResults page. Create a matching itemResults page.
+* Implement buy/sell mechanism, and email sending.
+* 404 Page!! Make it cool
+* Notifications for item sold. (maybe)
 * Maybe a settings/Profile page for users.
 * Performace optimization.
 * Testing and Demoing.
-

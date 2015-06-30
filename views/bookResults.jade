@@ -1,0 +1,18 @@
+extends blank_layout
+
+block content
+	h1 Searches
+	-if (typeof(search) === 'undefined' ){
+		//-do something
+		p No results found
+	-}else		
+		ul
+			each user, i in search
+				li
+					p #{user.Name} 
+					p #{user.Author}
+					p Price:  #{user.Price} $
+					p
+						a(href="/book/buy/" + user._id ) BUY
+					br
+					hr
