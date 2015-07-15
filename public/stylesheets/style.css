@@ -5,9 +5,15 @@
 
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Crimson Text', serif;
+  /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  */
   /*color:#fff;*/
   -webkit-font-smoothing:antialiased;
+}
+
+div{
+  font-family: 'Crimson Text', serif;
 }
 
 a {
@@ -20,16 +26,21 @@ p{
 }
 
 h1{
-  font-family: "Times New Roman", Times, serif;
+  font-family: 'Crimson Text', serif;
   
 }
 
 /*Custom navbar CSS*/
+nav{
+   font-family: 'Raleway', sans-serif;
+  text-transform: uppercase;
+}
 
 .navbar-inverse.navbar-expanded{
-  background:transpßarent;
+  background:transparent;
   border:none;
   color:#fff;
+ 
 }
 
 .navbar-fixed-top.navbar-expanded{
@@ -437,7 +448,19 @@ button :hover
 }
 
 
+/*Footer on the index page*/
+.footer{
+   position:absolute;
+   bottom:0;
+  width: 100%;
+  text-align: center;
+  height: 15%;
+  background-color: #aaa;
+}
 
+.footer-text{
+  margin: 20px 0px 0px;
+}
 
 
 .width{
@@ -480,13 +503,15 @@ button :hover
 }
 
 #team{
-  padding:20px 0;
-  height: 60%;
+  
+  text-align: center;
+  position: absolute;
+  top: 100px;
+  /*height: 60%;*/
   
 }
 
 #team ul{
-  padding: 0;
   display: block;
   list-style-type: disc;
   -webkit-margin-before: 1em;
@@ -496,20 +521,16 @@ button :hover
   -webkit-padding-start: 40px;
 }
 
-#team ul li{
+#team li{
   margin: 20px 0;
   font-size: 1.5rem;
-  list-style: none;
   float: left;
-  width: 25%;
-  max-width: 250px;
-  min-width: 160px;
   position: relative;
   text-align: center;
   display: list-item;
 }
 
-#team ul li .avatar{
+.avatar{
   width: 80%;
   height: 80%;
   display: block;
@@ -523,8 +544,8 @@ button :hover
 
 #omar{
   background-image: url("/images/omar.jpg");
-  background-position: left-center;
-}
+  width: auto;
+  }
 
 #john{
   background-image: url("/images/john.jpg");
