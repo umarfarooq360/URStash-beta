@@ -30,11 +30,11 @@ html
 									a.page-scroll(href="#page-top")
 								li
 									a(href="#search") Search
-							ul.navright
+							ul.nav.navbar-nav.navbar-right
 								//li
 									icon(type="submit" onclick="window.location.href='/'") <i class="fa fa-cubes"></i>		
-								li.navright
-									a(href='/newItem' title="Sell an Item") <i class="fa fa-money"></i>
+								li
+									a(href='/newItem' title="Sell an Item") Sell
 								//li 
 									button#cartBtn(type="submit" onclick="this.blur(); window.location.href = ''") <i class="fa fa-shopping-cart"></i>
 								//li.navright
@@ -43,17 +43,17 @@ html
 									if(user)
 										//a(href="/logout") Logout
 										a(href='/logout' title="Sign Out") <i class="fa fa-sign-out"></i>
-								li.navright
+								li
 									if(user)
 										a(href='/profile' title='Profile') Hey #{user.firstname}
 									else
-										a(href='/login' title="Sign In") <i class="fa fa-sign-in"></i>
+										a(href='/login' title="Sign In") Login
 				div#search
-					button.close(type="button") x
+					button.close(type="button") X
 					form#formSearch(name="search",method="post",action="/search")
-						input(type="search" value="" placeholder="Search")
-						button.btn.btn-primary#btnsearch(type="submit") Search Books
-						button.btn.btn-primary.otherbutton#btnsearch(type="submit") Search Items
+						input(type="search" name="searchItem" placeholder="Search")
+						button.btn.btn-primary.booksbutton#btnsearch(type="submit" value="books") Search Books
+						button.btn.btn-primary.otherbutton#btnsearch(type="submit" value="electronics") Search Items
 
 				//For the bkg image	
 				//img(src="/images/richmond6.jpg" id="bg" alt="") 

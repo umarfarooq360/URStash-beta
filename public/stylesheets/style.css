@@ -95,27 +95,7 @@ nav{
   min-height: 100%;
 }
 
-.navright{
-   float: right;
-   margin-right: 2em;
-   display: block;
-   font-size: 1.3em;
-   margin-bottom: 0px;
-   padding-top: 5px;
-   margin-top: auto;
-}   
 
-.navright a{
-  color: #777;
-
-}
-
-.navright a:hover{
-  color:white;
-  opacity:1;
-  text-decoration: none;
-  transition:all 0.5s;
-}
 
 
 
@@ -129,7 +109,6 @@ nav{
 }
 
 #navbar li#icon {
-  font-family:  'Kaushan Script', cursive; 
   float:left  ;  
   font-size:3em;
 }
@@ -343,6 +322,9 @@ button :hover
   	transform: translate(0px, 0px) scale(1, 1); 
     opacity: 1;
 }
+#search{
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+}
 
 #search input[type="search"] {
     position: absolute;
@@ -361,50 +343,32 @@ button :hover
     outline: none;
 }
 
+#search .booksbutton{
+  top: 50%; 
+}
+
 #search .otherbutton{
-    position: absolute;
     top: 60%;
-    left: 45%;
-    margin-top:61px;
-    margin-left: -45px;
 }
 
 #search .btn {
     position: absolute;
-    top: 50%;
-    left: 45%;
-    margin-top: 61px;
-    margin-left: -45px;
+     left: 35%;
+    margin-top: 40px;
+   
 }
 
-#search #radiob {
-  position: absolute;
-  top: 55%;
-  left: 55%;
-  margin-top: 80px;
-  margin-left: -45px;
-}
-
-
-
-#search #radiob2 {
-  position: absolute;
-  top: 55%;
-  left: 45%;
-  margin-top: 80px;
-  margin-left: -45px;
-}
 
 #search .close {
 	position: fixed;
-  	top: 90px;
-  	right: 15px;
-  	color: #fff;
-  	background-color: #428bca;
-  	border-color: #357ebd;
-  	opacity: 1;
-  	padding: 10px 17px;
-  	font-size: 27px;
+	top: 90px;
+	right: 15px;
+	color: #fff;
+	background-color: #428bca;
+	border-color: #357ebd;
+	opacity: 1;
+	padding: 10px 17px;
+	font-size: 27px;
 }
 
 
@@ -511,69 +475,17 @@ button :hover
   
 }
 
-#team ul{
-  display: block;
-  list-style-type: disc;
-  -webkit-margin-before: 1em;
-  -webkit-margin-after: 1em;
-  -webkit-margin-start: 0px;
-  -webkit-margin-end: 0px;
-  -webkit-padding-start: 40px;
-}
 
-#team li{
-  margin: 20px 0;
-  font-size: 1.5rem;
-  float: left;
-  position: relative;
-  text-align: center;
-  display: list-item;
-}
 
-.avatar{
-  width: 80%;
-  height: 80%;
-  display: block;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-  margin: 0 auto 10px;
-  z-index: 2;
-  border-radius: 30px;
-}
-
-#omar{
-  background-image: url("/images/omar.jpg");
+.team-image{
+  
   width: auto;
-  }
+  border-radius: 20px;
+ }
 
-#john{
-  background-image: url("/images/john.jpg");
-}
-
-#alex{
-  background-image: url("/images/alex.jpg");
-}
-
-#shiv{
-  background-image: url("/images/shiv.jpg");
-}
-
-#team ul li a{
-  color: #ddd;
-  text-decoration: none;
-  font-size: 1.3em;
-  font-weight: bold;
-}
 
 #team ul li a:hover{
   color: rgba(0,0,0,0.5);
-}
-
-#team ul li .title{
-  font-size: 1em;
-  color: #fff;
-  display: block;
 }
 
 .avatar{
