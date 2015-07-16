@@ -17,7 +17,8 @@ div{
 }
 
 a {
-  color: #00B7FF;
+  color: #b22222;
+  font-size: 14px;
 }
 
 p{
@@ -167,7 +168,7 @@ nav{
 }
 
 #divDescription{
-  min-height: 200px;
+  max-height: 200px;
   text-align: left;
   padding: 0px 100px;
  

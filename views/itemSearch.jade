@@ -1,0 +1,21 @@
+extends layout
+
+block centerBlock
+	div.results-list
+		h1 Search Results
+		-if (typeof(results) === 'undefined' ){
+			//-do something
+			p No results found
+		-}else		
+			ul
+				each user, i in results
+					li.book-box
+						p.book-title
+								a(href="/item/"  ) #{user.Name}
+						p.book-price #{user.Price}
+						p.book-isbn #{user.Description}
+
+						
+
+	//Adding the css
+	link(type='text/css', rel='stylesheet', href='stylesheets/results.css')

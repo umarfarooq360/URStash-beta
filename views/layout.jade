@@ -51,9 +51,12 @@ html
 				div#search
 					button.close(type="button") X
 					form#formSearch(name="search",method="post",action="/search")
-						input(type="search" name="searchItem" placeholder="Search")
-						button.btn.btn-primary.booksbutton#btnsearch(type="submit" value="books") Search Books
-						button.btn.btn-primary.otherbutton#btnsearch(type="submit" value="electronics") Search Items
+						input(type="search" name="searchItem" placeholder="Search" required)
+						div#hideThis
+							input#radio-book(type="radio", name="options", value="books" checked)
+							input#radio-electronics(type="radio", name="options",value="electronics")
+						button.btn.btn-primary.booksbutton#btnsearch(type="button" value="books") Search Books
+						button.btn.btn-primary.otherbutton#btnsearch(type="button" value="electronics") Search Items
 
 				//For the bkg image	
 				//img(src="/images/richmond6.jpg" id="bg" alt="") 

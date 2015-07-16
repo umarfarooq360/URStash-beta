@@ -3,7 +3,7 @@ extends layout
 block centerBlock
 	.section#sellSection
 		.slide
-			.jumbotron#indexJumbotron
+			.container#indexJumbotron
 				h1 Sell a Book
 				p Wanna sell some other  
 					a(href="") item?
@@ -17,7 +17,7 @@ block centerBlock
 							
 						div#divDescription.row
 						
-						div#hideThis
+						div#hideThis(hidden)
 							input#inputAuthor(type="text", placeholder="Author", name="bookauthor" readonly)
 							br
 							input#inputISBN(type="text", placeholder="ISBN", name="bookisbn" readonly)
@@ -39,7 +39,7 @@ block centerBlock
 						
 
 		.slide
-			.jumbotron#indexJumbotron
+			.container#indexJumbotron
 				h1 Sell an Item
 				p Electronics or Furniture
 				div.col-sm-12#enfOptions

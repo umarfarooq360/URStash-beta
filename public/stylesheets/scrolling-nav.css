@@ -48,13 +48,18 @@ of those sections to manage the look and feel of the site. */
 #indexJumbotron{
     height: 100%;
     width:100%;
-    padding-top:150px;
+    padding-top:100px;
     text-align: center;
     background: rgba(0,0,0,0.1);
 }
 
 #indexJumbotron h1{
     color: #fff;
+}
+
+#indexJumbotron a {
+  color: #b22222;
+  font-size: 1.4em;
 }
 
 .contact-section {

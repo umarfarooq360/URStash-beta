@@ -109,6 +109,22 @@ router.get('/showallusers', function(req, res) {
 });
 
 
+/* GET Search Results page. Shows all Items for debug purposes */
+router.get('/itemSearch', function(req, res) {
+    //var db = req.db;
+    //var collection = db.get('bookItems');
+    //First search
+    Item.find({},{},
+     function(err,items){
+        console.log(items);
+        res.render('itemSearch', {
+            "results" : items
+        });
+
+    });
+});
+
+
 
 /* GET Sell Success page. */
 router.get('/sell/success', function(req, res) {
@@ -122,7 +138,7 @@ router.post('/search', function(req, res) {
     var searchQuery = sanitize(req.body.searchItem);
     
     //See how the check boxes are set up
-    var options = "books";
+    var options = req.body.options;
     //CHANGED THIS COZ THE FRONTEND IS BROKEN NOW
     //***********************************FIX IT LATER
     //var options = req.body.options;
@@ -188,9 +204,6 @@ router.get('/newItem', function(req, res) {
 
 /* POST to Add User Service */
 router.post('/addItem', function(req, res) {
-
-  
-
     // Get our form values. These rely on the "name" attributes
 
     var bookName = req.body.bookname;
@@ -235,8 +248,7 @@ router.post('/addENF', function(req, res) {
     var enfPrice = req.body.enfprice;
     var enfSeller = req.user._id;
 
-    //log the seller's id
-    console.log(enfSeller);
+    
 
     //create amn item out of the fields
     var item = new Item({
@@ -248,6 +260,10 @@ router.post('/addENF', function(req, res) {
 
     });
 
+    //log the seller's id
+    console.log(enfSeller);
+    console.log(item);
+
     //save the item to the database
     item.save(function (err, doc) {
         if (err) {
@@ -256,9 +272,9 @@ router.post('/addENF', function(req, res) {
         }
         else {
             // If it worked, set the header so the address bar doesn't still say /addItem
-            res.location("searchResults");
+            res.location("itemSearch");
             // And forward to success page
-            res.redirect("searchResults");
+            res.redirect("itemSearch");
         }
     });
 
