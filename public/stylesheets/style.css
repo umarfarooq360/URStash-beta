@@ -28,7 +28,8 @@ p{
 
 h1{
   font-family: 'Crimson Text', serif;
-  
+  color: #fff;
+  font-size: 1.8em;
 }
 
 /*Custom navbar CSS*/
@@ -288,7 +289,7 @@ button :hover
 }
 
 #searchBarSection{
-  background-image: url(../images/richmond6.jpg);
+  background-image: url(../images/richmond6fade.jpg);
 }
 
 #search {
@@ -429,9 +430,9 @@ button :hover
 
 
 .width{
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px 20px 20px;
+  /*margin: 0 auto;*/
+  padding: 0 20px ;
+  text-align: center;
 }
 
 #aboutUs{
@@ -468,15 +469,12 @@ button :hover
 }
 
 #team{
-  
-  text-align: center;
-  position: absolute;
+ margin-top: 50px;
+  /*position: absolute;
   top: 100px;
-  /*height: 60%;*/
+  *//*height: 60%;*/
   
 }
-
-
 
 .team-image{
   
@@ -485,13 +483,6 @@ button :hover
  }
 
 
-#team ul li a:hover{
-  color: rgba(0,0,0,0.5);
-}
-
-.avatar{
-  text-align: center;
-}
 
 .loginSignUp{
   height: 80%;

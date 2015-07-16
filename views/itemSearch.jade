@@ -11,7 +11,7 @@ block centerBlock
 				each user, i in results
 					li.book-box
 						p.book-title
-								a(href="/item/"  ) #{user.Name}
+								a(href="/item/"+ user._id  ) #{user.Name}
 						p.book-price #{user.Price}
 						p.book-isbn #{user.Description}
 

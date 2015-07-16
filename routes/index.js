@@ -139,11 +139,7 @@ router.post('/search', function(req, res) {
     
     //See how the check boxes are set up
     var options = req.body.options;
-    //CHANGED THIS COZ THE FRONTEND IS BROKEN NOW
-    //***********************************FIX IT LATER
-    //var options = req.body.options;
-
-
+    
     if( options === "books"){
        
         //Search by name "Relevance" search
@@ -211,8 +207,7 @@ router.post('/addItem', function(req, res) {
     var bookISBN = req.body.bookisbn;
     var bookCondition = req.body.bookcondition;
     var bookPrice = req.body.bookprice;
-
-   
+ 
 
     // Submit to the DB
     var item = new Book({
@@ -221,7 +216,8 @@ router.post('/addItem', function(req, res) {
         "ISBN" : bookISBN,
         "Condition": bookCondition,
         "Price": bookPrice,
-        "Seller": req.user._id
+        "Seller": req.user._id,
+        "Sold": false
     });
 
     item.save(function (err, doc) {
@@ -256,8 +252,8 @@ router.post('/addENF', function(req, res) {
         "Description" : enfDescription,
         "Condition": enfCondition,
         "Price": enfPrice,
-        "Seller": enfSeller
-
+        "Seller": enfSeller,
+        "Sold": false
     });
 
     //log the seller's id
