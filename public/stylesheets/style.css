@@ -388,6 +388,8 @@ button :hover
   text-shadow: 0 2px 2px rgba(0,0,0,0.8);
 }
 
+
+
 /*the arrow and its anmations*/
 @-webkit-keyframes arrow-jump {
   0%   { opacity: 0;}
@@ -432,8 +434,10 @@ button :hover
 
 
 .width{
-  padding: 0px 20px ;
+  padding: 20px 20px ;
   text-align: center;
+  background-color: rgba(0,0,0,0.3);
+  
 }
 
 #aboutUs{
@@ -497,6 +501,10 @@ box-sizing: border-box;         /* Opera/IE 8+ */
 
 .team-image{
   border-radius: 60%;
+  width: 60%;
+  margin: 0 auto;
+  border-color: #eee;
+  border-width: 20px;
  }
 
 
