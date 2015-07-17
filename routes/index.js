@@ -146,7 +146,7 @@ router.post('/search', function(req, res) {
         console.log("Query is " + searchQuery);
         
         //Perform a text search and sort results by price and condition
-        Book.textSearch(searchQuery, {sort:{ Price: 1, Condition: -1 } }, 
+        Book.textSearch(searchQuery, {filter:{ Sold: false}, sort:{ Price: 1, Condition: -1 } }, 
             function(err, output){
                 if(!err){
                     console.log(output);
@@ -166,7 +166,7 @@ router.post('/search', function(req, res) {
         console.log("Query is " + searchQuery);
         
         //Perform a text search and sort results by price and condition
-        Item.textSearch(searchQuery, {sort:{ Price: 1, Condition: -1 } }, 
+        Item.textSearch(searchQuery, {filter:{ Sold: false},sort:{ Price: 1, Condition: -1 } }, 
             function(err, output){
                 if(!err){
                     console.log(output);
@@ -286,7 +286,7 @@ router.get('/book/:id', function(req, res) {
     //First search
     //Only for books
     console.log(req.params.id);
-    Book.find({ ISBN : req.params.id },{},
+    Book.find({ ISBN : req.params.id, Sold: false },{},
      function(err,items){
         if(err){console.log(err);}
         console.log(items);
@@ -308,14 +308,15 @@ router.get('/book/buy/:id', function(req, res) {
     //Only for books
     console.log(req.params.id);
 
-    //Find the book
-    Book.find({ _id : req.params.id },{},
+    //Find the book and set to sold
+    Book.findByIdAndUpdate(req.params.id ,
+       {$set: {Sold: true}},{},
      function(err,items){
         if(err){console.log(err);}
-        
-        //Find the seller from db   
-        var seller = items[0].Seller;
         console.log(items);
+        //Find the seller from db   
+        var seller = items.Seller;
+        
         
         Account.find({ _id: seller},{}, 
             function(error,results){
@@ -324,14 +325,14 @@ router.get('/book/buy/:id', function(req, res) {
                 console.log(results);    
                 var seller_email = results[0].username;
                  console.log("Seller email: " + seller_email);
-                var item_name = items[0].Name;
+                var item_name = items.Name;
                 //Mail the seller
                 var mailOptions = {
                     from: 'URStash Seller <urstashseller@gmail.com>', // sender address
                     to: seller_email, // list of receivers
                     subject: "Selling "+ item_name , // Subject line
                     text: 'Heyy! '+ req.user.firstname  +'wants to buy '+
-                       items[0].Name+ ' from you. Please contact the buyer at '+
+                       items.Name+ ' from you. Please contact the buyer at '+
                        req.user.username+ ' and decide a time and place to meet and sell the item.' // plaintext body
                 };
 

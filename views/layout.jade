@@ -45,7 +45,9 @@ html
 										a(href='/logout' title="Sign Out") <i class="fa fa-sign-out"></i>
 								li
 									if(user)
-										a(href='/profile' title='Profile') Hey #{user.firstname}
+										a(href='/profile' title='Profile') Hey, #{user.firstname}
+										li
+											a(href='/logout' ) Logout
 									else
 										a(href='/login' title="Sign In") Login
 				div#search
