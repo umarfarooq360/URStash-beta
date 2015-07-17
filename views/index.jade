@@ -18,15 +18,14 @@ block centerBlock
 					input.form-control#inputSearch(type="search" name="searchItem" required placeholder="Search")
 					.row
 						input#radio(type="radio", name="options", value="books" checked)
-						|  Books   |
+						|  Books   
 						input#radio(type="radio", name="options",value="electronics")
 						|   Electronics & Furniture
 					.row
 						button.btn.btn-info#btnSearch(type="submit") Search
 			<i class="fa fa-caret-down" id="downarrow"></i>
 
-	div.section
-		#about
+	div.section#about
 			.width
 				h4#aboutUs About URStash
 				span#ourstory OUR STORY
@@ -34,10 +33,10 @@ block centerBlock
 				p#aboutUs
 					<i class="fa fa-caret-down" id="downarrow"></i>
 
-	div.section
+	div.section#team
 		.width
-			h1 The TEAM
-			.row#team
+			h1 The geeks behind URStash
+			.row
 				.col-sm-3
 					img(src="/images/omar.jpg" class="img-responsive team-image") 
 					a(href="") Omar Farooq
