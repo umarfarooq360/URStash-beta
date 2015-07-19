@@ -55,6 +55,10 @@ of those sections to manage the look and feel of the site. */
 
 #indexJumbotron h1{
     color: #fff;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 #indexJumbotron a {

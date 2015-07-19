@@ -23,6 +23,7 @@ a {
 
 p{
   color: #fff;
+  font-size: 1.2em;
   
 }
 
@@ -419,19 +420,30 @@ button :hover
   text-align: center;
   height: 15%;
   color: rgba(192, 192, 192, 0.8);
+  background-color: #111;
 }
 
 .footer-text{
-  font-size: 1em;
+  font-size: 1.2em;
   font-family: 'Open Sans';
-  margin: 20px 0px 0px;
+  margin: 0px 0px 0px;
 }
 
 .footer-text a{
    font-size: 1em;
   font-family: 'Open Sans';
 }
+.social{
+  width: 100%;
+  text-align: center;
+  height: 40%;
+  background-color: #444;
 
+}
+
+.social-list{
+  vertical-align: center;
+}
 
 .width{
   padding: 20px 20px ;
@@ -441,10 +453,15 @@ button :hover
 }
 
 #aboutUs{
-  font-size:2.5em;
-  font-family:'mueso_sans700', sans-serif;
+  font-size:3.0em;
+  /*font-family:'mueso_sans700', sans-serif;*/
   margin: 60px auto 10px;
   text-align: center;
+  text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+color:#FFF;
 }
 
 #ourStory{
@@ -467,10 +484,9 @@ button :hover
   max-width: 600px;
   margin: 40px auto;
   line-height: 1.5em;
-  font-size: 1.2em;
+  font-size: 1.5em;
   padding: 10px;
-  font-size: 1.2em;
-  text-shadow:5px;
+  
 }
 
 #team{
