@@ -12,11 +12,16 @@ block centerBlock
 					li.book-box
 						p.book-title
 							a(href="/book/" + user.ISBN ) #{user.Name} 
-						p.book-price #{user.Price} $
-							br
-							a(href="/book/buy/" + user._id ) BUY
+						a(href="/book/buy/" + user._id )
+							.book-price		
+								p #{user.Price} $
+								br
+								p BUY
 						p.book-author #{user.Author}
-						p.book-isbn #{user.ISBN}
+						p.book-isbn #{user.ISBN}	
+						
+						
+						
 
 	//Adding the css
 	link(type='text/css', rel='stylesheet', href='/stylesheets/results.css')

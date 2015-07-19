@@ -434,7 +434,7 @@ button :hover
   font-family: 'Open Sans';
 }
 .social{
-  width: 100%;
+
   text-align: center;
   height: 40%;
   background-color: #444;
@@ -442,7 +442,16 @@ button :hover
 }
 
 .social-list{
-  vertical-align: center;
+  list-style: none;
+  display: inline;
+  font-size: 2em; 
+  margin: 0 auto;
+  text-align: center;
+}
+
+.social-list li {
+    display: inline;
+    padding: 5px 10px;
 }
 
 .width{
@@ -517,10 +526,10 @@ box-sizing: border-box;         /* Opera/IE 8+ */
 
 .team-image{
   border-radius: 60%;
-  width: 60%;
   margin: 0 auto;
   border-color: #eee;
   border-width: 20px;
+  max-height: 90%;
  }
 
 

@@ -1,0 +1,73 @@
+extends layout
+
+block centerBlock
+
+	div#loggit
+		h1
+			i.fa.fa-lock
+			|Loggit
+		h3
+			| Please 
+			strong Login
+			|or 
+			strong Register
+		form#logForm.form-horizontal(action='#', method='post')
+			.form-group
+			.col-xs-12
+				.input-group
+				span.input-group-addon
+					i.fa.fa-envelope.fa-fw
+				input.form-control.input-lg(type='text', placeholder='Email', autocomplete='off')
+			.form-group
+			.col-xs-12
+				.input-group
+				span.input-group-addon
+					i.fa.fa-key.fa-fw
+				input.form-control.input-lg(type='password', placeholder='Password', autocomplete='off')
+			.form-group.formSubmit
+			.col-sm-7
+				.checkbox
+				label
+					input(type='checkbox', checked='', autocomplete='off')
+					|Keep me logged in
+			.col-sm-5.submitWrap
+				button.btn.btn-primary.btn-lg(type='submit') Log In
+			.form-group.formNotice
+			.col-xs-12
+				p.text-center
+				| Don't have an account? 
+				span Register now
+		form#regForm.form-horizontal(action='#', method='post')
+			.form-group
+			.col-xs-12
+				.input-group
+				span.input-group-addon
+					i.fa.fa-user.fa-fw
+				input.form-control.input-lg(type='text', placeholder='Username', autocomplete='off')
+			.form-group
+			.col-xs-12
+				.input-group
+				span.input-group-addon
+					i.fa.fa-envelope.fa-fw
+				input.form-control.input-lg(type='text', placeholder='Email', autocomplete='off')
+			.form-group
+			.col-xs-12
+				.input-group
+				span.input-group-addon
+					i.fa.fa-key.fa-fw
+				input.form-control.input-lg(type='password', placeholder='Password', autocomplete='off')
+			.form-group.formSubmit
+			.col-sm-7
+				.checkbox
+				label
+					input(type='checkbox', autocomplete='off')
+					|I agree to the Terms & Conditions
+			.col-sm-5.submitWrap
+				button.btn.btn-success.btn-lg(type='submit') Register
+			.form-group.formNotice
+			.col-xs-12
+				p.hasAccount.text-center
+				| Already have an account? 
+				span Log in here
+
+link(rel="stylesheet", href="/stylesheets/login.css")			

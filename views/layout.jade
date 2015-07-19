@@ -55,18 +55,21 @@ html
 					button.close(type="button") X
 					form#formSearch(name="search",method="post",action="/search")
 						input(type="search" name="searchItem" placeholder="Search" required)
+						//-DONOT REMOVE THIS DIV OR THE SEARCH WONT WORK
+						div#hideThis
+							input#radio-book(type="radio", name="options", value="books" checked)
+							input#radio-electronics(type="radio", name="options",value="electronics")
 						.row#searchButtons
 							.col-sm-6
 								button.btn.btn-primary.booksbutton#btnsearch(type="button" value="books") Search Books
 							.col-sm-6
 								button.btn.btn-primary.otherbutton#btnsearch(type="button" value="electronics") Search Items
-				//For the bkg image	
-				//img(src="/images/richmond6.jpg" id="bg" alt="") 
+				//-For the bkg image	
+				//-img(src="/images/richmond6.jpg" id="bg" alt="") 
 				
 			block centerBlock
 
-				
-	
+
 script(type='text/javascript', src='/js/jquery.js')
 //script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
 script(type='text/javascript', src='/js/jquery.leanModal.min.js')

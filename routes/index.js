@@ -357,6 +357,11 @@ router.get('/book/buy/:id', function(req, res) {
 });
 
 
+/* GET home page. */
+router.get('/tmplogin', function(req, res) {
+    res.render('tmplogin', { layout: 'layout',title: 'URstash' , user:req.user});
+});
+
 
 
 module.exports = router;
