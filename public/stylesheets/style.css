@@ -389,6 +389,54 @@ button :hover
   text-shadow: 0 2px 2px rgba(0,0,0,0.8);
 }
 
+#howTo{
+  background-image: url(../images/richmond2.jpg);
+  background-size: cover;
+  text-shadow: 0 2px 2px rgba(0,0,0,0.8);
+}
+
+#signupicon{
+  margin: 0px auto;
+  text-align: center;
+  font-size: 40px;
+  color: #fff;
+  -webkit-animation: arrow-jump 1s infinite;
+  -moz-animation: arrow-jump 1s infinite
+ -o-animation: arrow-jump 1s infinite;
+  animation: arrow-jump 1s infinite;
+}
+
+#howToHeading{
+  font-size:3.0em;
+  /*font-family:'mueso_sans700', sans-serif;*/
+  text-align: center;
+  text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+  color:#FFF;
+}
+
+#howDescrip{
+    font-size:2.0em;
+  /*font-family:'mueso_sans700', sans-serif;*/
+  text-align: center;
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color:#FFF;
+}
+
+#howDescrip2{
+    font-size:1.5em;
+  /*font-family:'mueso_sans700', sans-serif;*/
+  text-align: center;
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color:#FFF;
+}
+
 
 
 /*the arrow and its anmations*/
