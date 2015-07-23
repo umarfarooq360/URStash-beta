@@ -172,10 +172,10 @@ nav{
 }
 
 #divDescription{
-  max-height: 200px;
+  margin: 10px auto;
+  max-width: 80%;
   text-align: left;
   padding: 0px 100px;
- 
 }
 
 .ui-helper-hidden-accessible { display:none; }
@@ -294,7 +294,7 @@ button :hover
 /*Background images for fullPage*/
 
 #searchBarSection{
-  background-image: url(../images/richmond.jpg);
+  background-image: url(../images/richmond7.jpg);
 }
 
 #search {
@@ -379,7 +379,18 @@ button :hover
 
 }
 
+#notfound{
+  background-image: url(../images/goose.jpg);
+  background-size: cover;
+}
 
+#notfound h1{
+  text-transform: uppercase;
+  text-align: center;
+  color:rgba(255,255,255,0.9);
+  text-shadow:2px;
+  margin: 10px;
+}
 
 #about{
   background-image: url(../images/richmond4.jpg);
@@ -387,6 +398,54 @@ button :hover
   color:white;
   /*height: 80%;*/
   text-shadow: 0 2px 2px rgba(0,0,0,0.8);
+}
+
+#howTo{
+  background-image: url(../images/richmond8.jpg);
+  background-size: cover;
+  text-shadow: 0 2px 2px rgba(0,0,0,0.8);
+}
+
+#signupicon{
+  margin: 0px auto;
+  text-align: center;
+  font-size: 40px;
+  color: #fff;
+  -webkit-animation: arrow-jump 1s infinite;
+  -moz-animation: arrow-jump 1s infinite
+ -o-animation: arrow-jump 1s infinite;
+  animation: arrow-jump 1s infinite;
+}
+
+#howToHeading{
+  font-size:3.0em;
+  /*font-family:'mueso_sans700', sans-serif;*/
+  text-align: center;
+  text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+  color:#FFF;
+}
+
+#howDescrip{
+    font-size:2.0em;
+  /*font-family:'mueso_sans700', sans-serif;*/
+  text-align: center;
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color:#FFF;
+}
+
+#howDescrip2{
+    font-size:1.5em;
+  /*font-family:'mueso_sans700', sans-serif;*/
+  text-align: center;
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color:#FFF;
 }
 
 
@@ -560,6 +619,7 @@ box-sizing: border-box;         /* Opera/IE 8+ */
   text-align: center;
   color:rgba(255,255,255,0.9);
   text-shadow:2px;
+  margin: 10px;
 }
 
 .loginSignUp .form-signin-heading, .form-signin{
@@ -624,6 +684,11 @@ box-sizing: border-box;         /* Opera/IE 8+ */
   #indexJumbotron{
     text-shadow: 0 2px 2px rgba(0,0,0,0.8);
     color: #fff;
+    /*important otherwise overflow takes place!*/
+  }
+
+  #sellSection #indexJumbotron{
+    overflow: auto;
   }
 
   #loginButtons{
@@ -720,15 +785,27 @@ transition: all 0.3s;
   text-align: center;
 }
 
+#login h1, #signup h1{
+    color: #fff;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
 /*new Item page*/
 #sellSection{ 
-  background-image: url(../images/richmond.jpg);
+  background-image: url(../images/richmond7.jpg);
+  background-size: cover;
+  overflow: auto;
+  text-shadow: 0 2px 2px rgba(0,0,0,0.8);
 }
 
 
 .input-elements{   
     margin: auto;
     max-width: 500px;
+}
 
 }
 
