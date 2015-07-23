@@ -152,7 +152,7 @@ router.post('/search', function(req, res) {
                     console.log(output);
                     res.render('search', {
                             "search" : output,
-                            "type": 0
+                            "type": 0, user:req.user
                         });
                     }else{
                         console.log("ERROR"+ err);
@@ -173,6 +173,7 @@ router.post('/search', function(req, res) {
                     res.render('search', {
                             "search" : output,
                             "type": 1
+                            , user:req.user
 
 
                         });
@@ -292,7 +293,8 @@ router.get('/book/:id', function(req, res) {
         console.log(items);
         
         res.render('bookResults', {
-            "search" : items
+            "search" : items , user:req.user
+
         });
 
     });

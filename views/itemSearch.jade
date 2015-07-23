@@ -7,13 +7,24 @@ block centerBlock
 			//-do something
 			p No results found
 		-}else		
+			//-iterate over all the items/users and display them
 			ul
 				each user, i in results
 					li.book-box
-						p.book-title
-								a(href="/item/"+ user._id  ) #{user.Name}
-						p.book-price #{user.Price}
-						p.book-isbn #{user.Description}
+						.row
+							.col-xs-8.col-md-10
+								p.book-title
+									a(href="/item/"+ user._id  ) #{user.Name}
+							.col-md-2
+								.book-price-down
+									p #{user.Price} $
+						.row
+							.col-xs-9
+								p.book-isbn #{user.Description}
+							.col-xs-12.col-sm-3
+								a(href="/item/buy/" + user._id )
+									.book-buy
+										p BUY	
 
 						
 

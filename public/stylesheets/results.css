@@ -55,6 +55,15 @@ body{
 	font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+.book-price-down{
+	text-align: right;
+	margin: 15px 40px 10px 0px;
+	  /* float: right; */
+	color: #628B9F;
+	font-size: 1.5em;
+	font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
 .book-isbn{
 	 margin: 10px 50px;
 }
@@ -66,15 +75,21 @@ body{
 
 .book-buy{
 	text-align: center;
-	float: right;
 	color: #628B9F;
 	font-size: 1.2em;
 	font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-	margin: 0.9em 0px 0px;
-	border:solid;
-	max-width: 30%;
-
+	padding: 0.3em 0.5em;
+	margin-bottom: 10px;
+	border: solid;
+	background-color: #628B9F;
+	border-top-left-radius: 15%;
+	opacity: 0.8;
+	
 }
+
+.book-buy:hover{
+opacity: 1.0;
+	}
 
 li.book-box:hover {
   background-color:rgba(240,240,240,0.7);;
