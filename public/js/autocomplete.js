@@ -38,9 +38,11 @@ $(document).ready(function () {  // only begin once page has loaded
             // first clear anything that may already be in the description
             console.log("yayya");
             $('#divDescription').empty();
+           
             // we get the currently selected item using ui.item
             // show a pic if we have one
-            if (ui.item.image != '')
+            
+                        if (ui.item.image != '')
             {
                 $('#divDescription').append('<img src="' + ui.item.image + '" style="float: left; padding: 12px;">');
             }
@@ -58,8 +60,6 @@ $(document).ready(function () {  // only begin once page has loaded
             }
             $('#inputAuthor').val(ui.item.author);
             $('#inputISBN').val(ui.item.isbn[0].identifier);
-
-
 
         },
         minLength: 2 // set minimum length of text the user must enter

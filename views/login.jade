@@ -4,10 +4,6 @@ extends layout
 block centerBlock
 	.section#searchBarSection
 		.slide
-			//Edited this out. To make page cleaner
-			//.jumbotron#loginJumbo
-				h1 URStash.
-				p Start saving. Start stacking.
 			
 			#loginRow
 				form#login(name="login",method="post",action="/login")
@@ -18,10 +14,6 @@ block centerBlock
 					button.btn.btn-lg.btn-primary.btn-block#btnlogin(type=submit, title = "Your username or password was invalid. Try again.") Log In
 					p Don't have an account? 
 						a#signupbutton Sign Up
-					div#emailError
-						p Log in with your UR email.
-					div#passwordError
-						p You hopefully remember your password, right?
 
 		.slide
 			#signupRow
@@ -35,12 +27,6 @@ block centerBlock
 						button.btn.btn-lg.btn-primary.btn-block#btnsignup(type=submit) Sign Up
 						p Already have an account? 
 							a#loginbutton(type="button") Log In
-						div#emailPrompt
-							p Sign up with your UR email address.
-						div#passwordPrompt
-							p Enter a password greater than 6 characters in length.
-						div#numberPrompt
-							p So that we can connect you with other stashers.
 
 
 //file Shiv wrote is validate.js
