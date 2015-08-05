@@ -349,12 +349,25 @@ button :hover
     padding-right: 30px;
     outline: none;
 }
+
+
 #search #searchButtons{
   top: 60%;
   position: absolute;
-  margin: 0 30%;
+  margin: 0px 20%;
 }
 
+#search #searchLogo {
+  top: 20%;
+  position: absolute;
+  margin-left: 40%
+  
+}
+
+#search #searchLogo img{
+   margin: 0px auto;
+  height:20%;
+}
 
 
 #search .close {
@@ -739,22 +752,23 @@ box-sizing: border-box;         /* Opera/IE 8+ */
   }
 
 #loginButtons .btn, #btnSearch{
-border: 2px solid #fff;
-color: #fff;
-color: inherit;
-background-color: rgba(0,0,0,0.5);
-cursor: pointer;
-padding: 10px 60px;
-display: inline-block;
-margin: 5px 15px;
-text-transform: uppercase;
-letter-spacing: 1px;
-font-weight: 700;
-outline: none;
-position: relative;
--webkit-transition: all 0.3s;
--moz-transition: all 0.3s;
-transition: all 0.3s;
+  border: 2px solid #fff;
+  color: #fff;
+  color: inherit;
+  background-color: rgba(0,0,0,0.5);
+  cursor: pointer;
+  padding: 10px 60px;
+  display: inline-block;
+  margin: 5px 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+
 }
 
 #btnSearch{

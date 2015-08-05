@@ -1,29 +1,28 @@
 extends layout
-//- Test page to list all items 
-
+//- This page gets loaded when we searhc for an item
 block centerBlock
 	div.results-list
 		h1 Search Results
-		-if (typeof(results) === 'undefined' ){
+		-if (typeof(search.results) === 'undefined' ){
 			//-do something
 			p No results found
-		-}else		
+		-}else
 			//-iterate over all the items/users and display them
 			ul
-				each user, i in results
+				each user, i in search.results
 					li.book-box
 						.row
 							.col-xs-8.col-md-10
 								p.book-title
-									a(href="/item/"+ user._id  ) #{user.Name}
+									a(href="/item/"+ user.obj._id ) #{user.obj.Name}
 							.col-md-2
 								.book-price-down
-									p #{user.Price} $
+									p #{user.obj.Price} $
 						.row
 							.col-xs-9
-								p.book-isbn #{user.Description}
+								p.book-isbn #{user.obj.Description}
 							.col-xs-12.col-sm-3
-								a(href="/item/buy/" + user._id )
+								a(href="/item/buy/" + user.obj._id )
 									.book-buy
 										p BUY	
 

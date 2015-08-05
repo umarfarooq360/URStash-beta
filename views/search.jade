@@ -5,7 +5,7 @@ block centerBlock
 		h1 Search Results
 		-if (typeof(search.results) === 'undefined' ){
 			//-do something
-			p No results found
+			p.book-author No results found
 		-}else		
 			ul
 				each user, i in search.results

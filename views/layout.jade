@@ -54,6 +54,9 @@ html
 				div#search
 					button.close(type="button") X
 					form#formSearch(name="search",method="post",action="/search")
+						.row#searchLogo
+							.col-md-12
+								img(src='/images/pig_icon_grey_big.png')
 						input(type="search" name="searchItem" placeholder="Search" required)
 						//-DONOT REMOVE THIS DIV OR THE SEARCH WONT WORK
 						div#hideThis
@@ -62,6 +65,7 @@ html
 						.row#searchButtons
 							.col-sm-6
 								button.btn.btn-primary.booksbutton#btnsearch(type="button" value="books") Search Books
+							
 							.col-sm-6
 								button.btn.btn-primary.otherbutton#btnsearch(type="button" value="electronics") Search Items
 				//-For the bkg image	

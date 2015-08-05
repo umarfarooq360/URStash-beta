@@ -1,21 +1,8 @@
 
 $(document).ready(function () {  // only begin once page has loaded
     var $searchBox = $('#inputName'); //will check for jQ
-    $('#hideThis').hide(); //hides the two inputs
-
-    //Adds functionality to the seach popup search
-    $('.booksbutton').click( function(){
-        $("#radio-book").prop("checked", true)
-        $('form#formSearch').submit();
-    });
-
-    $('.otherbutton').click( function(){
-        $("#radio-electronics").prop("checked", true)
-        $('form#formSearch').submit();
-    });
-
-
-
+    
+    
     $searchBox.autocomplete({ // attach auto-complete functionality to textbox
         // define source of the data
         source: function (request, response) {
