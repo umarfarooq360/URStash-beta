@@ -12,6 +12,7 @@ body {
   -webkit-font-smoothing:antialiased;
 }
 
+/*blur edges of sections*/
 .section{
       box-shadow: 0px 0px 10px 9px #1F2730 inset;
 }

@@ -14,6 +14,8 @@ var check3 = false;
 var logincheck1 = false;
 var logincheck2 = false;
 
+//login validation
+
 $("#emailForm").focus(function(){
 }).keyup(function(){
 	$(this).css("border-color", "red");
@@ -41,6 +43,8 @@ function logincheck(){
 		$("#btnlogin").prop('disabled', false);
 	}
 }
+
+//signup validation
 
 
 $("#emailForm2").focus(function(){
