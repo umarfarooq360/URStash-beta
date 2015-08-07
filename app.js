@@ -61,7 +61,7 @@ initPassport(passport);
 
 // Configure passport-local to use user model for authentication
 var Account = require('./models/user');
-passport.use(Account.createStrategy(    ));
+passport.use(Account.createStrategy());
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 

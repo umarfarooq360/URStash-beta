@@ -36,17 +36,26 @@ router.get('/', function(req, res) {
 
 /* Handle Login POST */
 router.post('/login', passport.authenticate('local',{ successRedirect: '/',
-                                   failureRedirect: '/login',
-                                   failureFlash: "Ahhhh!!Wrong" }), function(req, res) {
+                       failureRedirect: '/loginerror', successFlash: 'Welcome!' ,
+                       failureFlash: true }
+
+    )
+);
+
+/* GET New User page. */
+router.get('/login', function(req, res) {
     
-    res.redirect('/');
+    res.render('login', { title: 'Login/Signup' ,user:req.user, message: '' });
+   
 
 });
 
 /* GET New User page. */
-router.get('/login', function(req, res) {
-    res.render('login', { title: 'Login/Signup' ,user:req.user });
+router.get('/loginerror', function(req, res) {    
+    res.render('login', { title: 'Login/Signup' ,user:req.user, message: 'Incorrect username or password!' });
 });
+
+
 
 router.get('/logout', function(req, res) {
     req.logout();

@@ -831,3 +831,10 @@ box-sizing: border-box;         /* Opera/IE 8+ */
   min-height: 100px;
   margin-top: 20px;
 }
+
+/*for flash messages e.g. incorrect login*/
+.flash-message {
+  font-weight: 200;
+  color: red;
+  
+}
