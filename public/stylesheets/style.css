@@ -12,6 +12,10 @@ body {
   -webkit-font-smoothing:antialiased;
 }
 
+.section{
+      box-shadow: 0px 0px 10px 9px #1F2730 inset;
+}
+
 div{
   font-family: 'Crimson Text', serif;
 }
