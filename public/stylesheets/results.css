@@ -74,6 +74,7 @@ body{
 
 }
 
+
 .book-buy{
 	text-align: center;
 	color: #628B9F;
@@ -82,14 +83,13 @@ body{
 	padding: 0.3em 0.5em;
 	margin-bottom: 10px;
 	border: solid;
-	background-color: #628B9F;
+	background-color: #0F0F26;
 	border-top-left-radius: 15%;
-	opacity: 0.8;
-	
+	opacity: 1;
 }
 
 .book-buy:hover{
-		opacity: 0.8;
+	opacity: 0.9;
 }
 
 li.book-box:hover {
