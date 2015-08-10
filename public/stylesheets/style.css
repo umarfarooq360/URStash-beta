@@ -14,8 +14,15 @@ body {
 
 /*blur edges of sections*/
 .section{
-      box-shadow: 0px 0px 10px 9px #1F2730 inset;
+      box-shadow: 0px 0px 10px 9px #5C5C5C inset;
 }
+
+/*Lifted row containing pictures so that our positions are visible*/
+#ourpictures{
+  margin-top: -30px;
+}
+
+
 
 div{
   font-family: 'Crimson Text', serif;
@@ -565,6 +572,7 @@ color:#FFF;
 #team{
  background-image: url(../images/richmond6fade.jpg);
  background-size: cover;
+ text-shadow: 2px 2px 0 #000
 }
 /*Included this to try and change padding of h1 without shifting pictures*/
 #team .width{
@@ -821,4 +829,38 @@ transition: all 0.3s;
 #inputDescENF{
   min-height: 100px;
   margin-top: 20px;
+}
+
+
+#terms{
+  font-size: 10px;
+  float: right;
+  text-decoration: none;
+  padding-top: 5px;
+}
+
+#terms:hover{
+  opacity: 0.5;
+};
+
+#getintouch{
+  text-align: center;
+}
+
+#termsandcon{
+  background-image: url(../images/richmond7.jpg);
+  background-size: cover;
+  text-shadow: 0 3px 3px rgba(0,0,0,0.8);
+}
+
+#termsandcon h1, #termsandcon h3{
+  color: #fff;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+#termsandcon p{
+  font-size: 1.2em;
 }

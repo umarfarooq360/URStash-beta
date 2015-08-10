@@ -1,4 +1,6 @@
 
+
+
 $("#validEmail").hide();
 $("#validPassword").hide();
 $("#validNumber").hide();
@@ -19,8 +21,8 @@ var logincheck2 = false;
 $("#emailForm").focus(function(){
 }).keyup(function(){
 	$(this).css("border-color", "red");
-	var val = $(this).val();
-	if(val.includes('richmond.edu')){
+	var val = $(this).val().toLowerCase();
+	if(val.includes('richmond.edu') && val.includes('.')){
 		$(this).css("border-color", "green");
 		logincheck1 = true;
 		logincheck();
@@ -53,8 +55,8 @@ $("#emailForm2").focus(function(){
 	$("#validEmail").fadeIn("slow");
 }).keyup(function(){
 	$(this).css("border-color", "red");
-	var val = $(this).val();
-	if(val.includes('richmond.edu')){
+	var val = $(this).val().toLowerCase();
+	if(val.includes('richmond.edu') && val.includes('.')){
 		$(this).css("border-color", "green");
 		check1 = true;
 		check();

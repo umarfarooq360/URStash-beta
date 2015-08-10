@@ -300,6 +300,8 @@ router.get('/book/:id', function(req, res) {
     });
 });
 
+
+
 /* GET To actually sell a book */
 router.get('/book/buy/:id', function(req, res) {
     //Redirect if not logged in
@@ -362,6 +364,11 @@ router.get('/book/buy/:id', function(req, res) {
 /* GET home page. */
 router.get('/tmplogin', function(req, res) {
     res.render('tmplogin', { layout: 'layout',title: 'URstash' , user:req.user});
+});
+
+// Link to terms and conditions page when clicked - Omar, change this as necessary!
+router.get('/terms', function(req,res){
+    res.render('terms', {layout: 'layout', title: 'Terms and conditions'});
 });
 
 
