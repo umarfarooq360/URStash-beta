@@ -314,7 +314,7 @@ router.get('/book/buy/:id', function(req, res) {
     //Redirect if not logged in
     if(!req.user){
         res.render('login', { title: 'Login/Signup', message:"Please login!"} );
-    }
+    }else{
 
     //Only for books
     console.log(req.params.id);
@@ -364,11 +364,11 @@ router.get('/book/buy/:id', function(req, res) {
 
         
 
-    });
+    });}
 });
 
 
-/* GET To actually sell a book */
+/* GET To actually sell an item */
 router.get('/item/buy/:id', function(req, res) {
     //Redirect if not logged in
     if(!req.user){
