@@ -3,8 +3,8 @@
 $("#validEmail").hide();
 $("#validPassword").hide();
 $("#validNumber").hide();
-$("#btnsignup").prop('disabled', true);
-$("#btnlogin").prop('disabled', true);
+$("#btnsignup").prop('enabled', true);
+$("#btnlogin").prop('enabled', true);
 
 //check to see if everything is good on sign up form
 var check1 = false;
@@ -32,7 +32,7 @@ $("#passForm").focus(function(){
 }).keyup(function(){
 	$(this).css("border-color", "red");
 	var val = $(this).val();
-	if(val.length >= 6){
+	if(val.length >= 4){
 		$(this).css("border-color", "green");
 		logincheck2 = true;
 		logincheck();
