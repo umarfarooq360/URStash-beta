@@ -34,23 +34,29 @@ block centerBlock
 				<i class="fa fa-caret-down" id="downarrow"></i>
 	div.section#howTo
 		.slide
-			h1#howDescrip URstash is designed so simply that even your grandma could figure it out. 
+			div#indexJumbotron
+				<i class="fa fa-laptop description-icon"></i>
+				h1#howDescrip URstash is designed so simply that even your grandma could figure it out. 
 		.slide
-			h1#howDescrip Sign up so that you can start stashing. 
+			div#indexJumbotron
+				<i class="fa fa-usd description-icon"></i>
+				h2#howDescrip Sign up and start $elling.
 		.slide
-			h2#howDescrip2 Hit 'Sell' and tell us what you'd like to get rid off. Tell us the price you want to sell for and its condition.  
-			h2#howDescrip2 Don't bullshit.
+			div#indexJumbotron
+				<i class="fa fa-users description-icon"></i>
+				h2#howDescrip If someone's interested in buying your item, we'll send you an email. 
+				h2#howDescrip You can meet up and complete the transaction yourself. 
 		.slide
-			h2#howDescrip2 If someone's interested in buying your item, we'll send you an email. 
-			h2#howDescrip2 We hand this over to you. Once you're sale is completed, let us know.
-		.slide
-			h2#howDescrip No strings attached..who said only air was free?
+			div#indexJumbotron
+				<i class="fa fa-visa description-icon"></i>
+				h2#howDescrip No strings attached! 
+				h2#howDescrip No credit card needed!
 	div.section#team
 		.width
 			h4#aboutUs The Team behind URStash
 				br
 				br
-			.row
+			.row#ourpictures
 				.col-sm-3
 					img(src="/images/omar.jpg" class="img-responsive team-image") 
 					a(href="") Omar Farooq
@@ -67,7 +73,7 @@ block centerBlock
 					br
 					span.title Front-End Developer
 				.col-sm-3
-					img(src="/images/alex.jpg" class="img-responsive team-image")
+					img(src="/images/alex2.jpg" class="img-responsive team-image")
 					a(href="") Alexandru Pana
 					br
 					span.title Tester
@@ -83,8 +89,11 @@ block centerBlock
 					li
 						i(class="fa fa-github")		
 
-			div.col-sm-12.footer-text To get in touch with the team, email us at 
-				a(href="mailto:urstash@gmail.com") urstash@gmail.com
+			div.col-sm-12.footer-text#getintouch To get in touch with the team, email us at 
+				a#terms(href="/terms")
+							h4 Terms and conditions
+				p#photocred Photos by Ziad Shafi '18
+				a(href="mailto:urstash@gmail.com") urstashed@gmail.com
 				p &copy; URStash 2015
 
 

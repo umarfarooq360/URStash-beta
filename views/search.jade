@@ -3,9 +3,9 @@ extends layout
 block centerBlock
 	div.results-list
 		h1 Search Results
-		-if (typeof(search.results) === 'undefined' ){
+		-if (search.results.length <1 ){
 			//-do something
-			p.book-author No results found
+			h3 No results found
 		-}else		
 			ul
 				each user, i in search.results

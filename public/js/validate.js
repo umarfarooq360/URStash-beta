@@ -1,67 +1,52 @@
- 
-// var $username = $("#emailForm");
-// var $password = $("#passForm");
-// var $usernameWarning = $("#emailError");
-// var $passwordWarning = $("#passwordError");
 
-// $usernameWarning.hide();
-// $passwordWarning.hide();
-
-// function isUsernameValid(){
-// 	return $username.val().length > 4;
-// }
-
-// function isPasswordValid(){
-// 	return $password.val().length > 6;
-// }
-
-// function userNameEvent(){
-// 	if(isUsernameValid()){
-// 		$usernameWarning.hide();
-// 	}
-// 	else{
-// 		$usernameWarning.show();
-// 	}
-// }
-
-// function passwordEvent(){
-// 	if(isPasswordValid()){
-// 		return $passwordWarning.hide();
-// 	}
-// 	else{
-// 		return $passwordWarning.show();
-// 	}
-
-// }
-
-// function canSubmit(){
-// 	return isUsernameValid() && isPasswordValid();
-// }
-
-// function enableSubmit(){
-// 	$("btnlogin").prop("disabled", !canSubmit());
-// }
-
-// $password.focus(passwordEvent).keyup(passwordEvent).keyup(userNameEvent).keyup(enableSubmit);
-// $username.focus(userNameEvent).keyup(userNameEvent).keyup(passwordEvent).keyup(enableSubmit);
-
-// var $signUp = $("#signup");
-// var $login = $("#login")
-// var $signupbutton = $("#signupbutton");
-// var $loginbutton = $("#loginbutton");
-// var $emailPrompt = $("#emailPrompt");
-// var $passwordPrompt = $("#passwordPrompt");
-// var $numberPrompt = $("#numberPrompt");
-// var $emailForm = $("#emailForm");
-// var $passwordForm = $("#passwordForm");
-// var $numberForm = $("#lastSignUp");
-
-//Dont hide this anymore
-//$signUp.hide();
 
 $("#validEmail").hide();
 $("#validPassword").hide();
 $("#validNumber").hide();
+$("#btnsignup").prop('disabled', true);
+$("#btnlogin").prop('disabled', true);
+
+//check to see if everything is good on sign up form
+var check1 = false;
+var check2 = false;
+var check3 = false;
+
+//check to see if everything is good on login form
+var logincheck1 = false;
+var logincheck2 = false;
+
+//login validation
+
+$("#emailForm").focus(function(){
+}).keyup(function(){
+	$(this).css("border-color", "red");
+	var val = $(this).val().toLowerCase();
+	if(val.includes('richmond.edu') && val.includes('.')){
+		$(this).css("border-color", "green");
+		logincheck1 = true;
+		logincheck();
+	}
+});
+
+$("#passForm").focus(function(){
+}).keyup(function(){
+	$(this).css("border-color", "red");
+	var val = $(this).val();
+	if(val.length >= 6){
+		$(this).css("border-color", "green");
+		logincheck2 = true;
+		logincheck();
+	}
+});
+
+function logincheck(){
+	if(logincheck1 && logincheck2){
+		$("#btnlogin").prop('disabled', false);
+	}
+}
+
+//signup validation
+
 
 $("#emailForm2").focus(function(){
 	$("#validPassword").hide();
@@ -69,9 +54,11 @@ $("#emailForm2").focus(function(){
 	$("#validEmail").fadeIn("slow");
 }).keyup(function(){
 	$(this).css("border-color", "red");
-	var val = $(this).val();
-	if(val.includes('richmond.edu')){
+	var val = $(this).val().toLowerCase();
+	if(val.includes('richmond.edu') && val.includes('.')){
 		$(this).css("border-color", "green");
+		check1 = true;
+		check();
 	}
 });
 
@@ -84,6 +71,8 @@ $("#passwordForm").focus(function(){
 	var val = $(this).val();
 	if(val.length >= 6){
 		$(this).css("border-color", "green");
+		check2 = true;
+		check();
 	}
 });
 
@@ -99,25 +88,29 @@ $("#lastSignUp").focus(function(){
 	var phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 if (phoneRegex.test(val)) {
    $(this).css("border-color", "green");
+   check3 = true;
+   check();
 } else {
     // Invalid phone number
 }
 });
 
+function check(){
+	if(check1 && check2 && check3){
+		$("#btnsignup").prop('disabled', false);
+	}
+}
 
 
-// $numberForm.focus(function(){
-// 	$numberPrompt.show();
-// 	$numberPrompt.siblings("div").hide();
-// });
+/*
+	Causes the slides to switch from login to signup and back
+	when buttons are clicked
+*/
+$('#signupbutton').click(function(){
+	$.fn.fullpage.moveSlideRight();
+});
 
-// $passwordForm.focus(function(){
-// 	$passwordPrompt.show();
-// 	$passwordPrompt.siblings("div").hide();
-// });
-
-
-
-
-
+$('#loginbutton').click(function(){
+	$.fn.fullpage.moveSlideLeft();
+});
 
