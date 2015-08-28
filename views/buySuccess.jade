@@ -1,4 +1,16 @@
-extends blank_layout
+extends layout
 
-block content
-	p Success!! Check yo email bitch.
+block centerBlock
+	.jumbotron#indexJumbotron
+		h1 <i class="fa fa-check-square-o" id='large-icon'></i>
+		p Success!
+		p Check your email and contact the person selling the item
+		a(href='/') Buy something else
+	//Adding the css
+	link(type='text/css', rel='stylesheet', href='/stylesheets/results.css')
+	style.
+		body {
+		background-color: #4db6ac;
+		}	
+	
+		

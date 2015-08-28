@@ -1,0 +1,22 @@
+extends layout
+
+block centerBlock
+	div.results-list
+		h1 Search Results
+		-if (search.length <1 ){
+			//-do something
+			h3 No results found
+		-}else		
+			ul
+				each user, i in search
+					li.book-box
+						p.book-title
+								a(href="/book/" + user.ISBN ) #{user.Name} 
+						p.book-price #{user.Price} $
+						p.book-author Author: #{user.Author}
+						p.book-isbn ISBN: #{user.ISBN}    ,   Condition: #{user.Condition} 
+
+						
+
+	//Adding the css
+	link(type='text/css', rel='stylesheet', href='stylesheets/results.css')

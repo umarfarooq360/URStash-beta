@@ -26,6 +26,7 @@
     "passport-local":"*",
     "passport-local-mongoose":"*",
     "mongo-sanitize":"*",
-    "connect-flash":"*"
+    "connect-flash":"*",
+    "nodemailer-sendgrid-transport":"*"
   }
 }

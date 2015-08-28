@@ -13,19 +13,30 @@ var Book = require('../models/books');
 var Account = require('../models/user');
 var Item = require('../models/item');
 var nodemailer = require('nodemailer');
+var sgTransport = require('nodemailer-sendgrid-transport');
 
-// create reusable transporter object using SMTP transport
-var transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-        user: 'urstashseller@gmail.com',
-        pass: 'alexissexy'
-    }
-});
-
+//Creating send grid client
+var options = {
+  auth: {
+    api_user: 'umarfarooq360',
+    api_key: 'curlyfries123'
+  }
+}
 // NB! No need to recreate the transporter object. You can use
 // the same transporter object for all e-mails
+var client = nodemailer.createTransport(sgTransport(options));
 
+//Added email template for selling emails
+var email_template ="<p><span class='sg-image' style='float: none; display: block; text-align: center;'><img height='128'"+ 
+"src='https://urstash.mod.bz/images/pig_icon_grey.png'" + 
+"style='width: 128px; height: 128px;' width='128' /></span></p>"+
+"<p style='text-align: center;'><span style='font-size:28px;'><span style='font-family:comic sans ms,cursive;'>URStash</span></span></p>"+
+"<p style='text-align: center;'><span style='font-size:16px;'><span style='font-family:georgia,serif;'>"; 
+
+var email_footer = "</span></span></p><hr/><p style='text-align: center;'><span style='font-size:14px;'><span style='font-family:trebuchet ms,helvetica,sans-serif;'>If you have any concerns"+
+ "email us at urstashed@gmail.com</span></span></p>";
+
+//initialize the router
 var router = express.Router();
 
 /* GET home page. */
@@ -85,6 +96,20 @@ router.post('/signup', function(req,res){
                 });    
     } );
 });
+
+/* GET Search Results page. */
+router.get('/booklist', function(req, res) {
+    
+    Book.find({Sold:false},{},
+     function(err,items){
+        console.log(items);
+        res.render('bookList', {
+            "search" : items
+        });
+
+    });
+});
+
 
 
 /* GET Search Results page. */
@@ -278,9 +303,9 @@ router.post('/addENF', function(req, res) {
         }
         else {
             // If it worked, set the header so the address bar doesn't still say /addItem
-            res.location("itemSearch");
+            res.location("sell/success");
             // And forward to success page
-            res.redirect("itemSearch");
+            res.redirect("sell/success");
         }
     });
 
@@ -342,13 +367,15 @@ router.get('/book/buy/:id', function(req, res) {
                     from: 'URStash Seller <urstashseller@gmail.com>', // sender address
                     to: seller_email, // list of receivers
                     subject: "Selling "+ item_name , // Subject line
-                    text: 'Heyy! '+ req.user.firstname  +'wants to buy '+
+                    html: email_template+'Heyy! '+ req.user.firstname  +' wants to buy '+
                        items.Name+ ' from you. Please contact the buyer at '+
-                       req.user.username+ ' and decide a time and place to meet and sell the item.' // plaintext body
+                       req.user.username+ ' and decide a time and place to meet and sell the item.'
+                       + email_footer // plaintext body
                 };
+                console.log("emailbody:\n"+mailOptions.html);
 
                 // send mail with defined transport object
-                transporter.sendMail(mailOptions, function(error, info){
+                client.sendMail(mailOptions, function(error, info){
                     if(error){
                         console.log(error);
                     }else{
@@ -379,7 +406,7 @@ router.get('/item/buy/:id', function(req, res) {
         console.log(req.params.id);
 
         //Find the book and set to sold
-        Book.findByIdAndUpdate(req.params.id ,
+        Item.findByIdAndUpdate(req.params.id ,
            {$set: {Sold: true}},{},
          function(err,items){
             if(err){console.log(err);}
@@ -401,13 +428,14 @@ router.get('/item/buy/:id', function(req, res) {
                         from: 'URStash Seller <urstashseller@gmail.com>', // sender address
                         to: seller_email, // list of receivers
                         subject: "Selling "+ item_name , // Subject line
-                        text: 'Heyy! '+ req.user.firstname  +'wants to buy '+
+                        text: 'Heyy! '+ req.user.firstname  +' wants to buy '+
                            items.Name+ ' from you. Please contact the buyer at '+
                            req.user.username+ ' and decide a time and place to meet and sell the item.' // plaintext body
+                        
                     };
 
                     // send mail with defined transport object
-                    transporter.sendMail(mailOptions, function(error, info){
+                    client.sendMail(mailOptions, function(error, info){
                         if(error){
                             console.log(error);
                         }else{
