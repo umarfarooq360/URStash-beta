@@ -10,12 +10,21 @@ block centerBlock
 			ul
 				each user, i in search.results
 					li.book-box
-						p.book-title
-								a(href="/book/" + user.obj.ISBN ) #{user.obj.Name} 
-						p.book-price #{user.obj.Price} $
-						p.book-author Author: #{user.obj.Author}
-						p.book-isbn ISBN: #{user.obj.ISBN}    ,   Condition: #{user.obj.Condition} 
-
+						.row
+							.col-xs-8.col-md-10
+								p.book-title #{user.obj.Name} 
+							.col-md-2
+								.book-price-down
+									p #{user.obj.Price} $
+						.row
+							.col-sm-9
+								p.book-author Author: #{user.obj.Author}
+								p.book-isbn ISBN: #{user.obj.ISBN}
+								p.book-isbn Condition: #{user.obj.Condition}
+							.col-sm-3
+								a(href="/book/buy/" + user.obj._id )
+									.book-buy
+										p BUY
 						
 
 	//Adding the css

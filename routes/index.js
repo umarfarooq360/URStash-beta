@@ -33,7 +33,7 @@ var email_template ="<p><span class='sg-image' style='float: none; display: bloc
 "<p style='text-align: center;'><span style='font-size:28px;'><span style='font-family:comic sans ms,cursive;'>URStash</span></span></p>"+
 "<p style='text-align: center;'><span style='font-size:16px;'><span style='font-family:georgia,serif;'>"; 
 
-var email_footer = "</span></span></p><hr/><p style='text-align: center;'><span style='font-size:14px;'><span style='font-family:trebuchet ms,helvetica,sans-serif;'>If you have any concerns"+
+var email_footer = "</span></span></p><hr/><p style='text-align: center;'><span style='font-size:14px;'><span style='font-family:trebuchet ms,helvetica,sans-serif;'>If you have any concerns "+
  "email us at urstashed@gmail.com</span></span></p>";
 
 //initialize the router

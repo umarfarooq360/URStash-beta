@@ -47,8 +47,7 @@ app.use(flash());
 
 
 //Changed database url
-mongoose.connect('mongodb://admin:passw0rd@proximus.modulusmongo.net:27017/Owoven3i');
-
+dbconnection = require('./config/connect.js')
 
 /* Added favicon */
 app.use(favicon(path.join(__dirname,'public','images','favicon.png')));

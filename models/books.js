@@ -6,7 +6,7 @@ var bookSchema= new mongoose.Schema({
 	Name: String,
 	Author	: String,
 	ISBN: Number,
-	Condition: String,
+	Condition: Number,
 	Price: Number,
 	Seller: String,
 	Sold: Boolean
