@@ -2,4 +2,3 @@ node_modules/
 public/page_bg.mp4
 *.mov
 npm-debug.log
-config/
