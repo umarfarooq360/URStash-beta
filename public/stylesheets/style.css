@@ -1,4 +1,4 @@
-
+/*Make design mobile responsive!*/
 
 
 /*Jumbotron on main page*/
@@ -11,8 +11,9 @@
   background-color: transparent;
 }
 
+/*Contents of jumbotron. Trying to add animation.*/
 #jumboContents{
-  font-weight: 1000;
+  font-weight: 1200;
   font-family: "Titillium Web", sans-serif;
   color: white;
   text-shadow: 0.7px 0.7px black;
@@ -25,7 +26,7 @@
 #jumboContents h1{
   font: "Titillium Web", sans-serif;
   font-size: 5em;
-  text-align: center;
+  /*text-align: center;*/
   color: white;
   border-right: .1em solid white;
   width: calc(0.55em * 30); 
@@ -59,5 +60,19 @@
 }
 
 body{
-  background-image: url(../images/richmond.jpg);
+  background-size: cover;
+  background-image: url(../images/richmond7.jpg);
+}
+
+
+/*Style the navbar*/
+#navbarTop{
+  background-color: transparent;
+  border-bottom: transparent;
+  font: 1.5em "Titillium Web", sans-serif;
+  color: #fff;
+}
+
+#navContainer{
+  color: #fff;
 }
