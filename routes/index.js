@@ -143,6 +143,7 @@ router.get('/showallusers', function(req, res) {
 });
 
 
+
 /* GET Search Results page. Shows all Items for debug purposes */
 router.get('/itemSearch', function(req, res) {
     //var db = req.db;
@@ -465,7 +466,13 @@ router.get('/tmplogin', function(req, res) {
 // Link to terms and conditions page when clicked - Omar, change this as necessary!
 router.get('/terms', function(req,res){
     res.render('terms', {layout: 'layout', title: 'Terms and conditions'});
-})
+});
+
+// Link to about page 
+
+router.get('/about', function(req,res){
+    res.render('about', {layout: 'layout', title: 'About URStash'});
+});
 
 /* GET 404 page. */
 router.get('/*', function(req, res) {

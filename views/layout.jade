@@ -19,7 +19,7 @@ html
 		<meta property="og:image" content="/images/pig_icon_grey.png" />
 		
 	body#page-top(data-spy="scroll" data-target=".navbar-fixed-top")
-			nav.navbar.navbar-default.navbar-fixed-top(role="navigation")#navbarTop
+			nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation")#navbarTop
 					.container#navContainer
 						.navbar-header.page-scroll
 							button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse")
@@ -49,6 +49,8 @@ html
 											a(href='/logout' ) Logout
 									else
 										a(href='/login' title="Sign In") Login
+								li
+									a(href="/about") About
 				
 			block centerBlock
 

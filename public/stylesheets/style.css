@@ -1,3 +1,4 @@
+
 /*Make design mobile responsive!*/
 
 
@@ -41,9 +42,11 @@
   font-size: 1.5em;
 }
 
-/*Contents of search bar.*/
+/*SEARCH BAR*/
+
 #inputSearch{
   text-align: center;
+  height: 2.5em;
   font-family: "Titillium Web", sans-serif;
   font-weight: 700;
 }
@@ -59,20 +62,38 @@
   margin: 1em;
 }
 
+/*Search bar styling done*/
+
 body{
   background-size: cover;
   background-image: url(../images/richmond7.jpg);
 }
 
-
 /*Style the navbar*/
 #navbarTop{
+  padding-top: 0.5em;
+  color: white;
   background-color: transparent;
   border-bottom: transparent;
   font: 1.5em "Titillium Web", sans-serif;
-  color: #fff;
 }
 
 #navContainer{
   color: #fff;
 }
+/*Navbar*/
+
+
+/*About page*/
+#teamDescription{
+  padding-top: 10%;
+  margin: auto;
+  width: 70%;
+  font-family: "Titillium Web", sans-serif;
+  color: white;
+  text-shadow: 0.7px 0.7px black;
+  text-align: center;
+}
+
+
+/*About page*/
