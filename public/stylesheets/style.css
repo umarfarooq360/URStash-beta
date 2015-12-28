@@ -96,4 +96,23 @@ body{
 }
 
 
-/*About page*/
+/*-------------------About page----------------------------------------*/
+#outer-div{
+  height: 100%;
+}
+.container-table {
+    display: table;
+}
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.logo{
+  padding: 15px 0;
+  font-size: 2.5em;
+  font-family: "Titillium Web", sans-serif;
+  color: #fff;
+  font-weight: bold;
+}
+
