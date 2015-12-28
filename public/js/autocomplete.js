@@ -1,7 +1,13 @@
+$('#searchA').click(function(){ 
+    $('#hideThis').toggle();
+
+});
 
 $(document).ready(function () {  // only begin once page has loaded
     var $searchBox = $('#inputName'); //will check for jQ
     $('#hideThis').hide(); //hides the two inputs
+
+
 
     $searchBox.autocomplete({ // attach auto-complete functionality to textbox
         // define source of the data

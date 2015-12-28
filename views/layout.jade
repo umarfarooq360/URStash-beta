@@ -34,7 +34,11 @@ html
 								li.hidden
 									a.page-scroll(href="#page-top")
 								li
-									a(href="#search") Search
+									a#searchA(href='#') Search
+									div#hideThis
+										form(name="search",method="post",action="/search")
+											input.form-control#inputSearch(type="search" name="searchItem" required placeholder="Enter here!")
+											button.btn.btn-primary(type="submit") Search	
 							ul.nav.navbar-nav.navbar-right
 								//li
 									icon(type="submit" onclick="window.location.href='/'") <i class="fa fa-cubes"></i>		
