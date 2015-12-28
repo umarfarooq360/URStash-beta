@@ -2,36 +2,32 @@
 extends layout
 
 block centerBlock
-	.section#searchBarSection
-		.slide
-			
-			#loginRow
-				form#login(name="login",method="post",action="/login")
-					h1.form-signin-heading.text-muted Log In
-					
-					input.form-control#emailForm(type="text", placeholder="Email", name="username" required autofocus="")
-					input.form-control#passForm(type="password", placeholder="Password", name="password" required)
-					if(message != '')
-						p.flash-message #{message}
-					button.btn.btn-lg.btn-primary.btn-block#btnlogin(type="submit", title = "Your username or password was invalid. Try again.") Log In
-					p Don't have an account? 
-						a#signupbutton Sign Up
+		.container.container-table#outer-div
+			.row.vertical-center-row
+				.text-center.col-md-4.col-md-offset-4
+					.logo login
+						form#login(name="login",method="post",action="/login")
+							input.form-control#emailForm(type="text", placeholder="Email", name="username" required autofocus="")
+							input.form-control#passForm(type="password", placeholder="Password", name="password" required)
+							if(message != '')
+								p.flash-message #{message}
+							button.btn.btn-lg.btn-primary.btn-block#btnlogin(type="submit", title = "Your username or password was invalid. Try again.") Log In
+							p Don't have an account? 
+								a#signupbutton Sign Up
 
-		.slide
-			#signupRow
-				form#signup(name="signup",method="post",action="/signup")
-						h1.form-signin-heading.text-muted Sign Up
-						input.form-control#firstSignUp(type="text", placeholder="First Name", name="firstname" required)
-						input.form-control#lastName(type="text", placeholder="Last Name", name="lastname" required)
-						input.form-control#emailForm2(type="text", placeholder="Email", name="username" required)
-						input.form-control#passwordForm(type="password", placeholder="Password", name="password" required)
-						input.form-control#lastSignUp(type="text", placeholder="Phone Number", name="phonenumber" )
-						button.btn.btn-lg.btn-primary.btn-block#btnsignup(type="submit") Sign Up
-						p Already have an account? 
-							a#loginbutton(type="button") Log In
-						p#validEmail Please sign up with your richmond.edu email address.
-						p#validPassword Please sign up with a password longer than 6 characters
-						p#validNumber We won't spam you with texts or give out your number. Promise.
+		form#signup(name="signup",method="post",action="/signup")
+				h1.form-signin-heading.text-muted Sign Up
+				input.form-control#firstSignUp(type="text", placeholder="First Name", name="firstname" required)
+				input.form-control#lastName(type="text", placeholder="Last Name", name="lastname" required)
+				input.form-control#emailForm2(type="text", placeholder="Email", name="username" required)
+				input.form-control#passwordForm(type="password", placeholder="Password", name="password" required)
+				input.form-control#lastSignUp(type="text", placeholder="Phone Number", name="phonenumber" )
+				button.btn.btn-lg.btn-primary.btn-block#btnsignup(type="submit") Sign Up
+				p Already have an account? 
+					a#loginbutton(type="button") Log In
+				p#validEmail Please sign up with your richmond.edu email address.
+				p#validPassword Please sign up with a password longer than 6 characters
+				p#validNumber We won't spam you with texts or give out your number. Promise.
 
 
 //-file Shiv wrote is validate.js

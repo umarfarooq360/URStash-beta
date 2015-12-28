@@ -3,21 +3,24 @@ html
 		title #{title}
 		meta(http-equiv='X-UA-Compatible', content='IE=edge')
 		meta(name='viewport', content='width=device-width, initial-scale=1')
+
+		//- Stylesheets ------------------------------------------------------------------------------------------------
 		link(rel='stylesheet', href='/stylesheets/style.css')
-		link(rel="stylesheet", type="text/css", href="/stylesheets/jquery.fullPage.css")
 		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')
-		link(href='/stylesheets/scrolling-nav.css', rel='stylesheet')
 		<link href='https://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'/>	
 		link(rel='stylesheet', href='https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css')
+		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600,300,200&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		//- ---------------------------------------------------------------------------------------------------------------------
+
+
 		link(type='text/css', rel='stylesheet', href='/stylesheets/signInUpStyle.css')
 		<link href='https://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 		<meta property="og:image" content="/images/pig_icon_grey.png" />
 		
 	body#page-top(data-spy="scroll" data-target=".navbar-fixed-top")
-		#fullpage
-			nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
-					.container
+			nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation")#navbarTop
+					.container#navContainer
 						.navbar-header.page-scroll
 							button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse")
 								span.sr-only Toggle navigation
@@ -39,14 +42,6 @@ html
 									a(href='/booklist') Item List
 								li
 									a(href='/newItem' title="Sell an Item") Sell
-								//li 
-									button#cartBtn(type="submit" onclick="this.blur(); window.location.href = ''") <i class="fa fa-shopping-cart"></i>
-								//li.navright
-									a(href='#modal' title="Sign Up") <i class="fa fa-chevron-up"></i>
-								//li.navright
-									if(user)
-										//a(href="/logout") Logout
-										a(href='/logout' title="Sign Out") <i class="fa fa-sign-out"></i>
 								li
 									if(user)
 										a(href='/profile' title='Profile') Hey, #{user.firstname}
@@ -54,25 +49,8 @@ html
 											a(href='/logout' ) Logout
 									else
 										a(href='/login' title="Sign In") Login
-				div#search
-					button.close(type="button") X
-					form#formSearch(name="search",method="post",action="/search")
-						.row#searchLogo
-							.col-md-12
-								img(src='/images/pig_icon_grey_big.png')
-						input(type="search" name="searchItem" placeholder="Search" required)
-						//-DONOT REMOVE THIS DIV OR THE SEARCH WONT WORK
-						div#hideThis
-							input#radio-book(type="radio", name="options", value="books" checked)
-							input#radio-electronics(type="radio", name="options",value="electronics")
-						.row#searchButtons
-							.col-sm-6
-								button.btn.btn-primary.booksbutton#btnsearch(type="button" value="books") Search Books
-							
-							.col-sm-6
-								button.btn.btn-primary.otherbutton#btnsearch(type="button" value="electronics") Search Items
-				//-For the bkg image	
-				//-img(src="/images/richmond6.jpg" id="bg" alt="") 
+								li
+									a(href="/about") About
 				
 			block centerBlock
 
@@ -85,17 +63,9 @@ script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery
 
 //fullpage.js for scrolling effect
 
-
-script(type="text/javascript" src="/js/jquery.fullPage.js")
 script(type='text/javascript', src='/js/autocomplete.js')
 script(type='text/javascript', src='/js/validate.js')
 script(type='text/javascript', src='/js/bootstrap.min.js')
-
 script(type='text/javascript', src='/js/jquery.easing.min.js')
-
-script(type='text/javascript', src='/js/scrolling-nav.js')
-
-script(type='text/javascript', src='/js/search.js')
-script(type='text/javascript', src='/js/onepage.init.js')
 //-Google Analytics
 script(type='text/javascript', src='/js/analytics.js')

@@ -7,76 +7,71 @@ extends layout
 //	<video id="bg" src="page_bg.mp4" autoplay="true" loop="true" muted="true"></video>
 
 block centerBlock
-	div.section#searchBarSection
-		.jumbotron#indexJumbotron
-			h1 URStash - let's stack it!
-			p URStash is the key to selling and buying books, electronics, and furniture easily.
-			p Sign up, hit search, and we'll connect you.
-			form#formSearch(name="search",method="post",action="/search")
-				div.right-inner-addon
-					i.glyphicon.glyphicon-search
-					input.form-control#inputSearch(type="search" name="searchItem" required placeholder="Search")
-					.row
-						input#radio(type="radio", name="options", value="books" checked)
-						|  Books   
-						input#radio(type="radio", name="options",value="electronics")
-						|   Electronics & Furniture
-					.row
-						button.btn.btn-info#btnSearch(type="submit") Search
-			<i class="fa fa-caret-down" id="downarrow"></i>
+		.container
+			div.jumbotron-vertical-center#indexJumbotron
+				.container#jumboContents
+					h1 URStash - let's stack it!
+					p URStash is the key to selling and buying books, electronics, and furniture easily.
+					p Sign up, hit search, and we'll connect you.
+					form(name="search",method="post",action="/search")
+						div.right-inner-addon#searchDiv
+							input.form-control#inputSearch(type="search" name="searchItem" required placeholder="Search yo stash!")
+							button.btn.btn-primary#btnSearch(type="submit") Search
 
-	div.section#about
-		.width
-			h4#aboutUs About URStash
-			span#ourstory OUR STORY
-			p#description URStash is created by UR students for UR students. We were tired of overpriced books, and decided to bring this website to you so that you'd save those bucks for beach week instead of spending it on a $200 calculus text book. Had to throw away your furniture and electronics because you couldn't take them back home? We got you covered. 
-			p#aboutUs
-				<i class="fa fa-caret-down" id="downarrow"></i>
-	div.section#howTo
-		.slide
-			div#indexJumbotron
-				<i class="fa fa-laptop description-icon"></i>
-				h1#howDescrip URstash is designed so simply that it doesn't take long to figure it out. 
-		.slide
-			div#indexJumbotron
-				<i class="fa fa-usd description-icon"></i>
-				h2#howDescrip Sign up and start $elling.
-		.slide
-			div#indexJumbotron
-				<i class="fa fa-users description-icon"></i>
-				h2#howDescrip If someone's interested in buying your item, we'll send you an email. 
-				h2#howDescrip You can meet up and complete the transaction yourself. 
-		.slide
-			div#indexJumbotron
-				<i class="fa fa-smile-o description-icon"></i>
-				h2#howDescrip No strings attached! 
-				h2#howDescrip No credit card needed!
-	div.section#team
-		.width
-			h4#aboutUs The Team behind URStash
-				br
-				br
-			.row#ourpictures
-				.col-sm-3
-					img(src="/images/omar.jpg" class="img-responsive team-image") 
-					a(href="") Omar Farooq
-					br
-					span.title Co-Founder
-				.col-sm-3
-					img(src="/images/john.jpg" class="img-responsive team-image")
-					a(href="") John Keto
-					br
-					span.title Co-Founder
-				.col-sm-3
-					img(src="/images/shiv.jpg" class="img-responsive team-image")
-					a(href="") Shiv Toolsidass
-					br
-					span.title Front-End Developer
-				.col-sm-3
-					img(src="/images/alex2.jpg" class="img-responsive team-image")
-					a(href="") Alexandru Pana
-					br
-					span.title Tester
+
+
+	//- div.section#about
+	//- 	.width
+	//- 		h4#aboutUs About URStash
+	//- 		span#ourstory OUR STORY
+	//- 		p#description URStash is created by UR students for UR students. We were tired of overpriced books, and decided to bring this website to you so that you'd save those bucks for beach week instead of spending it on a $200 calculus text book. Had to throw away your furniture and electronics because you couldn't take them back home? We got you covered. 
+	//- 		p#aboutUs
+	//- 			<i class="fa fa-caret-down" id="downarrow"></i>
+	//- div.section#howTo
+	//- 	.slide
+	//- 		div#indexJumbotron
+	//- 			<i class="fa fa-laptop description-icon"></i>
+	//- 			h1#howDescrip URstash is designed so simply that it doesn't take long to figure it out. 
+	//- 	.slide
+	//- 		div#indexJumbotron
+	//- 			<i class="fa fa-usd description-icon"></i>
+	//- 			h2#howDescrip Sign up and start $elling.
+	//- 	.slide
+	//- 		div#indexJumbotron
+	//- 			<i class="fa fa-users description-icon"></i>
+	//- 			h2#howDescrip If someone's interested in buying your item, we'll send you an email. 
+	//- 			h2#howDescrip You can meet up and complete the transaction yourself. 
+	//- 	.slide
+	//- 		div#indexJumbotron
+	//- 			<i class="fa fa-smile-o description-icon"></i>
+	//- 			h2#howDescrip No strings attached! 
+	//- 			h2#howDescrip No credit card needed!
+	//- div.section#team
+	//- 	.width
+	//- 		h4#aboutUs The Team behind URStash
+	//- 			br
+	//- 			br
+	//- 		.row#ourpictures
+	//- 			.col-sm-3
+	//- 				img(src="/images/omar.jpg" class="img-responsive team-image") 
+	//- 				a(href="") Omar Farooq
+	//- 				br
+	//- 				span.title Co-Founder
+	//- 			.col-sm-3
+	//- 				img(src="/images/john.jpg" class="img-responsive team-image")
+	//- 				a(href="") John Keto
+	//- 				br
+	//- 				span.title Co-Founder
+	//- 			.col-sm-3
+	//- 				img(src="/images/shiv.jpg" class="img-responsive team-image")
+	//- 				a(href="") Shiv Toolsidass
+	//- 				br
+	//- 				span.title Front-End Developer
+	//- 			.col-sm-3
+	//- 				img(src="/images/alex2.jpg" class="img-responsive team-image")
+	//- 				a(href="") Alexandru Pana
+	//- 				br
+	//- 				span.title Tester
 				
 		
 		div.footer
