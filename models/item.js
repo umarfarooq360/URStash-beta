@@ -8,7 +8,8 @@ var itemSchema= new mongoose.Schema({
 	Condition: String,
 	Price: Number,
 	Seller: String,
-	Sold: Boolean
+	Sold: Boolean,
+	SName: String
 });
 
 //Adding text search features
