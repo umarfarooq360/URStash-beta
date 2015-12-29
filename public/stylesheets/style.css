@@ -96,7 +96,7 @@ body{
 }
 
 
-/*-------------------About page----------------------------------------*/
+/*------------------- Login page----------------------------------------*/
 #outer-div{
   height: 100%;
 }
@@ -115,4 +115,26 @@ body{
   color: #fff;
   font-weight: bold;
 }
+
+#login p, #pleaseuse{
+  font-family: "Titillium Web", sans-serif;
+  color: #fff;
+  font-size: 0.5em;
+}
+
+#emailForm, #passForm, #btnLogin{
+  margin: 10px;
+}
+
+#emailForm, #passForm{
+  border-width: 2px;
+}
+
+
+
+
+
+/*-----------------------------------------------------------------------*/
+
+
 

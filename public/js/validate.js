@@ -17,29 +17,53 @@ var logincheck2 = false;
 
 //login validation
 
+$("#pleaseuse").hide();
+$("#forgotpassword").hide();
+
 $("#emailForm").focus(function(){
 }).keyup(function(){
+
+	$("#pleaseuse").fadeIn();
+	$("#forgotpassword").fadeOut();
 	$(this).css("border-color", "red");
+
 	var val = $(this).val().toLowerCase();
 	if(val.indexOf('richmond.edu') > -1){
 		$(this).css("border-color", "green");
 		logincheck1 = true;
 		logincheck();
 	}
+	else if(val.length == 0){
+		$(this).css("border-color", "blue");
+	}
+	else{
+		logincheck1 = false;
+	}
 });
 
 $("#passForm").focus(function(){
 }).keyup(function(){
+
+	$("#forgotpassword").fadeIn();
 	$(this).css("border-color", "red");
+	$("#pleaseuse").fadeOut();
+
 	var val = $(this).val();
 	if(val.length >= 4){
 		$(this).css("border-color", "green");
 		logincheck2 = true;
 		logincheck();
 	}
+	else if(val.length == 0){
+		$(this).css("border-color", "blue");
+	}
+	else{
+		logincheck2 = false;
+	}
 });
 
-function logincheck(){
+//enable login button if loginchecks pass
+function enableLoginButton(){
 	if(logincheck1 && logincheck2){
 		$("#btnlogin").prop('disabled', false);
 	}
