@@ -3,8 +3,11 @@
 $("#validEmail").hide();
 $("#validPassword").hide();
 $("#validNumber").hide();
-$("#btnsignup").prop('enabled', true);
-$("#btnlogin").prop('enabled', true);
+
+//IMPORTANT!
+$("#btnsignup").prop('disabled', true); //disable sign up button until all checks are passed for info entered.
+
+//$("#btnlogin").prop('enabled', true);
 
 //check to see if everything is good on sign up form
 var check1 = false;
@@ -17,36 +20,73 @@ var logincheck2 = false;
 
 //login validation
 
+$("#pleaseuse").hide();
+$("#forgotpassword").hide();
+
 $("#emailForm").focus(function(){
 }).keyup(function(){
+	$("#forgotpassword").hide();
+	$("#pleaseuse").fadeIn();
+
 	$(this).css("border-color", "red");
+
 	var val = $(this).val().toLowerCase();
 	if(val.indexOf('richmond.edu') > -1){
 		$(this).css("border-color", "green");
 		logincheck1 = true;
 		logincheck();
 	}
+	else if(val.length == 0){
+		$(this).css("border-color", "blue");
+	}
+	else{
+		logincheck1 = false;
+	}
 });
 
 $("#passForm").focus(function(){
 }).keyup(function(){
+
+	$("#pleaseuse").hide();
+	$("#forgotpassword").fadeIn();
 	$(this).css("border-color", "red");
+
 	var val = $(this).val();
 	if(val.length >= 4){
 		$(this).css("border-color", "green");
 		logincheck2 = true;
 		logincheck();
 	}
+	else if(val.length == 0){
+		$(this).css("border-color", "blue");
+	}
+	else{
+		logincheck2 = false;
+	}
 });
 
-function logincheck(){
+//enable login button if loginchecks pass
+function enableLoginButton(){
 	if(logincheck1 && logincheck2){
 		$("#btnlogin").prop('disabled', false);
 	}
 }
 
+$("#signup-div").hide();
+
+$("#signupbutton").click(function(){	
+	$("#login-div").fadeOut();
+	$("#signup-div").fadeIn();
+});
+
+$("#loginbutton").click(function(){
+	$("#signup-div").fadeOut();
+	$("#login-div").fadeIn();
+});
+
 //signup validation
 
+$("#yougood").hide();
 
 $("#emailForm2").focus(function(){
 	$("#validPassword").hide();
@@ -59,6 +99,12 @@ $("#emailForm2").focus(function(){
 		$(this).css("border-color", "green");
 		check1 = true;
 		check();
+	}
+	else if(val.length == 0){
+		$(this).css("border-color", "blue");
+	}
+	else{
+		check1 = false;
 	}
 });
 
@@ -74,9 +120,13 @@ $("#passwordForm").focus(function(){
 		check2 = true;
 		check();
 	}
+	else if(val.length == 0){
+		$(this).css("border-color", "blue");
+	}
+	else{
+		check2 = false;
+	}
 });
-
-
 
 $("#lastSignUp").focus(function(){
 	$("#validEmail").hide();
@@ -84,21 +134,39 @@ $("#lastSignUp").focus(function(){
 	$("#validNumber").fadeIn("slow");
 }).keyup(function(){
 	$(this).css("border-color", "red");
+
+	//validate the phone number entered. Must not contain any illegal characters or characters that are not numbers.
 	var val = $(this).val();
 	var phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-if (phoneRegex.test(val)) {
-   $(this).css("border-color", "green");
-   check3 = true;
-   check();
-} else {
-    // Invalid phone number
-}
+	if (phoneRegex.test(val)) {
+	   $(this).css("border-color", "green");
+	   check3 = true;
+	   check();
+	} else if(val.length == 0) {
+	    $(this).css("border-color", "blue");
+	}
 });
 
+
+//if all the checks pass then give user a message letting them know!
+//enable sign up button if all checks pass.
+
 function check(){
-	if(check1 && check2 && check3){
-		$("#btnsignup").prop('disabled', false);
+
+	var firstNameLength = $("#firstSignUp").val().length;
+	var lastNameLength = $("#lastName").val().length;
+
+	if(firstNameLength > 3 && lastNameLength > 2){
+		if(check1 && check2 && check3){
+			$("#yougood").fadeIn(); //give user message
+			$("#btnsignup").prop('disabled', false); //enable sign up button if all checks pass.
+		}
+		else{
+			$("#yougood").fadeOut();
+		}
 	}
+
+	
 }
 
 

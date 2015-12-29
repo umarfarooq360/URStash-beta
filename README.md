@@ -3,7 +3,7 @@ Check out the app at http://urstash.co
 
 ## Author
 
-Omar Farooq
+Omar Farooq, Shiv Toolsidass
 
 ## Contents
 
@@ -30,6 +30,12 @@ npm start
 
 
 ###Whats to be done
+
+* Implement forgot password functionality
+* Fix about us page - include how to use URStash page.
+* Make home page responsive
+* Enhance book list page`
+
 * Fix About Us Section to add 'how to use us'
 * Fix the bookResults page. Create a matching itemResults page.
 * Implement buy/sell mechanism, and email sending.
