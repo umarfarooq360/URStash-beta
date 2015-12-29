@@ -3,12 +3,17 @@
 
 
 /*Jumbotron on main page*/
-#indexJumbotron{
+
+#jumboContainer{
   min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
   min-height: 100vh; /* These two lines are counted as one :-)       */
-  display: flex;
+ 
   align-items: center;
   text-align: center;
+}
+
+#indexJumbotron{
+
   background-color: transparent;
 }
 
@@ -24,7 +29,7 @@
 @-webkit-keyframes typing { from { width: 0; } }
 @-webkit-keyframes blink-caret { 50% { border-color: transparent; } }
 
-#jumboContents h1{
+#mainh1{
   font: "Titillium Web", sans-serif;
   font-size: 5em;
   /*text-align: center;*/
@@ -97,7 +102,7 @@ body{
 
 
 /*------------------- Login page----------------------------------------*/
-#outer-div{
+#login-div, #signup-div{
   height: 100%;
 }
 .container-table {
@@ -116,23 +121,19 @@ body{
   font-weight: bold;
 }
 
-#login p, #pleaseuse{
+#login p, #pleaseuse, #signup p{
   font-family: "Titillium Web", sans-serif;
   color: #fff;
   font-size: 0.5em;
 }
 
-#emailForm, #passForm, #btnLogin{
+#emailForm, #passForm, #btnLogin, #firstSignUp, #lastName, #emailForm2, #passwordForm, #lastSignUp, #btnsignup{
   margin: 10px;
 }
 
-#emailForm, #passForm{
+#emailForm, #passForm, #emailForm2, #passwordForm, #lastSignUp{
   border-width: 2px;
 }
-
-
-
-
 
 /*-----------------------------------------------------------------------*/
 

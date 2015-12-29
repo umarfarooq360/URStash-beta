@@ -7,16 +7,18 @@ extends layout
 //	<video id="bg" src="page_bg.mp4" autoplay="true" loop="true" muted="true"></video>
 
 block centerBlock
-		.container
-			div.jumbotron-vertical-center#indexJumbotron
-				.container#jumboContents
-					h1 URStash - let's stack it!
-					p URStash is the key to selling and buying books, electronics, and furniture easily.
-					p Sign up, hit search, and we'll connect you.
-					form(name="search",method="post",action="/search")
-						div.right-inner-addon#searchDiv
-							input.form-control#inputSearch(type="search" name="searchItem" required placeholder="Search yo stash!")
-							button.btn.btn-primary#btnSearch(type="submit") Search
+		.container.container-table#jumboContainer
+			.row.vertical-center-row
+				.text-center.col-md-8
+					div.jumbotron-vertical-center#indexJumbotron
+						.container#jumboContents
+							h1#mainh1 URStash - let's stack it!
+							p URStash is the key to selling and buying books, electronics, and furniture easily.
+							p Sign up, hit search, and we'll connect you.
+							form(name="search",method="post",action="/search")
+								div.right-inner-addon#searchDiv
+									input.form-control#inputSearch(type="search" name="searchItem" required placeholder="Search yo stash!")
+									button.btn.btn-primary#btnSearch(type="submit") Search
 
 
 
