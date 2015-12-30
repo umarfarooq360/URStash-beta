@@ -36,7 +36,7 @@
   color: white;
   border-right: .1em solid white;
   width: calc(0.55em * 30); 
-  width: 30ch;
+  width: 95%; /*Changed this from 30ct to make responsive*/
   white-space: nowrap;
   overflow: hidden;
   -webkit-animation: typing 3s steps(40, end),
