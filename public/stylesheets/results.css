@@ -16,10 +16,11 @@ body{
 }
 
 .results-list h1{
-	color: #628B9F;
+	color: gray;
+	/*font-weight: bold;*/
 	font-size: 2em;
 	text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Titillium Web", sans-serif;
 }
 
 /*The box that encapsulates a saerch result and its parts*/
@@ -27,19 +28,19 @@ body{
 	border: solid;
 	list-style-type: none;
 
-	border-color: #628B9F;
+	border-color: gray;
 	margin-bottom: 5px;
 	background-color: rgba(240,240,240,0.3);
-	border-bottom-right-radius: 20px
+	border-bottom-right-radius: 20px;
 
 
 }
 
 .book-title {
-	color: #628B9F;
-	font-size: 1.5em;
-	font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  	margin: 15px 30px 10px;
+	color: gray;
+	font-size: 1.6em;
+	font-weight: bold;
+	font-family: "Titillium Web", sans-serif;  	margin: 15px 30px 10px;
 } 
 
 .book-box p{
@@ -52,7 +53,7 @@ body{
 	  /* float: right; */
 	color: #628B9F;
 	font-size: 1.5em;
-	font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: "Titillium Web", sans-serif;
 }
 
 .book-price-down{
@@ -61,7 +62,7 @@ body{
 	  /* float: right; */
 	color: #628B9F;
 	font-size: 1.5em;
-	font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: "Titillium Web", sans-serif;
 }
 
 .book-isbn{
@@ -77,8 +78,7 @@ body{
 	text-align: center;
 	color: #628B9F;
 	font-size: 1.2em;
-	font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-	padding: 0.3em 0.5em;
+	font-family: "Titillium Web", sans-serif;	padding: 0.3em 0.5em;
 	margin-bottom: 10px;
 	border: solid;
 	background-color: #628B9F;

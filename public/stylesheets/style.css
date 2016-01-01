@@ -89,7 +89,7 @@ body{
 /*Navbar*/
 
 
-/*About page*/
+/*-------------------ABOUT US----------------------------------------*/
 #teamDescription{
   padding-top: 10%;
   margin: auto;
@@ -99,6 +99,78 @@ body{
   text-shadow: 0.7px 0.7px black;
   text-align: center;
 }
+
+
+#team{
+ background-image: url(../images/richmond6fade.jpg);
+ background-size: cover;
+}
+/*Included this to try and change padding of h1 without shifting pictures*/
+#team .width{
+padding: 0px 20px;
+margin-top: -30px;
+-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+box-sizing: border-box;         /* Opera/IE 8 */
+}
+
+#team #aboutUs{
+  padding-top: 0px;
+}
+
+#team h1{
+  text-align: center;
+  text-shadow: 0 2px 2px rgba(0,0,0,0.8);
+  color: #fff;
+  font-family: "Titillium Web", sans-serif;
+  /*Can't get this piece of shit to shift up! help!*/
+}
+
+#team a, #team .title{
+  font-family: "Titillium Web", sans-serif;
+  font-size: 1.2em;
+  color: #fff;
+}
+
+
+.team-image{
+  border-radius: 60%;
+  margin: 0 auto;
+  border-color: #eee;
+  border-width: 20px;
+  max-height: 20%;
+ }
+
+ #aboutUs{
+  font-size:2.0em;
+  /*font-family:'mueso_sans700', sans-serif;*/
+  margin: 60px auto 10px;
+  text-align: center;
+  /*text-transform: uppercase;*/
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+  color:#FFF;
+}
+
+#team .col-sm-3{
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+/*Change background color of div when hovering over it - makes it easier to see with bright background*/
+#team .col-sm-3:hover{
+    background: rgba(0, 0, 0, 0.4);
+}
+
+#team .col-sm-3 .title{
+  font-size: 1em;
+  font-weight: normal;
+}
+
+
+/*-----------------------------------------------------------*/
 
 
 /*------------------- Login page----------------------------------------*/
