@@ -31,13 +31,10 @@ npm start
 
 ###Whats to be done
 
-* (Potentially) A system to authenticate users signing up with their own email
-* A system to authenticate transactions so that items can be delisted
 * Implement forgot password functionality
 * Fix about us page - include how to use URStash page.
 * Make home page responsive
-* Enhance book list page
-
+* Enhance book list page`
 
 * Fix About Us Section to add 'how to use us'
 * Fix the bookResults page. Create a matching itemResults page.
