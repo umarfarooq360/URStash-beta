@@ -1,5 +1,5 @@
 
-/*Make design mobile responsive!*/
+/*Design is mobile responsive - woot woot!*/
 
 
 /*Jumbotron on main page*/
@@ -15,6 +15,10 @@
 #indexJumbotron{
 
   background-color: transparent;
+}
+
+.typeout{
+  font-size: 2em;
 }
 
 /*Contents of jumbotron. Trying to add animation.*/
@@ -34,13 +38,13 @@
   font-size: 5em;
   /*text-align: center;*/
   color: white;
-  border-right: .1em solid white;
-  width: calc(0.55em * 30); 
+  /*border-right: .1em solid white;*/
+  /*width: calc(0.55em * 30); */
   width: 95%; /*Changed this from 30ct to make responsive*/
   /*white-space: nowrap;*/ /*Changed this for responsive*/
   overflow: hidden;
-  -webkit-animation: typing 3s steps(40, end),
-             blink-caret .5s step-end infinite alternate;
+/*  -webkit-animation: typing 3s steps(40, end),
+             blink-caret .5s step-end infinite alternate;*/
 }
 
 #jumboContents p{
@@ -106,6 +110,11 @@ body{
   color: white;
   text-shadow: 0.7px 0.7px black;
   text-align: center;
+}
+
+/*GO SPIDERRRSSSSS!*/
+#ur{
+  color: #fff;
 }
 
 
