@@ -56,6 +56,14 @@
   font-weight: 700;
 }
 
+/*Typeout animation*/
+
+.typeout{
+  text-align: center;
+  font-size: 2em;
+  font-family: "Titillium Web", sans-serif;
+}
+
 /*Div to encapsulate search bar so that we can center it.*/
 #searchDiv{
   width: 50%;
