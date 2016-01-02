@@ -10,16 +10,12 @@ window.addEventListener("scroll", function() {
     }
 },false);
 
-/*
-	Causes the slides to switch from login to signup and back
-	when buttons are clicked
-*/
+typeout('.typeout', ['If someone is interested in buying your item, we will send you an email. ', 'You can meet up and complete the transaction yourself.', 'No credit card needed. No strings attached'], {
+  callback: function(el) {
+    el.innerHTML += ".";
+  }
+});
 
-// $('#signupbutton').click(function(){
-// 	$.fn.fullpage.moveSlideRight();
-// });
 
-// $('#loginbutton').click(function(){
-// 	$.fn.fullpage.moveSlideLeft();
-// });
+
 

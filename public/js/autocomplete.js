@@ -1,6 +1,5 @@
 $('#searchA').click(function(){ 
-    $('#hideThis').toggle();
-
+    $('#hideThis').fadeToggle();
 });
 
 $(document).ready(function () {  // only begin once page has loaded
