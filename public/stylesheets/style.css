@@ -151,6 +151,7 @@ box-sizing: border-box;         /* Opera/IE 8 */
     font-weight: 700;
     letter-spacing: 1px;
   color:#FFF;
+  text-decoration: underline;
 }
 
 #team .col-sm-3{
@@ -167,6 +168,19 @@ box-sizing: border-box;         /* Opera/IE 8 */
 #team .col-sm-3 .title{
   font-size: 1em;
   font-weight: normal;
+}
+
+#terms{
+  text-align: right;
+  color: #fff;
+  font: "Titillium Web", sans-serif;
+  font-weight: bold;
+}
+
+#photocred{
+  text-align: right;
+  color: #fff;
+  font: "Titillium Web", sans-serif;
 }
 
 
@@ -209,5 +223,44 @@ box-sizing: border-box;         /* Opera/IE 8 */
 
 /*-----------------------------------------------------------------------*/
 
+/*--------------------------Terms and conditions page---------------------------------*/
+
+#termsandcon{
+  font-family: "Titillium Web", sans-serif;
+  color: #fff;
+}
+
+/*-----------------------------------------------------------------------*/
+
+/*----------------------404 page-----------------------------------*/
+
+#notfound{
+     position:absolute;
+     width: 40%;
+     height:40%;
+     z-index:15;
+     top:50%;
+     left:45%;
+     margin:-150px 0 0 -150px;
+     color: #fff;
+}
+
+#notfound h1{
+  font-family: "Titillium Web", sans-serif;
+  color: #fff;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+#notfound p{
+  font-size: 1.2em;
+}
+
+.goose{
+  border: 1px solid white;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+}
 
 
