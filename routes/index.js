@@ -12,8 +12,10 @@
 var Book = require('../models/books');
 var Account = require('../models/user');
 var Item = require('../models/item');
-var nodemailer = require('sendgrid')('umarfarooq360','curlyfries123')
 
+
+//email related stuff
+var nodemailer = require('sendgrid')('umarfarooq360','curlyfries123')
 
 //Added email template for selling emails
 var email_template ="<p><span class='sg-image' style='float: none; display: block; text-align: center;'><img height='128'"+ 
@@ -377,6 +379,32 @@ router.get('/terms', function(req,res){
 // Link to about page
 router.get('/about', function(req,res){
     res.render('about', {layout: 'layout', title: 'About URStash'});
+});
+
+//tring to test a new mail client
+router.get('/emailtest',function(req, res) {
+       
+    var mailOptions = {
+      from: "urstashseller@gmail.com",
+      to: "omar.farooq@richmond.edu",
+      subject: "Hello",
+      generateTextFromHTML: true,
+      html: "<b>Hello world!</b>"
+    };
+
+    smtpTransport.sendMail(mailOptions, function(error, response) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(response);
+      }
+      smtpTransport.close();
+    });
+
+    res.render('sellSuccess')
+
+
+
 });
 
 /* GET 404 page. */

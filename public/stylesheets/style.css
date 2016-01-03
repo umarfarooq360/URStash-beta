@@ -37,7 +37,7 @@
   border-right: .1em solid white;
   width: calc(0.55em * 30); 
   width: 95%; /*Changed this from 30ct to make responsive*/
-  white-space: nowrap;
+  /*white-space: nowrap;*/ /*Changed this for responsive*/
   overflow: hidden;
   -webkit-animation: typing 3s steps(40, end),
              blink-caret .5s step-end infinite alternate;
@@ -60,7 +60,7 @@
 
 .typeout{
   text-align: center;
-  font-size: 2em;
+  font-size: 1.5em;
   font-family: "Titillium Web", sans-serif;
 }
 
