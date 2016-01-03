@@ -1,19 +1,21 @@
 extends layout
 
 block centerBlock
-	.section#sellSection
-		.container#indexJumbotron
-			h1 Sell Something
-			div.col-sm-12#enfOptions
-				form#formAddUser(name="addItem",method="post",action="/addForSale")
-					input#inputNameENF.form-control.input-elements(type="text", placeholder="Item Name", name="name" required)
-					input#inputDescENF.form-control.input-elements(type="text", placeholder="Item Description (Optional)" , name="description")
-					br
-					div.row
-					input.form-control.input-elements#inputPrice(type="number", placeholder="Price", name="price" required)
-					br
-					button#btnSearch.btn-primary(type="submit") Sell
+	.container.container-table#jumboContainer
+			.row.vertical-center-row
+				.text-center.col-md-8
+					div.jumbotron-vertical-center#indexJumbotron
+						.logo Sell Something
+						br
+						div.col-sm-12#enfOptions
+							form#formAddUser(name="addItem",method="post",action="/addForSale")
+								input#inputNameENF.form-control.input-elements(type="text", placeholder="Item Name", name="name" required)
+								br
+								input#inputDescENF.form-control.input-elements(type="text", placeholder="Item Description (Optional)" , name="description")
+								br
+								input.form-control.input-elements#inputPrice(type="number", placeholder="Price", name="price" required)
+								br
+								button.btn.btn-lg.btn-primary.btn-block(type="submit") Sell
 
-											<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>	
-											<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.js"></script>
-											<script src="./autocomplete.js"></script>	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>	
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.js"></script>

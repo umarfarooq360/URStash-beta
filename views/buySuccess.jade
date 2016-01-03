@@ -1,16 +1,12 @@
 extends layout
 
 block centerBlock
-	.jumbotron#indexJumbotron
-		h1 <i class="fa fa-check-square-o" id='large-icon'></i>
-		p Success!
-		p Check your email and contact the person selling the item
-		a(href='/') Buy something else
-	//Adding the css
-	link(type='text/css', rel='stylesheet', href='/stylesheets/results.css')
-	style.
-		body {
-		background-color: #4db6ac;
-		}	
-	
-		
+	.container.container-table
+			.row.vertical-center-row
+				.text-center.col-md-4.col-md-offset-4
+					.logo <i class="fa fa-check-square-o" id='large-icon'></i>
+						br
+						p	Success!
+						small Check your email and contact the person selling the item
+						br
+						a(href='/') Buy something else

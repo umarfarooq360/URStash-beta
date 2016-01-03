@@ -12,19 +12,8 @@
 var Book = require('../models/books');
 var Account = require('../models/user');
 var Item = require('../models/item');
-var nodemailer = require('nodemailer');
-var sgTransport = require('nodemailer-sendgrid-transport');
+var nodemailer = require('sendgrid')('umarfarooq360','curlyfries123')
 
-//Creating send grid client
-var options = {
-  auth: {
-    api_user: 'umarfarooq360',
-    api_key: 'curlyfries123'
-}
-}
-// NB! No need to recreate the transporter object. You can use
-// the same transporter object for all e-mails
-var client = nodemailer.createTransport(sgTransport(options));
 
 //Added email template for selling emails
 var email_template ="<p><span class='sg-image' style='float: none; display: block; text-align: center;'><img height='128'"+ 
@@ -73,6 +62,8 @@ router.get('/logout', function(req, res) {
     res.redirect('/');
 });
 
+
+
 /* Handle Registration POST */
 router.post('/signup', function(req,res){
     Account.register(
@@ -97,35 +88,24 @@ router.post('/signup', function(req,res){
             } );
 });
 
+
+
+
 /* GET Search Results page. */
 router.get('/booklist', function(req, res) {
 
-    Book.find({Sold:false},{},
+    Item.find({},{},
        function(err,items){
         console.log(items);
-        res.render('bookList', {
-            "search" : items
+        res.render('itemList', {
+            "search" : items,
+            "type": 1, user:req.user
         });
 
     });
 });
 
 
-
-/* GET Search Results page. */
-router.get('/searchResults', function(req, res) {
-    //var db = req.db;
-    //var collection = db.get('bookItems');
-    //First search
-    Book.find({},{},
-       function(err,items){
-        console.log(items);
-        res.render('searchResults', {
-            "searchResults" : items
-        });
-
-    });
-});
 
 /* GET Search Results page. */
 router.get('/showallusers', function(req, res) {
@@ -159,6 +139,10 @@ router.get('/itemSearch', function(req, res) {
     });
 });
 
+router.get('/forgotPassword', function(req, res) {    
+    res.render('forgotPassword', { title: 'Forgot password' });
+});
+
 
 
 /* GET Sell Success page. */
@@ -166,11 +150,46 @@ router.get('/sell/success', function(req, res) {
     res.render('sellSuccess', { title: 'Sell Success' ,user: req.user });
 });
 
+router.post('/forgot', function(req, res) {
+    var email = req.body.username;
+    console.log(email);
+    link = 'https://urstash.mod.bz/forgot/'
+
+    //get the link for the 
+    Account.find({username:email},{},
+       function(err,items){
+       
+
+        link = link+ items[0]._id
+        console.log(link)
+        var msg = new nodemailer.Email();
+        msg.addTo(email);
+        msg.setFrom('urstashforgot@sendgrid.com');
+        msg.setSubject("Reset your Password");
+        msg.setHtml(email_template+'Click the link below to reset password.<br><a href=\''+ 
+                     link+ '\'>Link</a><br>'+email_footer);
+
+        // send mail with defined transport object
+        nodemailer.send(msg, function(error, info){
+            if(error){
+                console.log(error);
+            }else{
+                console.log('Message sent: ' + info.response);
+                res.render('index', {
+                    
+                });
+            }
+            });
+
+    });
+
+
+});    
 
 /* post Search Results page. 
     Using a unified search thing
     */
-    router.post('/search', function(req, res) {
+router.post('/search', function(req, res) {
     //Get the query and sanitize
     var searchQuery = sanitize(req.body.searchItem);
     
@@ -180,7 +199,7 @@ router.get('/sell/success', function(req, res) {
         console.log("Query is " + searchQuery);
         
         //Perform a text search and sort results by price and condition
-        Item.textSearch(searchQuery, {filter:{ Sold: false},sort:{ Price: 1, Condition: -1 } }, 
+        Item.textSearch(searchQuery, {filter:{ },sort:{ Price: 1, Condition: -1 } }, 
             function(err, output){
                 if(!err){
                     console.log(output);
@@ -212,41 +231,6 @@ router.get('/sell/success', function(req, res) {
         res.render('add', { title: 'Sell an Item', user: req.user });
     });
 
-//     /* POST to Add User Service */
-//     router.post('/addItem', function(req, res) {
-//     // Get our form values. These rely on the "name" attributes
-
-//     var bookName = req.body.bookname;
-//     var bookAuthor = req.body.bookauthor;
-//     var bookISBN = req.body.bookisbn;
-//     var bookCondition = req.body.bookcondition;
-//     var bookPrice = req.body.bookprice;
-
-
-//     // Submit to the DB
-//     var item = new Book({
-//         "Name" : bookName,
-//         "Author" : bookAuthor,
-//         "ISBN" : bookISBN,
-//         "Condition": bookCondition,
-//         "Price": bookPrice,
-//         "Seller": req.user._id,
-//         "Sold": false
-//     });
-
-//     item.save(function (err, doc) {
-//         if (err) {
-//             // If it failed, return error
-//             res.send("There was a problem adding the information to the database.");
-//         }
-//         else {
-//             // If it worked, set the header so the address bar doesn't still say /addItem
-//             res.location("sell/success");
-//             // And forward to success page
-//             res.redirect("sell/success");
-//         }
-//     });
-// });
 
 
 /* POST to Add Electronics or furniture item */
@@ -293,86 +277,39 @@ router.post('/addForSale', function(req, res) {
 
 });
 
+//This gets the password reset page and sets the reset id depending on the url
+router.get('/forgot/:id',function(req, res) {
+    
+    resetId = '/reset/'+req.params.id;
+    
+    console.log("resetid:"+resetId);
+    res.render('resetPassword', { title: 'Reset Password',resetLink: resetId } );
 
-/* GET Book Selling Page. */
-router.get('/book/:id', function(req, res) {
-    //var db = req.db;
-    //var collection = db.get('bookItems');
-    //First search
-    //Only for books
-    console.log(req.params.id);
-    Book.find({ ISBN : req.params.id, Sold: false },{},
-       function(err,items){
+});
+
+//post request to change password
+router.post('/reset/:id', function(req, res) {
+    
+    newPassword = req.body.password;
+    console.log(newPassword);
+
+    //find one acccount with id
+    Account.findOne({_id: req.params.id},function(err,obj){
         if(err){console.log(err);}
-        console.log(items);
-        
-        res.render('bookResults', {
-            "search" : items , user:req.user
-
+         
+        //set new password
+        console.log(obj);
+        obj.setPassword(newPassword,function(){
+            obj.save();
+            console.log("updated pass")
+            res.render('login');
         });
 
     });
-});
-
-/* GET To actually sell a book */
-router.get('/book/buy/:id', function(req, res) {
-    //Redirect if not logged in
-    if(!req.user){
-        res.render('login', { title: 'Login/Signup', message:"Please login!"} );
-    }else{
-
-    //Only for books
-    console.log(req.params.id);
-
-    //Find the book and set to sold
-    Book.findByIdAndUpdate(req.params.id ,
-     {$set: {Sold: true}},{},
-     function(err,items){
-        if(err){console.log(err);}
-        console.log(items);
-        //Find the seller from db   
-        var seller = items.Seller;
-        
-        
-        Account.find({ _id: seller},{}, 
-            function(error,results){
-                if(error){console.log(err);}
-                //get sellers username/email
-                console.log(results);    
-                var seller_email = results[0].username;
-                console.log("Seller email: " + seller_email);
-                var item_name = items.Name;
-                //Mail the seller
-                var mailOptions = {
-                    from: 'URStash Seller <urstashseller@gmail.com>', // sender address
-                    to: seller_email, // list of receivers
-                    subject: "Selling "+ item_name , // Subject line
-                    html: email_template+'Heyy! '+ req.user.firstname  +' wants to buy '+
-                    items.Name+ ' from you. Please contact the buyer at '+
-                    req.user.username+ ' and decide a time and place to meet and sell the item.'
-                       + email_footer // plaintext body
-                   };
-                   console.log("emailbody:\n"+mailOptions.html);
-
-                // send mail with defined transport object
-                client.sendMail(mailOptions, function(error, info){
-                    if(error){
-                        console.log(error);
-                    }else{
-                        console.log('Message sent: ' + info.response);
-                        res.render('buySuccess', {
-                            "data" : mailOptions
-                        });
-                    }
-                });
+    
 
 
-            });
-
-
-
-});}
-});
+});    
 
 
 /* GET To actually sell an item */
@@ -403,36 +340,37 @@ router.get('/item/buy/:id', function(req, res) {
                     var seller_email = results[0].username;
                     console.log("Seller email: " + seller_email);
                     var item_name = items.Name;
-                    //Mail the seller
-                    var mailOptions = {
-                        from: 'URStash Seller <urstashseller@gmail.com>', // sender address
-                        to: seller_email, // list of receivers
-                        subject: "Selling "+ item_name , // Subject line
-                        text: 'Heyy! '+ req.user.firstname  +' wants to buy '+
+                    
+                    var msg = new nodemailer.Email();
+                    msg.addTo(seller_email);
+                    msg.setFrom('URStash Seller <urstashseller@sendgrid.com>');
+                    msg.setSubject("Selling "+ item_name);
+                    msg.setHtml( email_template+'Heyy! '+ req.user.firstname  +' wants to buy '+
                         items.Name+ ' from you. Please contact the buyer at '+
-                           req.user.username+ ' and decide a time and place to meet and sell the item.' // plaintext body
+                        req.user.username+ ' and decide a time and place to meet and sell the item.'
+                           + email_footer); // plaintext body
+                    
 
-                       };
-
-                    // send mail with defined transport object
-                    client.sendMail(mailOptions, function(error, info){
+                        // send mail with defined sendmail object
+                    nodemailer.send(msg, function(error, info){
                         if(error){
                             console.log(error);
+                            res.render('error', {
+                                "message" : error
+                            });
                         }else{
                             console.log('Message sent: ' + info.response);
                             res.render('buySuccess', {
-                                "data" : mailOptions
+                                
                             });
                         }
                     });
-
-
-                });
+               });
 
 
 
-});
-}
+            });
+        }
 });
 
 

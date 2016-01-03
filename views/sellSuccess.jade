@@ -1,16 +1,14 @@
 extends layout
 
 block centerBlock
-	.jumbotron#indexJumbotron
-		h1 <i class="fa fa-check-square-o" id='large-icon'></i>
-		p Your item has been added to the stash.
-		p You will be notified when someone wants to buy it.
-		a(href='/newItem') Sell something else
-	//Adding the css
-	link(type='text/css', rel='stylesheet', href='/stylesheets/results.css')
-	style.
-		body {
-		background-color: #4db6ac;
-		}	
-	
-		
+	.container.container-table#login-div
+			.row.vertical-center-row
+				.text-center
+					.logo <i class="fa fa-check-square-o" id='large-icon'></i>
+						br
+						small Your item has been added to the stash.
+						br
+						small You will be notified when someone wants to buy it.
+						br
+						a(href='/newItem') Sell something else
+						

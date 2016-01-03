@@ -3,29 +3,26 @@ extends layout
 block centerBlock
 	div.results-list
 		h1 Search Results
-		-if (search.results.length <1 ){
+		-if (typeof(search) === 'undefined' ){
 			//-do something
 			h1 No results found
-			br
-			.logo 
-				a(href='/booklist') Check out what we do have
 		-}else
 			//-iterate over all the items/users and display them
 			ul
-				each user, i in search.results
+				each user, i in search
 					li.book-box
 						.row
 							.col-xs-8.col-md-10
 								p.book-title
-									a(href="/item/"+ user.obj._id ) #{user.obj.Name}
+									a(href="/item/"+ user._id ) #{user.Name}
 							.col-md-2
 								.book-price-down
-									p #{user.obj.Price} $
+									p #{user.Price} $
 						.row
 							.col-xs-9
-								p.book-isbn #{user.obj.Description}
+								p.book-isbn #{user.Description}
 							.col-xs-12.col-sm-3
-								a(href="/item/buy/" + user.obj._id )
+								a(href="/item/buy/" + user._id )
 									.book-buy
 										p BUY	
 
