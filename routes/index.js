@@ -23,7 +23,7 @@ var email_template ="<p><span class='sg-image' style='float: none; display: bloc
 "<p style='text-align: center;'><span style='font-size:16px;'><span style='font-family:georgia,serif;'>"; 
 
 var email_footer = "</span></span></p><hr/><p style='text-align: center;'><span style='font-size:14px;'><span style='font-family:trebuchet ms,helvetica,sans-serif;'>If you have any concerns "+
-"email us at urstashed@gmail.com</span></span></p>";
+"email us at urstashseller@gmail.com</span></span></p>";
 
 //initialize the router
 var router = express.Router();
@@ -252,7 +252,8 @@ router.post('/addForSale', function(req, res) {
         "Price": enfPrice,
         "Seller": enfSeller,
         "Sold": false,
-        "SName": enfSellerName
+        "SName": enfSellerName,
+        "SEmail":req.user.username
     });
 
     //log the seller's id
@@ -324,48 +325,42 @@ router.get('/item/buy/:id', function(req, res) {
 
         //Find the book and set to sold
         Item.findByIdAndUpdate(req.params.id ,
-         {$set: {Sold: true}},{},
-         function(err,items){
+            {$set: {Sold: true}},{}, function(err,items){
+            
             if(err){console.log(err);}
             console.log(items);
             //Find the seller from db   
             var seller = items.Seller;
             
-            
-            Account.find({ _id: seller},{}, 
-                function(error,results){
-                    if(error){console.log(err);}
-                    //get sellers username/email
-                    console.log(results);    
-                    var seller_email = results[0].username;
-                    console.log("Seller email: " + seller_email);
-                    var item_name = items.Name;
-                    
-                    var msg = new nodemailer.Email();
-                    msg.addTo(seller_email);
-                    msg.setFrom('URStash Seller <urstashseller@sendgrid.com>');
-                    msg.setSubject("Selling "+ item_name);
-                    msg.setHtml( email_template+'Heyy! '+ req.user.firstname  +' wants to buy '+
-                        items.Name+ ' from you. Please contact the buyer at '+
-                        req.user.username+ ' and decide a time and place to meet and sell the item.'
-                           + email_footer); // plaintext body
-                    
+            //removed call to get seller email
+            var seller_email = items.SEmail;
+            console.log("Seller email: " + seller_email);
+            var item_name = items.Name;
+            var msg = new nodemailer.Email();
+            msg.addTo(seller_email);
+            msg.setFrom('URStash Seller <urstashseller@sendgrid.com>');
+            msg.setSubject("Selling "+ item_name);
+            msg.setHtml( email_template+'Heyy! '+ req.user.firstname  +' wants to buy '+
+                items.Name+ ' from you. Please contact the buyer at '+
+                req.user.username+ ' and decide a time and place to meet and sell the item.'
+                   + email_footer); // plaintext body
+    
 
-                        // send mail with defined sendmail object
-                    nodemailer.send(msg, function(error, info){
-                        if(error){
-                            console.log(error);
-                            res.render('error', {
-                                "message" : error
-                            });
-                        }else{
-                            console.log('Message sent: ' + info.response);
-                            res.render('buySuccess', {
-                                
-                            });
-                        }
+                // send mail with defined sendmail object
+            nodemailer.send(msg, function(error, info){
+                if(error){
+                    console.log(error);
+                    res.render('error', {
+                        "message" : error
                     });
-               });
+                }else{
+                    console.log('Message sent: ' + info.response);
+                    res.render('buySuccess', {
+                        
+                    });
+                }
+                });
+       
 
 
 
@@ -374,19 +369,12 @@ router.get('/item/buy/:id', function(req, res) {
 });
 
 
-
-/* GET home page. */
-router.get('/tmplogin', function(req, res) {
-    res.render('tmplogin', { layout: 'layout',title: 'URstash' , user:req.user});
-});
-
 // Link to terms and conditions page when clicked - Omar, change this as necessary!
 router.get('/terms', function(req,res){
     res.render('terms', {layout: 'layout', title: 'Terms and conditions'});
 });
 
-// Link to about page 
-
+// Link to about page
 router.get('/about', function(req,res){
     res.render('about', {layout: 'layout', title: 'About URStash'});
 });
