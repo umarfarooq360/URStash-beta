@@ -371,7 +371,6 @@ router.get('/item/buy/:id', function(req, res) {
 });
 
 
-// Link to terms and conditions page when clicked - Omar, change this as necessary!
 router.get('/terms', function(req,res){
     res.render('terms', {layout: 'layout', title: 'Terms and conditions'});
 });
@@ -409,7 +408,7 @@ router.get('/emailtest',function(req, res) {
 
 /* GET 404 page. */
 router.get('/*', function(req, res) {
-    res.render('404.jade', { layout: 'layout',title: 'URstash' , user:req.user});
+    res.render('404.jade', { layout: 'layout',title: '404 - page not found!' , user:req.user});
 });
 
 

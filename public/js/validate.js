@@ -13,6 +13,7 @@ $("#btnsignup").prop('disabled', true); //disable sign up button until all check
 var check1 = false;
 var check2 = false;
 var check3 = false;
+var check4 = false; //check if user has agreed to terms and conditions of service.
 
 //check to see if everything is good on login form
 var logincheck1 = false;
@@ -95,6 +96,10 @@ $("#emailForm2").focus(function(){
 }).keyup(function(){
 	$(this).css("border-color", "red");
 	var val = $(this).val().toLowerCase();
+
+	//make sure that only users with a valid richmond.edu address can sign up 
+	//avoid conflicts from people off campus from adding items.
+
 	if(val.indexOf('richmond.edu') > -1){
 		$(this).css("border-color", "green");
 		check1 = true;
@@ -147,6 +152,13 @@ $("#lastSignUp").focus(function(){
 	}
 });
 
+$('#radio1').click(function() {
+   if($('#radio1').is(':checked')) {
+   	check4 = true;
+   	check();
+   }
+});
+
 
 //if all the checks pass then give user a message letting them know!
 //enable sign up button if all checks pass.
@@ -156,8 +168,12 @@ function check(){
 	var firstNameLength = $("#firstSignUp").val().length;
 	var lastNameLength = $("#lastName").val().length;
 
-	if(firstNameLength > 3 && lastNameLength > 2){
-		if(check1 && check2 && check3){
+	//if user has checked radio button agreeing to terms and conditions of service
+	//pass check4
+	
+
+	if(firstNameLength > 2 && lastNameLength > 2){
+		if(check1 && check2 && check3 && check4){
 			$("#yougood").fadeIn(); //give user message
 			$("#btnsignup").prop('disabled', false); //enable sign up button if all checks pass.
 		}

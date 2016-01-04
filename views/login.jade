@@ -26,13 +26,19 @@ block centerBlock
 								input.form-control#lastName(type="text", placeholder="Last Name", name="lastname" required)
 								input.form-control#emailForm2(type="text", placeholder="Email", name="username" required)
 								input.form-control#passwordForm(type="password", placeholder="Password", name="password" required)
-								input.form-control#lastSignUp(type="text", placeholder="Phone Number", name="phonenumber" )
+								input.form-control#lastSignUp(type="text", placeholder="Phone Number", name="phonenumber")
+								.agree
+									input(type="radio", id = "radio1" name="agree", value = "0") 
+									|  I have read, understand and agree to the URstash 
+									a(href="/terms" target="_blank") terms and conditions of service.
+								
+
 								button.btn.btn-lg.btn-primary.btn-block#btnsignup(type="submit") Sign Up
 								p Already have an account? 
 									a#loginbutton(type="button") Log In
 								p#validEmail Please sign up with your richmond.edu email address.
 								p#validPassword Please sign up with a password longer than 6 characters
-								p#validNumber We won't spam you with texts or give out your number. Promise.
+								p#validNumber We won't give out your number, promise. To finish signing up, read our terms and conditions of service.
 								p#yougood You're good to go :)
 
 

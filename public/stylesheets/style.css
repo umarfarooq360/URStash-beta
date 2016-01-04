@@ -238,6 +238,12 @@ box-sizing: border-box;         /* Opera/IE 8 */
   border-width: 2px;
 }
 
+.agree{
+  font-family: "Titillium Web", sans-serif;
+  color: #fff;
+  font-size: 0.5em;
+}
+
 /*-----------------------------------------------------------------------*/
 
 /*--------------------------Terms and conditions page---------------------------------*/
