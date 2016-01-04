@@ -10,7 +10,7 @@ window.addEventListener("scroll", function() {
     }
 },false);
 
-typeout('.typeout', ['If someone is interested in buying your item, we will send you an email. ', 'You can meet up and complete the transaction yourself.', 'No credit card needed. No strings attached'], {
+typeout('.typeout', ['If someone wants to buy your listed item, we will send you an email. ', 'Meet up and complete the transaction yourself.', 'No credit card needed. No strings attached'], {
   callback: function(el) {
     el.innerHTML += ".";
   }

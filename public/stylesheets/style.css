@@ -289,9 +289,15 @@ box-sizing: border-box;         /* Opera/IE 8 */
 
 /*--------------------Forgot password--------------------------------*/
 
+
 #small{
-  font-size: 1em;
+  font-size: 0.5em;
+  font-family: "Titillium Web", sans-serif;
+  color: #fff;
 }
+
+
+
 
 
 

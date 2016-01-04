@@ -1,5 +1,4 @@
 
-
 $("#validEmail").hide();
 $("#validPassword").hide();
 $("#validNumber").hide();
