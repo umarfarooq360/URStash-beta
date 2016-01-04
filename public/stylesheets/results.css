@@ -23,6 +23,10 @@ body{
     font-family: "Titillium Web", sans-serif;
 }
 
+#coolstuff{
+	font-size: 3em;
+}
+
 /*The box that encapsulates a saerch result and its parts*/
 .book-box{
 	border: solid;
