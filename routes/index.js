@@ -238,28 +238,6 @@ var fs = require('fs');
 /* POST to Add Electronics or furniture item */
 router.post('/addForSale', function(req, res) {
 
-
-    //Upload image.
-    var dirname = require('path').dirname(__dirname);
-    var filename = req.files.file.name;
-    console.log("filename: " + filename);
-    var path = req.files.file.path;
-    var type = req.files.file.mimetype;
-      
-     var read_stream =  fs.createReadStream(dirname + '/' + path);
- 
-     var conn = req.conn;
-     var Grid = require('gridfs-stream');
-     Grid.mongo = mongoose.mongo;
- 
-     var gfs = Grid(conn.db);
-      
-     var writestream = gfs.createWriteStream({
-        filename: filename
-    });
-     read_stream.pipe(writestream);
-     //upload image code.
-
     //Get fields from the form
     var enfName = req.body.name;
     var enfDescription = req.body.description;
