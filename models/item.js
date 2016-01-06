@@ -10,7 +10,7 @@ var itemSchema= new mongoose.Schema({
 	Seller: String,
 	Sold: Boolean,
 	SName: String,
-	SEmail: String
+	SEmail: String,
 });
 
 //Adding text search features

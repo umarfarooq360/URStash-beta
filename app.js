@@ -45,7 +45,6 @@ app.use(passport.session());
 //added flash
 app.use(flash());
 
-
 //Changed database url
 dbconnection = require('./config/connect.js')
 
@@ -110,6 +109,5 @@ passport.deserializeUser(function(user, done) {
   done(null, user);
 });
 */
-
 
 module.exports = app;
