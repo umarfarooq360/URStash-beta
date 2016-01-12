@@ -238,6 +238,12 @@ box-sizing: border-box;         /* Opera/IE 8 */
   border-width: 2px;
 }
 
+.agree{
+  font-family: "Titillium Web", sans-serif;
+  color: #fff;
+  font-size: 0.5em;
+}
+
 /*-----------------------------------------------------------------------*/
 
 /*--------------------------Terms and conditions page---------------------------------*/
@@ -283,9 +289,39 @@ box-sizing: border-box;         /* Opera/IE 8 */
 
 /*--------------------Forgot password--------------------------------*/
 
+
 #small{
-  font-size: 1em;
+  font-size: 0.5em;
+  font-family: "Titillium Web", sans-serif;
+  color: #fff;
 }
+/*---------------------Sell item----------------------------------*/
+
+/*Button for image upload*/
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+/*The code commented out below hides the filepath but makes the button decent looking.*/
+
+/*.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}*/
+
+
 
 
 

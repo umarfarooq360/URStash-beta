@@ -233,7 +233,7 @@ router.post('/search', function(req, res) {
         res.render('add', { title: 'Sell an Item', user: req.user });
     });
 
-
+var fs = require('fs');
 
 /* POST to Add Electronics or furniture item */
 router.post('/addForSale', function(req, res) {
@@ -244,8 +244,6 @@ router.post('/addForSale', function(req, res) {
     var enfPrice = req.body.price;
     var enfSeller = req.user._id;
     var enfSellerName = req.user.firstname;
-
-    
 
     //create amn item out of the fields
     var item = new Item({
@@ -275,9 +273,6 @@ router.post('/addForSale', function(req, res) {
             res.redirect("sell/success");
         }
     });
-
-
-
 });
 
 //This gets the password reset page and sets the reset id depending on the url
@@ -371,7 +366,6 @@ router.get('/item/buy/:id', function(req, res) {
 });
 
 
-// Link to terms and conditions page when clicked - Omar, change this as necessary!
 router.get('/terms', function(req,res){
     res.render('terms', {layout: 'layout', title: 'Terms and conditions'});
 });
@@ -409,7 +403,7 @@ router.get('/emailtest',function(req, res) {
 
 /* GET 404 page. */
 router.get('/*', function(req, res) {
-    res.render('404.jade', { layout: 'layout',title: 'URstash' , user:req.user});
+    res.render('404.jade', { layout: 'layout',title: '404 - page not found!' , user:req.user});
 });
 
 
