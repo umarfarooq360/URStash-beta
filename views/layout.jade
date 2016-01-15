@@ -45,7 +45,7 @@ html
 									a(href='/newItem' title="Sell an Item") Sell
 								li
 									if(user)
-										a(href='/profile' title='Profile') Hey, #{user.firstname}
+										a(href='#' title='Profile') Hey, #{user.firstname}
 										li
 											a(href='/logout' ) Logout
 									else
@@ -58,12 +58,12 @@ html
 
 script(type='text/javascript', src='/js/jquery.js')
 script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.js')
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 
 //fullpage.js for scrolling effect
 
 script(type='text/javascript', src='/js/autocomplete.js')
 script(type='text/javascript', src='/js/validate.js')
-script(type='text/javascript', src='/js/bootstrap.min.js')
 //-Google Analytics
 script(type='text/javascript', src='/js/analytics.js')
