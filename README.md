@@ -1,5 +1,5 @@
 #Beta App made with Node JS, MongoDB ... 
-Check out the app at http://urstash.co
+Check out the app at https://stark-garden-37299.herokuapp.com/
 
 ## Author
 
